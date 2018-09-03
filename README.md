@@ -1,24 +1,24 @@
 # OpenSdk
 
-### How to import
-1.Add it in your root build.gradle at the end of repositories:
+### 导入
+1.在根目录的build.gradle中添加:
 ```
 allprojects {
-	repositories {
+   	repositories {
 		...
 		maven { url 'https://jitpack.io' }
 	}
 }
 ```
 
-2.Add the dependency
+2.在app下的build.gradle中添加:
 ```
 dependencies {
-	        implementation 'com.github.TP-Lab:tp-wallet-android:1.0.0'
-	}
+	implementation 'com.github.TP-Lab:tp-wallet-android:1.0.0'
+}
 ```
 
-### How to use
+### 使用
 ```
 TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListener() {
                     @Override
