@@ -1,6 +1,7 @@
 # OpenSdk
+该SDK用于拉起TP钱包转账，类似微信、支付宝转账sdk.
 
-### 导入
+## 导入
 1.在根目录的build.gradle中添加:
 ```
 allprojects {
@@ -19,7 +20,7 @@ dependencies {
 ```
 
 
-### 使用
+## 使用
 ```
 TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListener() {
     @Override
@@ -37,8 +38,29 @@ TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListene
 	Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
     }
 });
+
+```
+构建一个Json数据，调用TPManager.getInstance().transfer()，当TP转账成功后，从TP跳转回来后，会自动回调onSuccess方法，onError和onCancel类似。
+以下是一个Json数据的示例：
+```
+{
+	"protocol": "SimpleWallet",
+	"version": "1.0",
+	"dappName": "southex",
+	"dappIcon": "https://www.southex.com/static/southex.png",
+	"action": "transfer",
+	"from": "clement22222",
+	"to": "greatsouthex",
+	"amount": 0.0105,
+	"contract": "eosio.token",
+	"symbol": "EOS",
+	"precision": 4,
+	"dappData": "t=southex&a=put_order&oid=382144",
+	"expired": "1535983498",
+	"desc": ""
+}
 ```
 
 
-#### TP 钱包协议
+## TP 钱包协议
 详情见 **https://github.com/TP-Lab/tp-wallet-sdk** 
