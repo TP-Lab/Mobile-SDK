@@ -40,7 +40,7 @@ TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListene
 });
 
 ```
-构建一个Json数据，调用TPManager.getInstance().transfer()，当TP转账成功后，从TP跳转回来后，会自动回调onSuccess方法，onError和onCancel类似。下面是一个Json数据的示例：
+构建一个Json数据，调用TPManager.getInstance().transfer()，当TP转账成功后，从TP跳转回来后，会自动回调onSuccess方法，onError和onCancel类似。下面是一个Json数据的示例（详情见TP钱包协议）：
 ```
 {
 	"protocol": "SimpleWallet",
@@ -61,5 +61,5 @@ TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListene
 ```
 
 
-## TP 钱包协议
+## TP钱包协议
 详情见 **https://github.com/TP-Lab/tp-wallet-sdk** 
