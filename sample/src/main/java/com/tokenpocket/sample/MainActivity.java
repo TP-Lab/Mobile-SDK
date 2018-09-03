@@ -1,7 +1,5 @@
 package com.tokenpocket.sample;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -50,35 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //通过包名跳转
-    private void switch2TpByName() {
-        Intent intent = new Intent();
-        intent.setClassName("vip.mytokenpocket", "com.tokenbank.activity.export.ExportActivity");
-        startActivity(intent);
-    }
-
-    //通过url跳转
-    private void switch2TpByUrl() {
-        Uri data = Uri.parse("tp://pull.activity");
-        Intent intent = new Intent(Intent.ACTION_VIEW, data);
-        //转账
-        intent.putExtra("action", "transfer");
-        intent.putExtra("data", getTransferData());
-        //保证新启动的APP有单独的堆栈，如果希望新启动的APP和原有APP使用同一个堆栈则去掉该项
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        try {
-            startActivity(intent);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(MainActivity.this, "没有匹配的APP，请下载安装", Toast.LENGTH_SHORT).show();
-        }
-    }
-
     /**
-     * 按照以前的协议构建json 字符串
-     *
-     * @return
+     * 按照协议构建json 字符串
      */
     private String getTransferData() {
         return "{\n" +
