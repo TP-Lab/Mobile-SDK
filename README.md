@@ -14,7 +14,7 @@ allprojects {
 2.Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.Developmc:OpenSdk:0.0.2'
+	        implementation 'com.github.TP-Lab:tp-wallet-android:1.0.0'
 	}
 ```
 
