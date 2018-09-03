@@ -2,7 +2,6 @@ package com.tokenpocket.opensdk;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 /**
  * Author: tp-clement
@@ -13,7 +12,7 @@ import android.support.annotation.Nullable;
 public class TPAssistActivity extends Activity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //在回调的activity处理逻辑
         TPManager.getInstance().parseIntent(getIntent());
