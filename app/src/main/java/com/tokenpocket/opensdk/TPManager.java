@@ -112,9 +112,10 @@ public class TPManager {
      * 拉起TP
      */
     private void pullUpTP(Context context, Intent intent) {
-        //传递包名和类名
+        //传递包名、类名、app名
         intent.putExtra("packageName", context.getPackageName());
         intent.putExtra("className", TPAssistActivity.class.getName());
+        intent.putExtra("appName", TPUtil.getAppName(context));
         intent.setAction(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(TP_URI));
         //保证新启动的APP有单独的堆栈，如果希望新启动的APP和原有APP使用同一个堆栈则去掉该项
