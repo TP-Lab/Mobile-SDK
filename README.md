@@ -18,6 +18,7 @@ dependencies {
 }
 ```
 
+
 ### 使用
 ```
 TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListener() {
@@ -38,5 +39,6 @@ TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListene
                 });
 ```
 
-#### TP Wallet protocol
-See https://github.com/TP-Lab/tp-wallet-sdk for details. 
+
+#### TP 钱包协议
+详情见 **https://github.com/TP-Lab/tp-wallet-sdk** 
