@@ -15,7 +15,7 @@ public class TPUtil {
     /**
      * 获取应用程序名称
      */
-    public static synchronized String getAppName(Context context) {
+    public static String getAppName(Context context) {
         try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
