@@ -54,7 +54,7 @@ TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListene
 	"contract": "eosio.token",
 	"symbol": "EOS",
 	"precision": 4,
-	"dappData": "t=southex&a=put_order&oid=382144",
+	"memo": "t=southex&a=put_order&oid=382144",
 	"expired": "1535983498",
 	"desc": ""
 }
