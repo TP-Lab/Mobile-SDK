@@ -21,7 +21,7 @@ public class TPManager {
     private final static int ERROR = 1;
     private final static int CANCEL = 2;
     //TP uri
-    private final static String TP_URI = "tp://pull.activity";
+    private final static String TP_URI = "tpoutside://pull.activity";
     //TP钱包的包名
     private final static String TP_PACKAGE_NAME = "vip.mytokenpocket";
 
