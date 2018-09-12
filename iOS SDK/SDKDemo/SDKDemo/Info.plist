@@ -22,7 +22,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>demoapptest</string>
+			<string>tokenpocket</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>demoapp</string>
