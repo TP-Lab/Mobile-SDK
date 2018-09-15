@@ -10,15 +10,20 @@
         android:id="@+id/tv_transfer"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/colorAccent"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
         android:gravity="center"
-        android:text="跳转到TP进行转账"
+        android:text="Transfer"
         android:textColor="#ffffff" />
 
     <TextView
-        android:id="@+id/tv_tips"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp" />
+        android:id="@+id/tv_push_transaction"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="PushTransaction"
+        android:textColor="#ffffff" />
 
 </LinearLayout>

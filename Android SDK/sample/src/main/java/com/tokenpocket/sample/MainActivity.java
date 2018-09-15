@@ -11,18 +11,15 @@ import com.tokenpocket.opensdk.TPManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvTips;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //transfer
         findViewById(R.id.tv_transfer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 TPManager.getInstance().transfer(MainActivity.this, getTransferData(), new TPListener() {
                     @Override
                     public void onSuccess(String data) {
@@ -39,12 +36,32 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
                     }
                 });
-
             }
         });
 
-        tvTips = findViewById(R.id.tv_tips);
-        tvTips.setText("");
+        //pushTransaction
+        findViewById(R.id.tv_push_transaction).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TPManager.getInstance().pushTransaction(MainActivity.this, getPushTransactionData(), new TPListener() {
+                    @Override
+                    public void onSuccess(String data) {
+                        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(String data) {
+                        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancel(String data) {
+                        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
 
     }
 
@@ -70,4 +87,11 @@ public class MainActivity extends AppCompatActivity {
                 "\t\"callback\": \"https://newdex.io/api/account/transferCallback?uuid=1-46e023fc-015b-4b76-3809-1cab3fd76d2c&type=SimpleWallet\"\n" +
                 "}";
     }
+
+    private String getPushTransactionData() {
+        return "{ \"dappName\": \"test\", \"dappIcon\": \"https://newdex.io/static/logoicon.png\", \"action\": \"pushTransaction\", \"actions\": [{ \"account\": \"eosio.token\", \"name\": \"transfer\", \"authorization\": [{ \"actor\": \"xiaoyuantest\", \"permission\": \"active\" }], \"data\": { \"from\": \"xiaoyuantest\", \"to\": \"clement22222\", \"quantity\": \"0.0001 EOS\", \"memo\": \"jlsdjlsdjf\" } }], \"expired\": \"10000000000000\" }";
+    }
+
+
+
 }
