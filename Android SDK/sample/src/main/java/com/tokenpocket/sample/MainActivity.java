@@ -3,7 +3,6 @@ package com.tokenpocket.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tokenpocket.opensdk.TPListener;
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        
+
     }
 
     /**
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private String getTransferData() {
         return "{\n" +
-                "\t\"protocol\": \"SimpleWallet\",\n" +
+                "\t\"protocol\": \"TokenPocket\",\n" +
                 "\t\"version\": \"1.0\",\n" +
                 "\t\"dappName\": \"Newdex\",\n" +
                 "\t\"dappIcon\": \"https://newdex.io/static/logoicon.png\",\n" +
@@ -109,6 +108,5 @@ public class MainActivity extends AppCompatActivity {
                 "\t\"expired\": \"10000000000000\"\n" +
                 "}";
     }
-
 
 }

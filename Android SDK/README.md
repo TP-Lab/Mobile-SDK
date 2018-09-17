@@ -1,5 +1,7 @@
-# OpenSdk
-该SDK用于拉起TP钱包转账，类似微信、支付宝转账sdk.
+# Android SDK
+该SDK用于拉起TP钱包，实现APP间互相调起，使用TP进行相关action操作。
+
+**提示：** 该SDK仅支持**0.4.8**以上版本的TP钱包。
 
 ## 导入
 1.在根目录的build.gradle中添加:
@@ -15,16 +17,44 @@ allprojects {
 2.在app下的build.gradle中添加:
 ```
 dependencies {
-    implementation 'com.github.TP-Lab:tp-wallet-android:1.0.1'
+    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.2'
 }
 ```
 
 
 ## 使用
 
-#### 转账
+目前支持以下操作：
+1. **transfer**: 拉起TP钱包转账，类似微信、支付宝转账;
+2. **pushTransaction**: push action 进行交易;
+
+## TP钱包的回调
+
+调起TP钱包后，如需要监听结果，可使用TPListener监听回调：
 ```
-TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListener() {
+new TPListener() {
+    @Override
+    public void onSuccess(String data) {
+      //成功，data即为transactionId
+    }
+
+    @Override
+    public void onError(String data) {
+      //错误
+    }
+
+    @Override
+    public void onCancel(String data) {
+      //取消
+    }
+}
+```
+
+## 一. Transfer
+
+使用示例
+```
+TPManager.getInstance().transfer(MainActivity.this, getTransferData(), new TPListener() {
     @Override
     public void onSuccess(String data) {
       //data即为transactionId
@@ -43,10 +73,11 @@ TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListene
 });
 
 ```
-构建一个Json数据，调用TPManager.getInstance().transfer()，当TP转账成功后，从TP跳转回来后，会自动回调onSuccess方法，onError和onCancel类似。下面是一个Json数据的示例（详情见TP钱包协议）：
+
+Transfer Data示例(详情见TP钱包协议)
 ```
 {
-	"protocol": "SimpleWallet",
+	"protocol": "TokenPocket",
 	"version": "1.0",
 	"dappName": "southex",
 	"dappIcon": "https://www.southex.com/static/southex.png",
@@ -60,6 +91,53 @@ TPManager.getInstance().transfer(MainActivity.this, "Json String", new TPListene
 	"memo": "t=southex&a=put_order&oid=382144",
 	"expired": "1535983498",
 	"desc": ""
+}
+```
+
+## 二. pushTransaction
+
+使用示例
+```
+TPManager.getInstance().pushTransaction(MainActivity.this, getPushTransactionData(), new TPListener() {
+    @Override
+    public void onSuccess(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onError(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCancel(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+});
+
+```
+
+pushTransaction Data示例(详情见TP钱包协议)
+```
+{
+	"dappName": "test",
+	"dappIcon": "https://newdex.io/static/logoicon.png",
+	"action": "pushTransaction",
+	"actions": [{
+		"account": "eosio.token",
+		"name": "transfer",
+		"authorization": [{
+			"actor": "xiaoyuantest",
+			"permission": "active"
+		}],
+		"data": {
+			"from": "xiaoyuantest",
+			"to": "clement22222",
+			"quantity": "0.0001 EOS",
+			"memo": "jlsdjlsdjf"
+		}
+	}],
+	"expired": "10000000000000"
 }
 ```
 

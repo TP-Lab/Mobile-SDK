@@ -88,14 +88,14 @@ public class TPManager {
     /**
      * 授权登陆
      */
-    public void authLogin(Context context, String authData) {
+    private void authLogin(Context context, String authData) {
         authLogin(context, authData, null);
     }
 
     /**
      * 授权登陆
      */
-    public void authLogin(Context context, String authData, TPListener listener) {
+    private void authLogin(Context context, String authData, TPListener listener) {
         doAction(context, TPAction.AUTH_LOGIN, authData, listener);
     }
 
