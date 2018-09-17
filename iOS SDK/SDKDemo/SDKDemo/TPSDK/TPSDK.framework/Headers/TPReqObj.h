@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-
+#pragma mark ~~~~~~~~~~~~~~~~~~~~~~~
 #pragma mark ~~~~ TPReqObj ~~~~
 
 /*! @class   TPReqObj
@@ -17,8 +17,8 @@
  */
 @interface TPReqObj : NSObject
 
-@property (nonatomic, copy) NSString *protocol;     // 协议名，钱包用来区分不同协议，本协议为 SimpleWallet
-@property (nonatomic, copy) NSString *version;      // 协议版本信息，如1.0
+@property (nonatomic, copy, readonly) NSString *protocol;     // 协议名，钱包用来区分不同协议，本协议为 SimpleWallet
+@property (nonatomic, copy, readonly) NSString *version;      // 协议版本信息，如1.0
 @property (nonatomic, copy) NSString *dappName;     // dapp名字，用于在钱包APP中展示;   <可选>
 @property (nonatomic, copy) NSString *dappIcon;     // dapp图标Url，用于在钱包APP中展示，<可选>
 @property (nonatomic, copy) NSString *blockchain;   // 底层  "eos enu eth moac"
@@ -28,9 +28,12 @@
 @property (nonatomic, copy) NSString *callbackUrl;  // 回调url，通过此url 将txId和actionId通过post请求告诉dappServer
 
 /**
+ * 转账时:
  * @abstract 由dapp生成的业务参数信息，需要钱包在转账时附加在memo中发出去;
  * @discuss  格式为:k1=v1&k2=v2; 钱包转账时还可附加ref参数标明来源;   <可选>
  *           如:k1=v1&k2=v2&ref=walletname
+ * 登录时:
+ *      作为附加展示信息
  */
 @property (nonatomic, copy) NSString *memo;
 @property (nonatomic, strong) NSString *dappData;
@@ -44,17 +47,29 @@
 
 /**
  * @abstract 处理完成后的回调，回调通知DApp;
- * @discuss  格式为: schema://xxx/xxx?param; //={result:int, // 返回结果，0 成功，1 失败 2 取消
- *                                             message:string, // 结果描述，可选
- *                                                data:{txId:xxx,actionId:xxx}
- *                                             }
+ * @discuss  格式为: xxx://xxx?param;  xxx部分可自定义;
  */
 @property (nonatomic, copy) NSString *callbackSchema;
 
 
 @end
 
-#pragma mark ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#pragma mark ~~~~ TPLoginObj ~~~~
+
+/*!
+ * @class TPLoginObj
+ * @brief 登录授权数据
+ */
+@interface TPLoginObj : TPReqObj
+
+@property (nonatomic, copy) NSString *wallet;         // 请求授权的EOS账号;   <可选>
+
+@end
+
+
+
 #pragma mark ~~~~ TPTransferObj ~~~~
 
 /*!
@@ -79,5 +94,17 @@
 @end
 
 
+
+#pragma mark ~~~~ TPPushTransactionObj ~~~~
+
+/*!
+ * @class TPPushTransactionObj
+ * @brief 登录授权数据
+ */
+@interface TPPushTransactionObj : TPReqObj
+
+@property (nonatomic, strong) NSArray *actions;         // json数组 每个对象是一个action
+
+@end
 
 

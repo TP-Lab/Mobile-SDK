@@ -17,27 +17,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 100, 100);
-    btn.backgroundColor = [UIColor redColor];
-    btn.center = self.view.center;
-    [btn addTarget:self action:@selector(onBtnTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
-    
 }
 
-- (void)onBtnTapped:(UIButton *)sender {
+#pragma mark ~~~~ Clicks ~~~~
+
+/**  Login */
+- (IBAction)onLoginButtonClicked:(UIButton *)sender {
+    TPLoginObj *login = [TPLoginObj new];
+    login.dappName = @"SDKDemo";
+    login.blockchain = @"eos";
+    login.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
+    login.expired = @(15359897700);
+    [TPApi sendObj:login];
+}
+
+/**  Transfer */
+- (IBAction)onTransferButtonClicked:(UIButton *)sender {
     
     TPTransferObj *transfer = [TPTransferObj new];
-    transfer.version = @"1.0";
     transfer.dappName = @"SDKDemo";
     transfer.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     transfer.symbol = @"EOS";
     transfer.contract = @"eosio.token";
-    transfer.action = @"transfer";
     transfer.to = @"clementsign1";
     transfer.memo = @"t=xxxex&a=put_order&oid=00000";
     transfer.precision = @(4);
@@ -46,11 +47,27 @@
     [TPApi sendObj:transfer];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/**  Push Transaction */
+- (IBAction)onPushTransactionButtonClicked:(UIButton *)sender {
+    TPPushTransactionObj *transaction = [TPPushTransactionObj new];
+    transaction.dappName = @"SDKDemo";
+    transaction.blockchain = @"eos";
+    transaction.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
+    transaction.expired = @(15359897700);
+    transaction.actions = @[@{@"account": @"eosio.token",
+                              @"name": @"transfer",
+                              @"authorization": @[@{@"actor": @"xiaoyuantest",
+                                                    @"permission": @"active"}],
+                              @"data": @{@"from": @"xiaoyuantest",
+                                         @"to": @"clement22222",
+                                         @"quantity": @"0.0001 EOS",
+                                         @"memo": @"jlsdjlsdjf"}
+                              }];
+    [TPApi sendObj:transaction];
+    
 }
+
+
 
 
 @end

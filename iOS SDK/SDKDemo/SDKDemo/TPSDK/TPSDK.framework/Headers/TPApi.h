@@ -28,7 +28,7 @@
 
 /*!
  * @brief 向TP发起请求
- * @param obj  接收SDK内TPReqObj的业务子类, 如交易/转账TPTransferObj, ...
+ * @param obj 接收SDK内TPReqObj的业务子类, 如交易/转账TPTransferObj, ...
  * @return 成功发起请求会返回YES, 其他情况返回NO;
  */
 + (BOOL)sendObj:(TPReqObj *)obj;
