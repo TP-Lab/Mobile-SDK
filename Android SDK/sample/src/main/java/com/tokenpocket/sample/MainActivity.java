@@ -61,29 +61,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //authLogin
-        findViewById(R.id.tv_auth_login).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TPManager.getInstance().authLogin(MainActivity.this, getAuthLoginData(), new TPListener() {
-                    @Override
-                    public void onSuccess(String data) {
-                        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onError(String data) {
-                        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onCancel(String data) {
-                        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
-
     }
 
     /**
@@ -129,20 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 "\t\t}\n" +
                 "\t}],\n" +
                 "\t\"expired\": \"10000000000000\"\n" +
-                "}";
-    }
-
-    private String getAuthLoginData() {
-        return "{\n" +
-                " \"protocol\": \"TokenPocket\",\n" +
-                " \"version\": \"1.0\",\n" +
-                " \"dappName\": \"Newdex\",\n" +
-                " \"dappIcon\": \"https://newdex.io/static/logoicon.png\",\n" +
-                " \"action\": \"login\",\n" +
-                " \"actionId\": \"web-99784c28-70f0-49ff-3654-f27b137b3502\",\n" +
-                " \"callbackUrl\": \"https://newdex.io/api/account/walletVerify\",\n" +
-                " \"expired\": 1537157808,\n" +
-                " \"memo\": \"The first gobal decentralized exchange built on EOS\"\n" +
                 "}";
     }
 

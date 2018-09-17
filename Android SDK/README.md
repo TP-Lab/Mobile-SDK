@@ -27,9 +27,9 @@ dependencies {
 目前支持以下操作：
 1. **transfer**: 拉起TP钱包转账，类似微信、支付宝转账;
 2. **pushTransaction**: push action 进行交易;
-3. **authLogin**: 授权登陆.
 
-### TP钱包的回调
+## TP钱包的回调
+
 调起TP钱包后，如需要监听结果，可使用TPListener监听回调：
 ```
 new TPListener() {
@@ -138,56 +138,6 @@ pushTransaction Data示例(详情见TP钱包协议)
 		}
 	}],
 	"expired": "10000000000000"
-}
-```
-
-## 三. authLogin
-
-使用示例
-```
-TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListener() {
-    @Override
-    public void onSuccess(String data) {
-        
-    }
-
-    @Override
-    public void onError(String data) {
-
-    }
-
-    @Override
-    public void onCancel(String data) {
-
-    }
-});
-
-```
-
-authLogin Data示例(详情见TP钱包协议)
-```
-{
-     "protocol": "TokenPocket",
-     "version": "1.0",
-     "dappName": "Newdex",
-     "dappIcon": "https://newdex.io/static/logoicon.png",
-     "action": "login",
-     "actionId": "web-99784c28-70f0-49ff-3654-f27b137b3502",
-     "callbackUrl": "https://newdex.io/api/account/walletVerify",
-     "expired": 1537157808,
-     "memo": "The first gobal decentralized exchange built on EOS"
-}
-```
-
-authLogin 成功后的回调示例
-```
-{
-	"protocol": "",
-	"version": "",
-	"result": 0,
-	"actionId": "",
-	"action": "",
-	"ref": "TokenPocket"
 }
 ```
 
