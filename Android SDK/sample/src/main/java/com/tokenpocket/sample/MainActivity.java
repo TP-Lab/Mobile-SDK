@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
-
+        
     }
 
     /**
@@ -89,9 +88,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getPushTransactionData() {
-        return "{ \"dappName\": \"test\", \"dappIcon\": \"https://newdex.io/static/logoicon.png\", \"action\": \"pushTransaction\", \"actions\": [{ \"account\": \"eosio.token\", \"name\": \"transfer\", \"authorization\": [{ \"actor\": \"xiaoyuantest\", \"permission\": \"active\" }], \"data\": { \"from\": \"xiaoyuantest\", \"to\": \"clement22222\", \"quantity\": \"0.0001 EOS\", \"memo\": \"jlsdjlsdjf\" } }], \"expired\": \"10000000000000\" }";
+        return "{\n" +
+                "\t\"dappName\": \"test\",\n" +
+                "\t\"dappIcon\": \"https://newdex.io/static/logoicon.png\",\n" +
+                "\t\"action\": \"pushTransaction\",\n" +
+                "\t\"actions\": [{\n" +
+                "\t\t\"account\": \"eosio.token\",\n" +
+                "\t\t\"name\": \"transfer\",\n" +
+                "\t\t\"authorization\": [{\n" +
+                "\t\t\t\"actor\": \"xiaoyuantest\",\n" +
+                "\t\t\t\"permission\": \"active\"\n" +
+                "\t\t}],\n" +
+                "\t\t\"data\": {\n" +
+                "\t\t\t\"from\": \"xiaoyuantest\",\n" +
+                "\t\t\t\"to\": \"clement22222\",\n" +
+                "\t\t\t\"quantity\": \"0.0001 EOS\",\n" +
+                "\t\t\t\"memo\": \"jlsdjlsdjf\"\n" +
+                "\t\t}\n" +
+                "\t}],\n" +
+                "\t\"expired\": \"10000000000000\"\n" +
+                "}";
     }
-
 
 
 }
