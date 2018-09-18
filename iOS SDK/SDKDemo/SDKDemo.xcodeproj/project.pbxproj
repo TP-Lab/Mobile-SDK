@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180A0093214F6787001A49E8 /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180A0092214F6787001A49E8 /* TPSDK.framework */; };
 		2C1BF4A92141278200E7D1EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4A82141278200E7D1EC /* AppDelegate.m */; };
 		2C1BF4AC2141278200E7D1EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4AB2141278200E7D1EC /* ViewController.m */; };
 		2C1BF4AF2141278200E7D1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4AD2141278200E7D1EC /* Main.storyboard */; };
 		2C1BF4B12141278400E7D1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B02141278400E7D1EC /* Assets.xcassets */; };
 		2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B22141278400E7D1EC /* LaunchScreen.storyboard */; };
 		2C1BF4B72141278400E7D1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B62141278400E7D1EC /* main.m */; };
-		2C1BF4C021413C6500E7D1EC /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1BF4BF21413C6500E7D1EC /* TPSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180A0092214F6787001A49E8 /* TPSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPSDK.framework; sourceTree = "<group>"; };
 		2C1BF4A42141278100E7D1EC /* SDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1BF4A72141278200E7D1EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C1BF4A82141278200E7D1EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		2C1BF4B32141278400E7D1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C1BF4B52141278400E7D1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C1BF4B62141278400E7D1EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2C1BF4BF21413C6500E7D1EC /* TPSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,13 +35,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C1BF4C021413C6500E7D1EC /* TPSDK.framework in Frameworks */,
+				180A0093214F6787001A49E8 /* TPSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180A0091214F6787001A49E8 /* TPSDK */ = {
+			isa = PBXGroup;
+			children = (
+				180A0092214F6787001A49E8 /* TPSDK.framework */,
+			);
+			path = TPSDK;
+			sourceTree = "<group>";
+		};
 		2C1BF49B2141278100E7D1EC = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +69,7 @@
 		2C1BF4A62141278200E7D1EC /* SDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				180A0091214F6787001A49E8 /* TPSDK */,
 				2C1BF4A72141278200E7D1EC /* AppDelegate.h */,
 				2C1BF4A82141278200E7D1EC /* AppDelegate.m */,
 				2C1BF4AA2141278200E7D1EC /* ViewController.h */,
@@ -70,7 +79,6 @@
 				2C1BF4B22141278400E7D1EC /* LaunchScreen.storyboard */,
 				2C1BF4B52141278400E7D1EC /* Info.plist */,
 				2C1BF4B62141278400E7D1EC /* main.m */,
-				2C1BF4BF21413C6500E7D1EC /* TPSDK.framework */,
 			);
 			path = SDKDemo;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKDemo",
+					"$(PROJECT_DIR)/SDKDemo/TPSDK",
 				);
 				INFOPLIST_FILE = SDKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -316,6 +325,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKDemo",
+					"$(PROJECT_DIR)/SDKDemo/TPSDK",
 				);
 				INFOPLIST_FILE = SDKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
