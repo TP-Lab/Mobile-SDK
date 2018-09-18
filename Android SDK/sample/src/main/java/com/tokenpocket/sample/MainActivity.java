@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 "\t\"dappData\": \"{\\\"type\\\":\\\"buy-limit\\\",\\\"symbol\\\":\\\"IQ_EOS\\\",\\\"price\\\":\\\"0.00220\\\",\\\"count\\\":50,\\\"amount\\\":0.11}\",\n" +
                 "\t\"desc\": \"\",\n" +
                 "\t\"expired\": 1535944144181,\n" +
-                "\t\"callback\": \"https://newdex.io/api/account/transferCallback?uuid=1-46e023fc-015b-4b76-3809-1cab3fd76d2c&type=SimpleWallet\"\n" +
+                "\t\"callback\": \"https://newdex.io/api/account/transferCallback?uuid=1-46e023fc-015b-4b76-3809-1cab3fd76d2c\"\n" +
                 "}";
     }
 
