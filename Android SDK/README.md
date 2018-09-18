@@ -1,7 +1,7 @@
 # Android SDK
 该SDK用于拉起TP钱包，实现APP间互相调起，使用TP进行相关action操作。
 
-**提示：** 该SDK仅支持**0.4.8**以上版本的TP钱包。
+**提示：** 该SDK仅支持**0.4.9**以上版本的TP钱包。
 
 ## 导入
 1.在根目录的build.gradle中添加:
@@ -17,7 +17,7 @@ allprojects {
 2.在app下的build.gradle中添加:
 ```
 dependencies {
-    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.2'
+    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.3'
 }
 ```
 
@@ -58,7 +58,6 @@ new TPListener() {
 TPManager.getInstance().transfer(MainActivity.this, getTransferData(), new TPListener() {
     @Override
     public void onSuccess(String data) {
-      //data即为transactionId
       Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
     }
 
