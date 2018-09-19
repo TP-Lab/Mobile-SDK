@@ -10,8 +10,10 @@
 3. 在Project - Build settings 搜索Other Linker Flags, 加一项 **-ObjC**
 ![Build Settings](http://thyrsi.com/t6/369/1536744859x-1566673321.png)
 
-5. 在Xcode设置URL scheme
+4. 在Xcode设置URL scheme
 ![Scheme](http://thyrsi.com/t6/369/1536745754x-1566679533.png)
+
+5. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
 
 ### 添加执行代码
 * 在AppDelegate中添加头文件
