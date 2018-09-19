@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180A0093214F6787001A49E8 /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180A0092214F6787001A49E8 /* TPSDK.framework */; };
+		1822A4502151FF3200B9A8F2 /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1822A44F2151FF3200B9A8F2 /* TPSDK.framework */; };
 		2C1BF4A92141278200E7D1EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4A82141278200E7D1EC /* AppDelegate.m */; };
 		2C1BF4AC2141278200E7D1EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4AB2141278200E7D1EC /* ViewController.m */; };
 		2C1BF4AF2141278200E7D1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4AD2141278200E7D1EC /* Main.storyboard */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		180A0092214F6787001A49E8 /* TPSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPSDK.framework; sourceTree = "<group>"; };
+		1822A44F2151FF3200B9A8F2 /* TPSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPSDK.framework; sourceTree = "<group>"; };
 		2C1BF4A42141278100E7D1EC /* SDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1BF4A72141278200E7D1EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C1BF4A82141278200E7D1EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,17 +35,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				180A0093214F6787001A49E8 /* TPSDK.framework in Frameworks */,
+				1822A4502151FF3200B9A8F2 /* TPSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		180A0091214F6787001A49E8 /* TPSDK */ = {
+		1822A44E2151FF3200B9A8F2 /* TPSDK */ = {
 			isa = PBXGroup;
 			children = (
-				180A0092214F6787001A49E8 /* TPSDK.framework */,
+				1822A44F2151FF3200B9A8F2 /* TPSDK.framework */,
 			);
 			path = TPSDK;
 			sourceTree = "<group>";
@@ -69,7 +69,7 @@
 		2C1BF4A62141278200E7D1EC /* SDKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				180A0091214F6787001A49E8 /* TPSDK */,
+				1822A44E2151FF3200B9A8F2 /* TPSDK */,
 				2C1BF4A72141278200E7D1EC /* AppDelegate.h */,
 				2C1BF4A82141278200E7D1EC /* AppDelegate.m */,
 				2C1BF4AA2141278200E7D1EC /* ViewController.h */,

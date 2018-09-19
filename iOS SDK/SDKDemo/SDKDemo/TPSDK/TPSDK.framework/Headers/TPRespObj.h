@@ -10,10 +10,12 @@
 
 /**  回调结果状态 */
 typedef NS_ENUM(NSUInteger, TPRespResult) {
-    TPRespResultSuccess     = 0,    // 成功
+    TPRespResultCanceled = 0,       // 取消
+    TPRespResultSuccess,            // 成功
     TPRespResultFailure,            // 失败
-    TPRespResultCanceled,           // 取消
 };
+
+
 
 /*!
  * @brief 跳转回调
