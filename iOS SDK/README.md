@@ -5,10 +5,9 @@
 1. 下载仓库中TPSDK.zip文档
 
 ### 搭建开发环境
-1. 在Xcode创建您的工程
-2. 将TPSDK解压，并拉入工程目录中
-3. 在Project - Build settings 搜索bitcode， 设置为**NO**;
-4. 在Project - Build settings 搜索Other Linker Flags, 加一项 **-ObjC**
+1. 在Xcode创建您的工程;
+2. 将TPSDK解压，并拉入工程目录中;
+3. 在Project - Build settings 搜索Other Linker Flags, 加一项 **-ObjC**
 ![Build Settings](http://thyrsi.com/t6/369/1536744859x-1566673321.png)
 
 5. 在Xcode设置URL scheme
