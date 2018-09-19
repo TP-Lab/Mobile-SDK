@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * Author: tp-clement
  * Create: 2018/9/2
@@ -17,9 +20,9 @@ public class TPManager {
 
     private TPListener mListener;
     //回调的状态
-    private final static int SUCCESS = 0;
-    private final static int ERROR = 1;
-    private final static int CANCEL = 2;
+    private final static int SUCCESS = 1;
+    private final static int CANCEL = 0;
+    private final static int ERROR = 2;
     //TP uri
     private final static String TP_SCHEME_HOST = "tpoutside://pull.activity";
     //TP钱包的包名
@@ -167,6 +170,12 @@ public class TPManager {
      * 获取uri
      */
     private Uri getParamUri(String param) {
+        //将param encode处理
+        try {
+            param = URLEncoder.encode(param, "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         String temp = TP_SCHEME_HOST + "?param=" + param;
         return Uri.parse(temp);
     }
