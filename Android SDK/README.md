@@ -36,7 +36,7 @@ dependencies {
 new TPListener() {
     @Override
     public void onSuccess(String data) {
-      //成功，data即为transactionId
+      //成功
     }
 
     @Override
@@ -94,6 +94,16 @@ Transfer Data示例(详情见TP钱包协议)
 }
 ```
 
+Transfer 成功后的回调示例
+```
+{
+    "actionId": "",
+    "action": "",
+    "txID":"",
+    "ref": "TokenPocket"
+}
+```
+
 ## 二. pushTransaction
 
 使用示例
@@ -141,6 +151,17 @@ pushTransaction Data示例(详情见TP钱包协议)
 }
 ```
 
+
+pushTransaction 成功后的回调示例
+```
+{
+    "actionId": "",
+    "action": "",
+    "txID":"",
+    "ref": "TokenPocket"
+}
+```
+
 ## 三. authLogin
 
 使用示例
@@ -182,9 +203,6 @@ authLogin Data示例(详情见TP钱包协议)
 authLogin 成功后的回调示例
 ```
 {
-    "protocol": "",
-    "version": "",
-    "result": 0,
     "actionId": "",
     "action": "",
     "ref": "TokenPocket"
