@@ -176,8 +176,8 @@ TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListe
 
 - The sample project is available, developer can get the details about how to use this sdk.
 
-## TokenPocket Wallet Protocol
+### TokenPocket Wallet Protocol
 **https://github.com/TP-Lab/tp-wallet-sdk**
 
 ### 中文文档
-https://github.com/TP-Lab/Mobile-SDK/blob/master/Android-SDK/README-ZH.md
+https://github.com/TP-Lab/Mobile-SDK/blob/master/Android%20SDK/README-ZH.md
