@@ -4,7 +4,7 @@ DApp uses this SDK  to pull up the TokenPocket wallet and do some actions such a
 
 Notice: Only version 0.4.9 or higher support this SDK.
 
-## Getting Started
+### Getting Started
 
 - add the following lines to your main build.gradle in the root of your project
 
@@ -25,7 +25,7 @@ dependencies {
 }
 ~~~
 
-## APIs
+### APIs
 
 - transfer: pull up TokenPocket to transfer tokens
 - pushTransaction: common push action
@@ -178,3 +178,6 @@ TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListe
 
 ## TokenPocket Wallet Protocol
 **https://github.com/TP-Lab/tp-wallet-sdk**
+
+### 中文文档
+https://github.com/TP-Lab/Mobile-SDK/blob/master/Android-SDK/README-ZH.md
