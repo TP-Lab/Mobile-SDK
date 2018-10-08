@@ -1,2 +1,2 @@
 # Mobile-SDK
-包含了Android和iOS的native SDK. 实现APP间互相调起，使用TP进行相关action操作。
+Android and iOS native SDK, developer can use this sdk to pull up TokenPocket wallet and do some actions such as token transfer,push action, login ect
