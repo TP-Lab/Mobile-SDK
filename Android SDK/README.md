@@ -1,60 +1,59 @@
 # Android SDK
-该SDK用于拉起TP钱包，实现APP间互相调起，使用TP进行相关action操作。
 
-**提示：** 该SDK仅支持**0.4.9**以上版本的TP钱包。
+DApp uses this SDK  to pull up the TokenPocket wallet and do some actions such as token transfer, login auth, pushTransaction etc.
 
-## 导入
-1.在根目录的build.gradle中添加:
-```
+Notice: Only version 0.4.9 or higher support this SDK.
+
+## Getting Started
+
+- add the following lines to your main build.gradle in the root of your project
+
+~~~
 allprojects {
    repositories {
 	...
 	maven { url 'https://jitpack.io' }
    }
 }
-```
+~~~
 
-2.在app下的build.gradle中添加:
-```
+- add the following lines to your app/build.gradle
+
+~~~
 dependencies {
     implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.4'
 }
-```
+~~~
 
+## APIs
 
-## 使用
+- transfer: pull up TokenPocket to transfer tokens
+- pushTransaction: common push action
+- authLogin : use to make authorization to login 
 
-目前支持以下操作：
-1. **transfer**: 拉起TP钱包转账，类似微信、支付宝转账;
-2. **pushTransaction**: push action 进行交易;
-3. **authLogin**: 授权登陆.
+### The result callback
 
-## TP钱包的回调
+after call the apis, if you want to get the result or do some callback works, you should  add the TPListener
 
-调起TP钱包后，如需要监听结果，可使用TPListener监听回调：
-```
+~~~
 new TPListener() {
     @Override
     public void onSuccess(String data) {
-      //成功
     }
 
     @Override
     public void onError(String data) {
-      //错误
     }
 
     @Override
     public void onCancel(String data) {
-      //取消
     }
 }
-```
+~~~
 
-## 一. Transfer
-
-使用示例
-```
+### Transfer
+- demo
+~~~
 TPManager.getInstance().transfer(MainActivity.this, getTransferData(), new TPListener() {
     @Override
     public void onSuccess(String data) {
@@ -71,11 +70,10 @@ TPManager.getInstance().transfer(MainActivity.this, getTransferData(), new TPLis
       Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
     }
 });
+~~~
 
-```
-
-Transfer Data示例(详情见TP钱包协议)
-```
+- Get a json string which include the following key-values as transfer function param
+~~~
 {
 	"protocol": "TokenPocket",
 	"version": "1.0",
@@ -92,22 +90,12 @@ Transfer Data示例(详情见TP钱包协议)
 	"expired": "1535983498",
 	"desc": ""
 }
-```
+~~~
 
-Transfer 成功后的回调示例
-```
-{
-    "actionId": "",
-    "action": "",
-    "txID":"",
-    "ref": "TokenPocket"
-}
-```
+### pushTransaction
+demo
 
-## 二. pushTransaction
-
-使用示例
-```
+~~~
 TPManager.getInstance().pushTransaction(MainActivity.this, getPushTransactionData(), new TPListener() {
     @Override
     public void onSuccess(String data) {
@@ -124,11 +112,10 @@ TPManager.getInstance().pushTransaction(MainActivity.this, getPushTransactionDat
         Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
     }
 });
+~~~
+- Get a json string which include the following key-values as pushTransaction function params
 
-```
-
-pushTransaction Data示例(详情见TP钱包协议)
-```
+~~~
 {
 	"dappName": "test",
 	"dappIcon": "https://newdex.io/static/logoicon.png",
@@ -137,11 +124,11 @@ pushTransaction Data示例(详情见TP钱包协议)
 		"account": "eosio.token",
 		"name": "transfer",
 		"authorization": [{
-			"actor": "xiaoyuantest",
+			"actor": "xxxxxxx",
 			"permission": "active"
 		}],
 		"data": {
-			"from": "xiaoyuantest",
+			"from": "xxxxxxx",
 			"to": "clement22222",
 			"quantity": "0.0001 EOS",
 			"memo": "jlsdjlsdjf"
@@ -149,23 +136,12 @@ pushTransaction Data示例(详情见TP钱包协议)
 	}],
 	"expired": "10000000000000"
 }
-```
+~~~
 
+### authLogin
+demo
 
-pushTransaction 成功后的回调示例
-```
-{
-    "actionId": "",
-    "action": "",
-    "txID":"",
-    "ref": "TokenPocket"
-}
-```
-
-## 三. authLogin
-
-使用示例
-```
+~~~
 TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListener() {
     @Override
     public void onSuccess(String data) {
@@ -182,11 +158,9 @@ TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListe
 
     }
 });
-
-```
-
-authLogin Data示例(详情见TP钱包协议)
-```
+~~~
+- Get a json string which include the following key-values as authLogin function params
+~~~
 {
     "protocol": "TokenPocket",
     "version": "1.0",
@@ -198,17 +172,9 @@ authLogin Data示例(详情见TP钱包协议)
     "expired": 1537157808,
     "memo": "The first gobal decentralized exchange built on EOS"
 }
-```
+~~~
 
-authLogin 成功后的回调示例
-```
-{
-    "actionId": "",
-    "action": "",
-    "ref": "TokenPocket"
-}
-```
+- The sample project is available, developer can get the details about how to use this sdk.
 
-
-## TP钱包协议
-详情见 **https://github.com/TP-Lab/tp-wallet-sdk**
+## TokenPocket Wallet Protocol
+**https://github.com/TP-Lab/tp-wallet-sdk**
