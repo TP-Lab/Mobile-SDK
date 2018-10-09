@@ -1,3 +1,57 @@
+# Guide of iOS integration
+
+Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK and only has instructions for SDK use, assuming that the reader is already familiar with basic XCode development tool usage as well as a certain programming knowledge base.
+
+### Download the TokenPocket terminal SDK file 
+1. Download the TPSDK.zip file in the repository
+
+### Build developer environment
+1. Build your program in xCode;
+2. Decompress TPSDK.zip and drag it into the project;
+3. Go to **Project - Build settings** and search **Other Linker Flags**, append **-ObjC**
+![Build Settings](http://thyrsi.com/t6/369/1536744859x-1566673321.png)
+
+4. Set your **URL scheme**
+![Scheme](http://thyrsi.com/t6/369/1536745754x-1566679533.png)
+
+5. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
+
+### Add code to your project
+* Add header file at **AppDelegate**
+
+```
+* #import <TPSDK/TPSDK.h>
+```
+* register your scheme at method **application:didFinishLaunchingWithOptions:**
+```
+[TPApi registerAppID:@"demoapp"];
+```
+
+* observe callback at method **application:openURL:**
+
+```
+[TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
+//your code here
+}];
+```
+
+* Here's a demo 
+
+```
+TPTransferObj *transfer = [TPTransferObj new];
+transfer.from = @"xxx";
+...  // setting transfer params;
+[TPApi sendObj:transfer];
+
+```
+
+
+
+
+
+
+
+
 # iOS接入指南
 注：本文为TP iOS客户端SDK新手使用教程，只涉及教授SDK的使用方法，默认读者已经熟悉XCode开发工具的基本使用方法，以及具有一定的编程知识基础等。
 
