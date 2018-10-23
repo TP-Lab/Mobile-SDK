@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
+import com.tokenpocket.opensdk.Constant;
 import com.tokenpocket.opensdk.TPUtil;
 
 import java.io.UnsupportedEncodingException;
@@ -27,8 +28,6 @@ public class TPManager {
     private final static int ERROR = 2;
     //TP uri
     private final static String TP_SCHEME_HOST = "tpoutside://pull.activity";
-    //TP钱包的包名
-    private final static String TP_PACKAGE_NAME = "vip.mytokenpocket";
 
     private TPManager() {
 
@@ -99,21 +98,6 @@ public class TPManager {
     public void authLogin(Context context, String authData, TPListener listener) {
         doAction(context, authData, listener);
     }
-
-    /**
-     * 检查TP钱包是否已安装
-     */
-    public boolean isTPInstall(Context context) {
-        try {
-            context.getPackageManager().getApplicationInfo(TP_PACKAGE_NAME,
-                    PackageManager.GET_UNINSTALLED_PACKAGES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
 
     /**
      * 解析数据，并回调

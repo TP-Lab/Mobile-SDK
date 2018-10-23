@@ -10,6 +10,19 @@
             android:name="com.tokenpocket.opensdk.simple.TPAssistActivity"
             android:exported="true" />
 
+        <activity
+            android:name="com.tokenpocket.opensdk.kylin.KylinAssistActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tp_sdk_kylin" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
