@@ -1,9 +1,11 @@
-package com.tokenpocket.opensdk;
+package com.tokenpocket.opensdk.simple;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+
+import com.tokenpocket.opensdk.TPUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

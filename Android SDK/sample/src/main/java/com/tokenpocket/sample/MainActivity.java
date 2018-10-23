@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.tokenpocket.opensdk.TPListener;
-import com.tokenpocket.opensdk.TPManager;
+import com.tokenpocket.opensdk.simple.TPListener;
+import com.tokenpocket.opensdk.simple.TPManager;
 
 public class MainActivity extends AppCompatActivity {
 

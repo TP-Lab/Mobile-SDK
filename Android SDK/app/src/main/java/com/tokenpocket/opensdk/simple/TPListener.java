@@ -1,4 +1,4 @@
-package com.tokenpocket.opensdk;
+package com.tokenpocket.opensdk.simple;
 
 /**
  * Author: tp-clement

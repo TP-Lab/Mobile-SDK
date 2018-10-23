@@ -1,4 +1,4 @@
-package com.tokenpocket.opensdk;
+package com.tokenpocket.opensdk.simple;
 
 import android.app.Activity;
 import android.os.Bundle;

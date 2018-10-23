@@ -7,7 +7,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name="com.tokenpocket.opensdk.TPAssistActivity"
+            android:name="com.tokenpocket.opensdk.simple.TPAssistActivity"
             android:exported="true" />
 
     </application>
