@@ -39,10 +39,10 @@
     transfer.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     transfer.symbol = @"EOS";
     transfer.contract = @"eosio.token";
-    transfer.to = @"clementsign1";
+    transfer.to = @"toxxxxxxxxxx";
     transfer.memo = @"t=xxxex&a=put_order&oid=00000";
     transfer.precision = @(4);
-    transfer.amount = @(0.001);
+    transfer.amount = @(0.0001);
     transfer.expired = @(15359897700);
     [TPApi sendObj:transfer];
 }
@@ -56,10 +56,10 @@
     transaction.expired = @(15359897700);
     transaction.actions = @[@{@"account": @"eosio.token",
                               @"name": @"transfer",
-                              @"authorization": @[@{@"actor": @"xiaoyuantest",
+                              @"authorization": @[@{@"actor": @"actorxxxxxxx",
                                                     @"permission": @"active"}],
-                              @"data": @{@"from": @"xiaoyuantest",
-                                         @"to": @"clement22222",
+                              @"data": @{@"from": @"fromfromfrom",
+                                         @"to": @"toxxxxxxxxxx",
                                          @"quantity": @"0.0001 EOS",
                                          @"memo": @"jlsdjlsdjf"}
                               }];
