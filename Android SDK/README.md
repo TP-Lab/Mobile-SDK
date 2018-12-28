@@ -134,7 +134,7 @@ TPManager.getInstance().pushTransaction(MainActivity.this, getPushTransactionDat
 			"memo": "jlsdjlsdjf"
 		}
 	}],
-	"expired": "10000000000000"
+	"expired": "10000000000"
 }
 ~~~
 
