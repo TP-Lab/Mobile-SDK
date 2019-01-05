@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,17 +25,17 @@
                                     <color key="titleColor" red="0.15686274509803921" green="0.56470588235294117" blue="0.99607843137254903" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTransferButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pIp-jN-dOF"/>
+                                    <action selector="tapOnTransferButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IKW-l6-cTg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaH-LU-Eju">
-                                <rect key="frame" x="165" y="266.5" width="46" height="34"/>
+                                <rect key="frame" x="164.5" y="266.5" width="46" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.15686274510000001" green="0.56470588239999997" blue="0.99607843139999996" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onLoginButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UdX-GY-aZo"/>
+                                    <action selector="tapOnLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7dv-Dp-iME"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYM-oj-bJI">
@@ -45,7 +45,7 @@
                                     <color key="titleColor" red="0.15686274510000001" green="0.56470588239999997" blue="0.99607843139999996" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onPushTransactionButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E4X-72-HYq"/>
+                                    <action selector="tapOnPushTransactionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yVu-iI-Sx2"/>
                                 </connections>
                             </button>
                         </subviews>

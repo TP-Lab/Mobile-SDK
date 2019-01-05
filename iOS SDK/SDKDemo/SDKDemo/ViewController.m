@@ -22,7 +22,7 @@
 #pragma mark ~~~~ Clicks ~~~~
 
 /**  Login */
-- (IBAction)onLoginButtonClicked:(UIButton *)sender {
+- (IBAction)tapOnLoginButton:(UIButton *)sender {
     TPLoginObj *login = [TPLoginObj new];
     login.dappName = @"SDKDemo";
     login.blockchain = @"eos";
@@ -32,14 +32,13 @@
 }
 
 /**  Transfer */
-- (IBAction)onTransferButtonClicked:(UIButton *)sender {
-    
+- (IBAction)tapOnTransferButton:(UIButton *)sender {
     TPTransferObj *transfer = [TPTransferObj new];
     transfer.dappName = @"SDKDemo";
     transfer.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     transfer.symbol = @"EOS";
     transfer.contract = @"eosio.token";
-    transfer.to = @"toxxxxxxxxxx";
+    transfer.to = @"clementsign1";
     transfer.memo = @"t=xxxex&a=put_order&oid=00000";
     transfer.precision = @(4);
     transfer.amount = @(0.0001);
@@ -48,7 +47,7 @@
 }
 
 /**  Push Transaction */
-- (IBAction)onPushTransactionButtonClicked:(UIButton *)sender {
+- (IBAction)tapOnPushTransactionButton:(UIButton *)sender {
     TPPushTransactionObj *transaction = [TPPushTransactionObj new];
     transaction.dappName = @"SDKDemo";
     transaction.blockchain = @"eos";
@@ -56,17 +55,15 @@
     transaction.expired = @(15359897700);
     transaction.actions = @[@{@"account": @"eosio.token",
                               @"name": @"transfer",
-                              @"authorization": @[@{@"actor": @"actorxxxxxxx",
+                              @"authorization": @[@{@"actor": @"xiaoyuantest",
                                                     @"permission": @"active"}],
-                              @"data": @{@"from": @"fromfromfrom",
-                                         @"to": @"toxxxxxxxxxx",
+                              @"data": @{@"from": @"xiaoyuantest",
+                                         @"to": @"clementsign1",
                                          @"quantity": @"0.0001 EOS",
-                                         @"memo": @"jlsdjlsdjf"}
+                                         @"memo": @"memomemomemomemo"}
                               }];
     [TPApi sendObj:transaction];
-    
 }
-
 
 
 
