@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXTERN NSString *const kTPSDKActionLogin;
+FOUNDATION_EXTERN NSString *const kTPSDKActionTransfer;
+FOUNDATION_EXTERN NSString *const kTPSDKActionPushTransaction;
+
+
 #pragma mark ~~~~~~~~~~~~~~~~~~~~~~~
 #pragma mark ~~~~ TPReqObj ~~~~
 
