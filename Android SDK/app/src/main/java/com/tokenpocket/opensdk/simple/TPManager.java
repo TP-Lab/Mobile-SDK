@@ -100,6 +100,20 @@ public class TPManager {
     }
 
     /**
+     * 签名
+     */
+    public void sign(Context context, String messageToSign) {
+        sign(context, messageToSign, null);
+    }
+
+    /**
+     * 签名
+     */
+    public void sign(Context context, String messageToSign, TPListener listener) {
+        doAction(context, messageToSign, listener);
+    }
+
+    /**
      * 解析数据，并回调
      */
     public void parseIntent(Intent intent) {
