@@ -21,7 +21,7 @@ allprojects {
 
 ~~~
 dependencies {
-    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.4'
+    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.5'
 }
 ~~~
 
