@@ -22,7 +22,7 @@
 #pragma mark ~~~~ Clicks ~~~~
 
 /**  Login */
-- (IBAction)onLoginButtonClicked:(UIButton *)sender {
+- (IBAction)tapOnLoginButton:(UIButton *)sender {
     TPLoginObj *login = [TPLoginObj new];
     login.dappName = @"SDKDemo";
     login.blockchain = @"eos";
@@ -32,8 +32,7 @@
 }
 
 /**  Transfer */
-- (IBAction)onTransferButtonClicked:(UIButton *)sender {
-    
+- (IBAction)tapOnTransferButton:(UIButton *)sender {
     TPTransferObj *transfer = [TPTransferObj new];
     transfer.dappName = @"SDKDemo";
     transfer.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
@@ -42,13 +41,13 @@
     transfer.to = @"clementsign1";
     transfer.memo = @"t=xxxex&a=put_order&oid=00000";
     transfer.precision = @(4);
-    transfer.amount = @(0.001);
+    transfer.amount = @(0.0001);
     transfer.expired = @(15359897700);
     [TPApi sendObj:transfer];
 }
 
 /**  Push Transaction */
-- (IBAction)onPushTransactionButtonClicked:(UIButton *)sender {
+- (IBAction)tapOnPushTransactionButton:(UIButton *)sender {
     TPPushTransactionObj *transaction = [TPPushTransactionObj new];
     transaction.dappName = @"SDKDemo";
     transaction.blockchain = @"eos";
@@ -59,14 +58,12 @@
                               @"authorization": @[@{@"actor": @"xiaoyuantest",
                                                     @"permission": @"active"}],
                               @"data": @{@"from": @"xiaoyuantest",
-                                         @"to": @"clement22222",
+                                         @"to": @"clementsign1",
                                          @"quantity": @"0.0001 EOS",
-                                         @"memo": @"jlsdjlsdjf"}
+                                         @"memo": @"memomemomemomemo"}
                               }];
     [TPApi sendObj:transaction];
-    
 }
-
 
 
 
