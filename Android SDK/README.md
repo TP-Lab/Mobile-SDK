@@ -21,7 +21,7 @@ allprojects {
 
 ~~~
 dependencies {
-    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.4'
+    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.5'
 }
 ~~~
 
@@ -174,6 +174,40 @@ TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListe
 }
 ~~~
 
+### sign
+only version 0.6.5 or higher support this api
+~~~
+TPManager.getInstance().sign(MainActivity.this, getSignData(), new TPListener() {
+    @Override
+    public void onSuccess(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onError(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCancel(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+});
+~~~
+- Get a json string which include the following key-values as sign function params
+~~~
+{
+    "protocol": "TokenPocket",
+    "version": "1.0",
+    "dappName": "Newdex",
+    "dappIcon": "https://newdex.io/static/logoicon.png",
+    "action": "sign",
+    "actionId": "web-99784c28-70f0-49ff-3654-f27b137b3502",
+    "expired": 1537157808,
+    "memo": "The first gobal decentralized exchange built on EOS",
+    "message":"hello"
+}
+~~~
 - The sample project is available(https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/sample), developer can get the details about how to use this sdk.
 
 ### TokenPocket Wallet Protocol

@@ -17,7 +17,7 @@ allprojects {
 2.在app下的build.gradle中添加:
 ```
 dependencies {
-    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.4'
+    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.5'
 }
 ```
 
@@ -208,6 +208,42 @@ authLogin 成功后的回调示例
     "ref": "TokenPocket"
 }
 ```
+
+
+### sign
+v0.6.5以上版本支持该操作
+~~~
+TPManager.getInstance().sign(MainActivity.this, getSignData(), new TPListener() {
+    @Override
+    public void onSuccess(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onError(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCancel(String data) {
+        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+    }
+});
+~~~
+- Get a json string which include the following key-values as sign function params
+~~~
+{
+    "protocol": "TokenPocket",
+    "version": "1.0",
+    "dappName": "Newdex",
+    "dappIcon": "https://newdex.io/static/logoicon.png",
+    "action": "sign",
+    "actionId": "web-99784c28-70f0-49ff-3654-f27b137b3502",
+    "expired": 1537157808,
+    "memo": "The first gobal decentralized exchange built on EOS",
+    "message":"hello"
+}
+~~~
 
 
 ## TP钱包协议
