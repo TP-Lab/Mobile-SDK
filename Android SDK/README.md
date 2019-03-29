@@ -208,6 +208,13 @@ TPManager.getInstance().sign(MainActivity.this, getSignData(), new TPListener() 
     "message":"hello"
 }
 ~~~
+
+### Proguard
+~~~
+-dontwarn com.tokenpocket.opensdk.**
+-keep class com.tokenpocket.opensdk.** {*;}
+~~~
+
 - The sample project is available(https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/sample), developer can get the details about how to use this sdk.
 
 ### TokenPocket Wallet Protocol

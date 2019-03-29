@@ -245,6 +245,11 @@ TPManager.getInstance().sign(MainActivity.this, getSignData(), new TPListener() 
 }
 ~~~
 
+### 混淆
+~~~
+-dontwarn com.tokenpocket.opensdk.**
+-keep class com.tokenpocket.opensdk.** {*;}
+~~~
 
-## TP钱包协议
+### TP钱包协议
 详情见 **https://github.com/TP-Lab/tp-wallet-sdk**

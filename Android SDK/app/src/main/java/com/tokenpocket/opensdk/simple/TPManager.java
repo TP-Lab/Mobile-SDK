@@ -5,8 +5,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 
+import com.google.gson.Gson;
 import com.tokenpocket.opensdk.Constant;
 import com.tokenpocket.opensdk.TPUtil;
+import com.tokenpocket.opensdk.simple.model.Authorize;
+import com.tokenpocket.opensdk.simple.model.Signature;
+import com.tokenpocket.opensdk.simple.model.Transaction;
+import com.tokenpocket.opensdk.simple.model.Transfer;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -60,57 +65,57 @@ public class TPManager {
     /**
      * 转账
      */
-    public void transfer(Context context, String transferData) {
-        transfer(context, transferData, null);
+    public void transfer(Context context, Transfer transfer) {
+        transfer(context, transfer, null);
     }
 
     /**
      * 转账
      */
-    public void transfer(Context context, String transferData, TPListener listener) {
-        doAction(context, transferData, listener);
+    public void transfer(Context context, Transfer transfer, TPListener listener) {
+        doAction(context, new Gson().toJson(transfer), listener);
     }
 
     /**
      * 提交交易
      */
-    public void pushTransaction(Context context, String transactionData) {
-        pushTransaction(context, transactionData, null);
+    public void pushTransaction(Context context, Transaction transaction) {
+        pushTransaction(context, transaction, null);
     }
 
     /**
      * 提交交易
      */
-    public void pushTransaction(Context context, String transactionData, TPListener listener) {
-        doAction(context, transactionData, listener);
+    public void pushTransaction(Context context, Transaction transaction, TPListener listener) {
+        doAction(context, new Gson().toJson(transaction), listener);
     }
 
     /**
      * 授权登陆
      */
-    public void authLogin(Context context, String authData) {
-        authLogin(context, authData, null);
+    public void authLogin(Context context, Authorize authorize) {
+        authLogin(context, authorize, null);
     }
 
     /**
      * 授权登陆
      */
-    public void authLogin(Context context, String authData, TPListener listener) {
-        doAction(context, authData, listener);
+    public void authLogin(Context context, Authorize authorize, TPListener listener) {
+        doAction(context, new Gson().toJson(authorize), listener);
     }
 
     /**
      * 签名
      */
-    public void sign(Context context, String messageToSign) {
-        sign(context, messageToSign, null);
+    public void sign(Context context, Signature signature) {
+        sign(context, signature, null);
     }
 
     /**
      * 签名
      */
-    public void sign(Context context, String messageToSign, TPListener listener) {
-        doAction(context, messageToSign, listener);
+    public void sign(Context context, Signature signature, TPListener listener) {
+        doAction(context, new Gson().toJson(signature), listener);
     }
 
     /**
