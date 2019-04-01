@@ -21,15 +21,16 @@ allprojects {
 
 ~~~
 dependencies {
-    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.5'
+    implementation 'com.github.TP-Lab:tp-wallet-native-android:0.0.6'
 }
 ~~~
 
 ### APIs
 
-- transfer: pull up TokenPocket to transfer tokens
-- pushTransaction: common push action
-- authLogin : use to make authorization to login 
+- Transfer: Pull up TokenPocket to transfer tokens
+- Transaction: Common push action
+- Authorize: Use to make authorization to login
+- Sign: Sign the data
 
 ### The result callback
 
@@ -54,7 +55,7 @@ new TPListener() {
 ### Transfer
 - demo
 ~~~
-TPManager.getInstance().transfer(MainActivity.this, getTransferData(), new TPListener() {
+TPManager.getInstance().transfer(MainActivity.this, getTransfer(), new TPListener() {
     @Override
     public void onSuccess(String data) {
       Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
@@ -71,32 +72,30 @@ TPManager.getInstance().transfer(MainActivity.this, getTransferData(), new TPLis
     }
 });
 ~~~
-
-- Get a json string which include the following key-values as transfer function param
+- Build transfer data
 ~~~
-{
-	"protocol": "TokenPocket",
-	"version": "1.0",
-	"dappName": "southex",
-	"dappIcon": "https://www.southex.com/static/southex.png",
-	"action": "transfer",
-	"from": "clement22222",
-	"to": "greatsouthex",
-	"amount": 0.0105,
-	"contract": "eosio.token",
-	"symbol": "EOS",
-	"precision": 4,
-	"memo": "t=southex&a=put_order&oid=382144",
-	"expired": "1535983498",
-	"desc": ""
+private Transfer getTransfer() {
+    Transfer transfer = new Transfer();
+    transfer.setDappName("Newdex");
+    transfer.setDappIcon("https://newdex.io/static/logoicon.png");
+    transfer.setFrom("clement11111");
+    transfer.setTo("newdexpocket");
+    transfer.setAmount(0.0001);
+    transfer.setContract("eosio.token");
+    transfer.setSymbol("EOS");
+    transfer.setPrecision(4);
+    transfer.setMemo("test");
+    transfer.setExpired(1535944144L);
+    transfer.setCallbackUrl("https://newdex.io/api/account/transferCallback?uuid=1-46e023fc-015b-4b76-3809-1cab3fd76d2c");
+    return transfer;
 }
 ~~~
 
-### pushTransaction
+### Transaction
 demo
 
 ~~~
-TPManager.getInstance().pushTransaction(MainActivity.this, getPushTransactionData(), new TPListener() {
+TPManager.getInstance().pushTransaction(MainActivity.this, getTransaction(), new TPListener() {
     @Override
     public void onSuccess(String data) {
         Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
@@ -113,39 +112,40 @@ TPManager.getInstance().pushTransaction(MainActivity.this, getPushTransactionDat
     }
 });
 ~~~
-- Get a json string which include the following key-values as pushTransaction function params
-
+- Build transaction data
 ~~~
-{
-	"dappName": "test",
-	"dappIcon": "https://newdex.io/static/logoicon.png",
-	"action": "pushTransaction",
-	"actions": [{
-		"account": "eosio.token",
-		"name": "transfer",
-		"authorization": [{
-			"actor": "xxxxxxx",
-			"permission": "active"
-		}],
-		"data": {
-			"from": "xxxxxxx",
-			"to": "clement22222",
-			"quantity": "0.0001 EOS",
-			"memo": "jlsdjlsdjf"
-		}
-	}],
-	"expired": "10000000000"
+private Transaction getTransaction() {
+    Transaction transaction = new Transaction();
+    transaction.setDappName("Test Name");
+    transaction.setDappIcon("https://newdex.io/static/logoicon.png");
+    transaction.setActions("[{\n" +
+            "\"account\": \"eosio.token\",\n" +
+            "\"name\": \"transfer\",\n" +
+            "\"authorization\": [{\n" +
+            "\"actor\": \"clement11111\",\n" +
+            "\"permission\": \"active\"\n" +
+            "}],\n" +
+            "\"data\": {\n" +
+            "\"from\": \"clement11111\",\n" +
+            "\"to\": \"clement22222\",\n" +
+            "\"quantity\": \"0.0001 EOS\",\n" +
+            "\"memo\": \"jlsdjlsdjf\"\n" +
+            "}\n" +
+            "}]");
+    transaction.setExpired(10000000000L);
+
+    return transaction;
 }
 ~~~
 
-### authLogin
+### Authorize
 demo
 
 ~~~
-TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListener() {
+TPManager.getInstance().authorize(MainActivity.this, getAuthorize(), new TPListener() {
     @Override
     public void onSuccess(String data) {
-        
+
     }
 
     @Override
@@ -159,25 +159,25 @@ TPManager.getInstance().authLogin(MainActivity.this, getAuthLogin(), new TPListe
     }
 });
 ~~~
-- Get a json string which include the following key-values as authLogin function params
+- Build authorize data
 ~~~
-{
-    "protocol": "TokenPocket",
-    "version": "1.0",
-    "dappName": "Newdex",
-    "dappIcon": "https://newdex.io/static/logoicon.png",
-    "action": "login",
-    "actionId": "web-99784c28-70f0-49ff-3654-f27b137b3502",
-    "callbackUrl": "https://newdex.io/api/account/walletVerify",
-    "expired": 1537157808,
-    "memo": "The first gobal decentralized exchange built on EOS"
+private Authorize getAuthorize() {
+    Authorize authorize = new Authorize();
+    authorize.setDappName("Newdex");
+    authorize.setDappIcon("https://newdex.io/static/logoicon.png");
+    authorize.setActionId("web-99784c28-70f0-49ff-3654-f27b137b3502");
+    authorize.setCallbackUrl("https://newdex.io/api/account/walletVerify");
+    authorize.setExpired(1537157808L);
+    authorize.setMemo("The first gobal decentralized exchange built on EOS");
+
+    return authorize;
 }
 ~~~
 
-### sign
+### Sign
 only version 0.6.5 or higher support this api
 ~~~
-TPManager.getInstance().sign(MainActivity.this, getSignData(), new TPListener() {
+TPManager.getInstance().sign(MainActivity.this, getSignature(), new TPListener() {
     @Override
     public void onSuccess(String data) {
         Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
@@ -194,18 +194,18 @@ TPManager.getInstance().sign(MainActivity.this, getSignData(), new TPListener() 
     }
 });
 ~~~
-- Get a json string which include the following key-values as sign function params
+- Build signature data
 ~~~
-{
-    "protocol": "TokenPocket",
-    "version": "1.0",
-    "dappName": "Newdex",
-    "dappIcon": "https://newdex.io/static/logoicon.png",
-    "action": "sign",
-    "actionId": "web-99784c28-70f0-49ff-3654-f27b137b3502",
-    "expired": 1537157808,
-    "memo": "The first gobal decentralized exchange built on EOS",
-    "message":"hello"
+private Signature getSignature() {
+    Signature signature = new Signature();
+    signature.setDappName("Newdex");
+    signature.setDappIcon("https://newdex.io/static/logoicon.png");
+    signature.setActionId("web-99784c28-70f0-49ff-3654-f27b137b3502");
+    signature.setCallbackUrl("https://newdex.io/api/account/walletVerify");
+    signature.setExpired(1537157808L);
+    signature.setMemo("The first gobal decentralized exchange built on EOS");
+    signature.setMessage("hello");
+    return signature;
 }
 ~~~
 
