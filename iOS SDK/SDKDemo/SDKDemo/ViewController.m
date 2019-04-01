@@ -9,7 +9,35 @@
 #import "ViewController.h"
 #import <TPSDK/TPSDK.h>
 
-@interface ViewController ()
+@interface TPDMRowData : NSObject
+
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, assign) SEL action;
+
++ (instancetype)dataWithTitle:(NSString *)title action:(SEL)action;
+
+@end
+
+@implementation TPDMRowData
+
++ (instancetype)dataWithTitle:(NSString *)title action:(SEL)action {
+    return ({
+        TPDMRowData *data = TPDMRowData.new;
+        data.title = title;
+        data.action = action;
+        data;
+    });
+}
+
+@end
+
+
+#pragma mark - ViewController -
+
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray<TPDMRowData *> *dataArray;
 
 @end
 
@@ -17,54 +45,90 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadTableView];
 }
 
-#pragma mark ~~~~ Clicks ~~~~
+- (void)loadTableView {
+    self.tableView.tableFooterView = UIView.new;
+    NSMutableArray *array = NSMutableArray.new;
+    [array addObject:[TPDMRowData dataWithTitle:@"TP Login" action:@selector(onTPLogin)]];
+    [array addObject:[TPDMRowData dataWithTitle:@"TP Sign" action:@selector(onTPSign)]];
+    [array addObject:[TPDMRowData dataWithTitle:@"TP Transfer" action:@selector(onTPTransfer)]];
+    [array addObject:[TPDMRowData dataWithTitle:@"TP PushTransaction" action:@selector(onTPPushTransaction)]];
+    self.dataArray = array.copy;
+    [self.tableView reloadData];
+}
+
+#pragma mark ~~~~ Actions ~~~~
 
 /**  Login */
-- (IBAction)tapOnLoginButton:(UIButton *)sender {
+- (void)onTPLogin {
     TPLoginObj *login = [TPLoginObj new];
     login.dappName = @"SDKDemo";
-    login.blockchain = @"eos";
     login.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
-    login.expired = @(15359897700);
     [TPApi sendObj:login];
 }
 
+/**  Sign */
+- (void)onTPSign {
+    TPSignObj *sign = [TPSignObj new];
+    sign.dappName = @"SDKDemo";
+    sign.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
+    sign.message = @"sign data...";
+    [TPApi sendObj:sign];
+}
+
 /**  Transfer */
-- (IBAction)tapOnTransferButton:(UIButton *)sender {
+- (void)onTPTransfer {
     TPTransferObj *transfer = [TPTransferObj new];
     transfer.dappName = @"SDKDemo";
     transfer.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     transfer.symbol = @"EOS";
     transfer.contract = @"eosio.token";
-    transfer.to = @"clementsign1";
-    transfer.memo = @"t=xxxex&a=put_order&oid=00000";
+    transfer.to = @"xxxxx";
+    transfer.memo = @"Memo string...";
     transfer.precision = @(4);
     transfer.amount = @(0.0001);
-    transfer.expired = @(15359897700);
     [TPApi sendObj:transfer];
 }
 
-/**  Push Transaction */
-- (IBAction)tapOnPushTransactionButton:(UIButton *)sender {
+/**  Push transaction */
+- (void)onTPPushTransaction {
     TPPushTransactionObj *transaction = [TPPushTransactionObj new];
     transaction.dappName = @"SDKDemo";
-    transaction.blockchain = @"eos";
     transaction.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
-    transaction.expired = @(15359897700);
     transaction.actions = @[@{@"account": @"eosio.token",
                               @"name": @"transfer",
-                              @"authorization": @[@{@"actor": @"xiaoyuantest",
+                              @"authorization": @[@{@"actor": @"xxxxx",
                                                     @"permission": @"active"}],
-                              @"data": @{@"from": @"xiaoyuantest",
-                                         @"to": @"clementsign1",
+                              @"data": @{@"from": @"xxxxx",
+                                         @"to": @"xxxxx",
                                          @"quantity": @"0.0001 EOS",
-                                         @"memo": @"memomemomemomemo"}
+                                         @"memo": @"Memo string..."},
                               }];
     [TPApi sendObj:transaction];
 }
 
+#pragma mark ~~~~ UITableViewDelegate, UITableViewDataSource ~~~~
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellId = @"UITableViewCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell.textLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+    }
+    cell.textLabel.text = self.dataArray[indexPath.row].title;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSelector:self.dataArray[indexPath.row].action withObject:nil afterDelay:0];
+}
 
 @end

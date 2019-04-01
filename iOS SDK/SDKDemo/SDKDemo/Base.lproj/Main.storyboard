@@ -1,68 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WZ5-pc-5zH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="vad-cG-glj">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="WZ5-pc-5zH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9te-vt-pW1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ixx-Wq-cYY" kind="relationship" relationship="rootViewController" id="WcC-yi-5Ic"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DhA-cR-nhp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-601" y="149"/>
+        </scene>
+        <!--TP SDK Demo-->
+        <scene sceneID="1DW-Lk-dMm">
+            <objects>
+                <viewController id="Ixx-Wq-cYY" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nBr-mc-Saz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqg-By-NQn">
-                                <rect key="frame" x="153" y="316.5" width="69" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <state key="normal" title="Transfer">
-                                    <color key="titleColor" red="0.15686274509803921" green="0.56470588235294117" blue="0.99607843137254903" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="59F-1p-9X0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="tapOnTransferButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IKW-l6-cTg"/>
+                                    <outlet property="dataSource" destination="Ixx-Wq-cYY" id="Ha1-S0-Mfl"/>
+                                    <outlet property="delegate" destination="Ixx-Wq-cYY" id="E21-6o-91Y"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaH-LU-Eju">
-                                <rect key="frame" x="164.5" y="266.5" width="46" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.15686274510000001" green="0.56470588239999997" blue="0.99607843139999996" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapOnLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7dv-Dp-iME"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYM-oj-bJI">
-                                <rect key="frame" x="115.5" y="366.5" width="144" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <state key="normal" title="Push Transaction">
-                                    <color key="titleColor" red="0.15686274510000001" green="0.56470588239999997" blue="0.99607843139999996" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapOnPushTransactionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yVu-iI-Sx2"/>
-                                </connections>
-                            </button>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oqg-By-NQn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="07Z-2h-SZ2"/>
-                            <constraint firstItem="aYM-oj-bJI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N6a-1Y-5M6"/>
-                            <constraint firstItem="oqg-By-NQn" firstAttribute="top" secondItem="yaH-LU-Eju" secondAttribute="bottom" constant="16" id="ViP-sh-vy3"/>
-                            <constraint firstItem="aYM-oj-bJI" firstAttribute="top" secondItem="oqg-By-NQn" secondAttribute="bottom" constant="16" id="dmV-Fd-UQP"/>
-                            <constraint firstItem="oqg-By-NQn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="evf-j1-tnQ"/>
-                            <constraint firstItem="yaH-LU-Eju" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vey-0R-Cu0"/>
+                            <constraint firstItem="59F-1p-9X0" firstAttribute="top" secondItem="vbp-yn-wLa" secondAttribute="top" id="D9O-da-OXi"/>
+                            <constraint firstItem="59F-1p-9X0" firstAttribute="leading" secondItem="vbp-yn-wLa" secondAttribute="leading" id="HqG-GH-yyX"/>
+                            <constraint firstItem="vbp-yn-wLa" firstAttribute="bottom" secondItem="59F-1p-9X0" secondAttribute="bottom" id="cIe-bM-CFn"/>
+                            <constraint firstItem="vbp-yn-wLa" firstAttribute="trailing" secondItem="59F-1p-9X0" secondAttribute="trailing" id="i6W-Tq-1io"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="vbp-yn-wLa"/>
                     </view>
+                    <navigationItem key="navigationItem" title="TP SDK Demo" id="pfg-td-kj3"/>
+                    <connections>
+                        <outlet property="tableView" destination="59F-1p-9X0" id="6Bs-Il-CRn"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3n1-Sy-I5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="121" y="149"/>
         </scene>
     </scenes>
 </document>

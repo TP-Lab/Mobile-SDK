@@ -26,14 +26,8 @@
     
     [TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
         
-        NSString *title = @"Success";
-        if (respObj.result == TPRespResultFailure) {
-            title = @"Failure";
-        } else if (respObj.result == TPRespResultCanceled) {
-            title = @"Cancel";
-        }
         NSString *JSONString = [self JSONString:respObj.data];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:JSONString preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:respObj.message message:JSONString preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:action];
         [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
