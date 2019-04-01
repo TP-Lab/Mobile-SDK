@@ -12,17 +12,17 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 4. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
 
 ### Add code to your project
-* Add header file at **AppDelegate**
+#### Add header file at **AppDelegate**
 
 ```
-* #import <TPSDK/TPSDK.h>
+#import <TPSDK/TPSDK.h>
 ```
-* register your scheme at method **application:didFinishLaunchingWithOptions:**
+#### Register your scheme at method **application:didFinishLaunchingWithOptions:**
 ```
 [TPApi registerAppID:@"demoapp"];
 ```
 
-* observe callback at method **application:openURL:**
+#### Observe callback at method **application:openURL:**
 
 ```
 [TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
@@ -30,7 +30,7 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 }];
 ```
 
-* **1.Login**
+**1.Login**
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
@@ -38,7 +38,7 @@ login.dappIcon = @"https:....png";
 [TPApi sendObj:login];
 ```
 
-* **2.Sign**
+**2.Sign**
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -47,7 +47,7 @@ sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
 
-* **3.Transfer**
+**3.Transfer**
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -61,7 +61,7 @@ transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
 
-* **4.Push transaction**
+**4.Push transaction**
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
@@ -97,16 +97,16 @@ transaction.actions = @[@{@"account": @"eosio.token",
 4. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
 
 ### 添加执行代码
-* 在AppDelegate中添加头文件
+#### 在AppDelegate中添加头文件
 ```
-* #import <TPSDK/TPSDK.h>
+#import <TPSDK/TPSDK.h>
 ```
-* 在application:didFinishLaunchingWithOptions:方法中注册scheme
+#### 在application:didFinishLaunchingWithOptions:方法中注册scheme
 ```
 [TPApi registerAppID:@"demoapp"];
 ```
 
-* 在application:openURL:方法中添加监听回调方法
+#### 在application:openURL:方法中添加监听回调方法
 
 ```
 [TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
@@ -114,7 +114,7 @@ transaction.actions = @[@{@"account": @"eosio.token",
 }];
 ```
 
-* **1.Login**
+**1.Login**
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
@@ -122,7 +122,7 @@ login.dappIcon = @"https:....png";
 [TPApi sendObj:login];
 ```
 
-* **2.Sign**
+**2.Sign**
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -131,7 +131,7 @@ sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
 
-* **3.Transfer**
+**3.Transfer**
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -145,7 +145,7 @@ transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
 
-* **4.Push transaction**
+**4.Push transaction**
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
