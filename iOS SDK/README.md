@@ -30,7 +30,7 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 }];
 ```
 
-* 1.Login
+* **1.Login**
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
@@ -38,7 +38,7 @@ login.dappIcon = @"https:....png";
 [TPApi sendObj:login];
 ```
 
-* 2.Sign
+* **2.Sign**
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -47,7 +47,7 @@ sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
 
-* 3.Transfer
+* **3.Transfer**
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -61,7 +61,7 @@ transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
 
-* 4.Push transaction
+* **4.Push transaction**
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
@@ -114,7 +114,7 @@ transaction.actions = @[@{@"account": @"eosio.token",
 }];
 ```
 
-* 1.Login
+* **1.Login**
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
@@ -122,7 +122,7 @@ login.dappIcon = @"https:....png";
 [TPApi sendObj:login];
 ```
 
-* 2.Sign
+* **2.Sign**
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -131,7 +131,7 @@ sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
 
-* 3.Transfer
+* **3.Transfer**
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -145,20 +145,20 @@ transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
 
-* 4.Push transaction
+* **4.Push transaction**
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
 transaction.dappIcon = @"https:....png";
 transaction.actions = @[@{@"account": @"eosio.token",
-@"name": @"transfer",
-@"authorization": @[@{@"actor": @"xxxxx",
-@"permission": @"active"}],
-@"data": @{@"from": @"xxxxx",
-@"to": @"xxxxx",
-@"quantity": @"0.0001 EOS",
-@"memo": @"Memo string..."},
-}];
+                        @"name": @"transfer",
+                        @"authorization": @[@{@"actor": @"xxxxx",
+                                            @"permission": @"active"}],
+                        @"data": @{@"from": @"xxxxx",
+                                    @"to": @"xxxxx",
+                                    @"quantity": @"0.0001 EOS",
+                                    @"memo": @"Memo string..."},
+                        }];
 [TPApi sendObj:transaction];
 ```
 
