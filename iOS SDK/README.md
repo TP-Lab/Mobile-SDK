@@ -6,10 +6,9 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 1. Download the TPSDK.zip file in the repository
 
 ### Build developer environment
-1. Build your program in xCode;
+1. Build your program in Xcode;
 2. Decompress TPSDK.zip and drag it into the project;
-3. Set your **URL scheme**
-![Scheme](http://thyrsi.com/t6/369/1536745754x-1566679533.png)
+3. Set your **URL scheme**: Project->TARGETS->info->URL Types->Add URL scheme;
 4. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
 
 ### Add code to your project
@@ -27,20 +26,57 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 
 ```
 [TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
-//your code here
+    //your code here
 }];
 ```
 
-* Here's a demo 
+* 1.Login
+```
+TPLoginObj *login = [TPLoginObj new];
+login.dappName = @"xxx";
+login.dappIcon = @"https:....png";
+[TPApi sendObj:login];
+```
 
+* 2.Sign
+```
+TPSignObj *sign = [TPSignObj new];
+sign.dappName = @"xxx";
+sign.dappIcon = @"https:....png";
+sign.message = @"sign data...";
+[TPApi sendObj:sign];
+```
+
+* 3.Transfer
 ```
 TPTransferObj *transfer = [TPTransferObj new];
-transfer.from = @"xxx";
-...  // setting transfer params;
+transfer.dappName = @"xxx";
+transfer.dappIcon = @"https:....png";
+transfer.symbol = @"EOS";
+transfer.contract = @"eosio.token";
+transfer.to = @"xxxxx";
+transfer.memo = @"Memo string...";
+transfer.precision = @(4);
+transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
-
 ```
 
+* 4.Push transaction
+```
+TPPushTransactionObj *transaction = [TPPushTransactionObj new];
+transaction.dappName = @"xxx";
+transaction.dappIcon = @"https:....png";
+transaction.actions = @[@{@"account": @"eosio.token",
+                            @"name": @"transfer",
+                            @"authorization": @[@{@"actor": @"xxxxx",
+                                                @"permission": @"active"}],
+                            @"data": @{@"from": @"xxxxx",
+                                        @"to": @"xxxxx",
+                                        @"quantity": @"0.0001 EOS",
+                                        @"memo": @"Memo string..."},
+                        }];
+[TPApi sendObj:transaction];
+```
 
 
 
@@ -57,8 +93,7 @@ transfer.from = @"xxx";
 ### 搭建开发环境
 1. 在Xcode创建您的工程;
 2. 将TPSDK解压，并拉入工程目录中;
-3. 在Xcode设置URL scheme
-![Scheme](http://thyrsi.com/t6/369/1536745754x-1566679533.png)
+3. 在Xcode设置URL scheme:  Project->TARGETS->info->URL Types->Add URL scheme;
 4. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
 
 ### 添加执行代码
@@ -79,12 +114,51 @@ transfer.from = @"xxx";
 }];
 ```
 
-* 如何发送一个请求，示例
+* 1.Login
+```
+TPLoginObj *login = [TPLoginObj new];
+login.dappName = @"xxx";
+login.dappIcon = @"https:....png";
+[TPApi sendObj:login];
+```
 
+* 2.Sign
+```
+TPSignObj *sign = [TPSignObj new];
+sign.dappName = @"xxx";
+sign.dappIcon = @"https:....png";
+sign.message = @"sign data...";
+[TPApi sendObj:sign];
+```
+
+* 3.Transfer
 ```
 TPTransferObj *transfer = [TPTransferObj new];
-transfer.from = @"xxx";
-...  // 设置transfer参数;
+transfer.dappName = @"xxx";
+transfer.dappIcon = @"https:....png";
+transfer.symbol = @"EOS";
+transfer.contract = @"eosio.token";
+transfer.to = @"xxxxx";
+transfer.memo = @"Memo string...";
+transfer.precision = @(4);
+transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
-
 ```
+
+* 4.Push transaction
+```
+TPPushTransactionObj *transaction = [TPPushTransactionObj new];
+transaction.dappName = @"xxx";
+transaction.dappIcon = @"https:....png";
+transaction.actions = @[@{@"account": @"eosio.token",
+@"name": @"transfer",
+@"authorization": @[@{@"actor": @"xxxxx",
+@"permission": @"active"}],
+@"data": @{@"from": @"xxxxx",
+@"to": @"xxxxx",
+@"quantity": @"0.0001 EOS",
+@"memo": @"Memo string..."},
+}];
+[TPApi sendObj:transaction];
+```
+
