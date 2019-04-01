@@ -8,13 +8,9 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 ### Build developer environment
 1. Build your program in xCode;
 2. Decompress TPSDK.zip and drag it into the project;
-3. Go to **Project - Build settings** and search **Other Linker Flags**, append **-ObjC**
-![Build Settings](http://thyrsi.com/t6/369/1536744859x-1566673321.png)
-
-4. Set your **URL scheme**
+3. Set your **URL scheme**
 ![Scheme](http://thyrsi.com/t6/369/1536745754x-1566679533.png)
-
-5. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
+4. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
 
 ### Add code to your project
 * Add header file at **AppDelegate**
@@ -61,13 +57,9 @@ transfer.from = @"xxx";
 ### 搭建开发环境
 1. 在Xcode创建您的工程;
 2. 将TPSDK解压，并拉入工程目录中;
-3. 在Project - Build settings 搜索Other Linker Flags, 加一项 **-ObjC**
-![Build Settings](http://thyrsi.com/t6/369/1536744859x-1566673321.png)
-
-4. 在Xcode设置URL scheme
+3. 在Xcode设置URL scheme
 ![Scheme](http://thyrsi.com/t6/369/1536745754x-1566679533.png)
-
-5. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
+4. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
 
 ### 添加执行代码
 * 在AppDelegate中添加头文件
