@@ -25,6 +25,11 @@ public class Transfer extends BaseInfo {
 
     private String callbackUrl;
 
+    public Transfer() {
+        //默认设置类型
+        setAction(ActionEnum.Transfer.getValue());
+    }
+
     public String getFrom() {
         return from;
     }

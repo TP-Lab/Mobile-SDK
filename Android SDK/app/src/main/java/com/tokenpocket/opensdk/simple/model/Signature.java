@@ -15,6 +15,11 @@ public class Signature extends BaseInfo {
 
     private String message;
 
+    public Signature() {
+        //默认设置类型
+        setAction(ActionEnum.Signature.getValue());
+    }
+
     public String getActionId() {
         return actionId;
     }

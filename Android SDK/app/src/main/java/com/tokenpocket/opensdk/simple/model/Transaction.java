@@ -1,7 +1,5 @@
 package com.tokenpocket.opensdk.simple.model;
 
-import com.google.gson.Gson;
-
 /**
  * Author: tp-clement
  * Create: 2019/3/28
@@ -10,6 +8,11 @@ import com.google.gson.Gson;
 public class Transaction extends BaseInfo {
 
     private String actions;
+
+    public Transaction() {
+        //默认设置类型
+        setAction(ActionEnum.Transaction.getValue());
+    }
 
     public String getActions() {
         return actions;

@@ -13,6 +13,10 @@ public class Authorize extends BaseInfo {
 
     private String memo;
 
+    public Authorize() {
+        //默认设置类型
+        setAction(ActionEnum.Authorize.getValue());
+    }
 
     public String getActionId() {
         return actionId;

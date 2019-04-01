@@ -2,11 +2,9 @@ package com.tokenpocket.opensdk.simple;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import com.google.gson.Gson;
-import com.tokenpocket.opensdk.Constant;
 import com.tokenpocket.opensdk.TPUtil;
 import com.tokenpocket.opensdk.simple.model.Authorize;
 import com.tokenpocket.opensdk.simple.model.Signature;
@@ -93,28 +91,28 @@ public class TPManager {
     /**
      * 授权登陆
      */
-    public void authLogin(Context context, Authorize authorize) {
-        authLogin(context, authorize, null);
+    public void authorize(Context context, Authorize authorize) {
+        authorize(context, authorize, null);
     }
 
     /**
      * 授权登陆
      */
-    public void authLogin(Context context, Authorize authorize, TPListener listener) {
+    public void authorize(Context context, Authorize authorize, TPListener listener) {
         doAction(context, new Gson().toJson(authorize), listener);
     }
 
     /**
      * 签名
      */
-    public void sign(Context context, Signature signature) {
-        sign(context, signature, null);
+    public void signature(Context context, Signature signature) {
+        signature(context, signature, null);
     }
 
     /**
      * 签名
      */
-    public void sign(Context context, Signature signature, TPListener listener) {
+    public void signature(Context context, Signature signature, TPListener listener) {
         doAction(context, new Gson().toJson(signature), listener);
     }
 
