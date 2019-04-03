@@ -9,17 +9,17 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 3. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
 
 ## Usage
-### Add header file at `AppDelegate.m`
+#### Add header file at `AppDelegate.m`
 
 ```
 #import <TPSDK/TPSDK.h>
 ```
-### Register your scheme at method `application:didFinishLaunchingWithOptions:`
+#### Register your scheme at method `application:didFinishLaunchingWithOptions:`
 ```
 [TPApi registerAppID:@"demoapp"];
 ```
 
-### Observe callback at method `application:openURL:`
+#### Observe callback at method `application:openURL:`
 
 ```
 [TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
@@ -158,7 +158,7 @@ TPRespObj.data
 3. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
 
 ## 添加执行代码
-### 在 `AppDelegate.m` 中添加头文件
+#### 在 `AppDelegate.m` 中添加头文件
 ```
 #import <TPSDK/TPSDK.h>
 ```
