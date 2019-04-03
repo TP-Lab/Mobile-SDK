@@ -9,17 +9,17 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 3. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
 
 ## Usage
-### Add header file at **AppDelegate.m**
+### Add header file at `AppDelegate.m`
 
 ```
 #import <TPSDK/TPSDK.h>
 ```
-### Register your scheme at method **application:didFinishLaunchingWithOptions:**
+### Register your scheme at method `application:didFinishLaunchingWithOptions:`
 ```
 [TPApi registerAppID:@"demoapp"];
 ```
 
-### Observe callback at method **application:openURL:**
+### Observe callback at method `application:openURL:`
 
 ```
 [TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
@@ -47,10 +47,10 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 
 ## Supported actions
 
-1. - **Authorize:** Use to make authorization to login
-2. - **Sign:** Sign the data
-3. - **Transfer:** transfer-action
-4. - **Push transaction:** Push actions
+1. **Login:** Use to make authorization to login
+2. **Sign:** Sign the data
+3. **Transfer:** transfer-action
+4. **Push transaction:** Push actions
 
 
 ## Sample
@@ -158,16 +158,16 @@ TPRespObj.data
 3. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
 
 ## 添加执行代码
-### 在AppDelegate中添加头文件
+### 在 `AppDelegate.m` 中添加头文件
 ```
 #import <TPSDK/TPSDK.h>
 ```
-#### 在application:didFinishLaunchingWithOptions:方法中注册scheme
+#### 在 `application:didFinishLaunchingWithOptions:` 方法中注册scheme
 ```
 [TPApi registerAppID:@"demoapp"];
 ```
 
-#### 在application:openURL:方法中添加监听回调方法
+#### 在 `application:openURL:` 方法中添加监听回调方法
 
 ```
 [TPApi handleURL:url options:options result:^(TPRespObj *respObj) {
@@ -196,10 +196,10 @@ TPRespObj.data
 
 ## 支持操作
 
-1. - **授权登录:** 验证授权
-2. - **签名:** 数据签名
-3. - **转账:** 转账操作
-4. - **Push transaction:** Push actions
+1. **授权登录:** 验证授权
+2. **签名:** 数据签名
+3. **转账:** 转账操作
+4. **Push transaction:** Push actions
 
 ## 代码示例
 
