@@ -119,6 +119,7 @@ dependencies {
             Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
         }
 });
+~~~
 
 ### <a name='Authorize'></a>Authorize
 
@@ -147,7 +148,7 @@ dependencies {
 
         }
 });
-
+~~~
 
 ### <a name='Sign'></a>Sign
 
