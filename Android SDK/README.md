@@ -45,7 +45,7 @@ dependencies {
 - [Transfer](#Transfer): Pull up TokenPocket to transfer tokens
 - [Transaction](#Transaction): Common push action
 - [Authorize](#Authorize): Use to make authorization to login
-- [Sign](#Sign): Sign the data (==only version 0.6.5 or higher support this api==)
+- [Sign](#Sign): Sign the data (only version 0.6.5 or higher support this api)
 
 
 ### <a name='Transfer'></a>Transfer
