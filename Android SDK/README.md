@@ -63,7 +63,7 @@ dependencies {
     transfer.setExpired(1535944144L);
     transfer.setCallbackUrl("https://newdex.io/api/account/transferCallback?uuid=1-46e023fc-015b-4b76-3809-1cab3fd76d2c");
 
-    TPManager.getInstance().transfer(MainActivity.this, transfer, new TPListener() {
+    TPManager.getInstance().transfer(MainActivity.this, transfer,new TPListener() {
         @Override
         public void onSuccess(String data) {
             Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
@@ -103,7 +103,7 @@ dependencies {
             "}]");
     transaction.setExpired(10000000000L);
     
-    TPManager.getInstance().pushTransaction(MainActivity.this, transaction,     new TPListener() {
+    TPManager.getInstance().pushTransaction(MainActivity.this, transaction, new TPListener() {
         @Override
         public void onSuccess(String data) {
             Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
@@ -132,7 +132,7 @@ dependencies {
     authorize.setCallbackUrl("https://newdex.io/api/account/walletVerify");
     authorize.setExpired(1537157808L);
     authorize.setMemo("The first gobal decentralized exchange built on EOS");
-    TPManager.getInstance().authorize(MainActivity.this, getAuthorize(), new        TPListener() {
+    TPManager.getInstance().authorize(MainActivity.this, getAuthorize(),new TPListener() {
         @Override
         public void onSuccess(String data) {
 
@@ -161,7 +161,7 @@ dependencies {
     signature.setExpired(1537157808L);
     signature.setMemo("The first gobal decentralized exchange built on EOS");
     signature.setMessage("hello");
-    TPManager.getInstance().sign(MainActivity.this, getSignature(), new TPListener() {
+    TPManager.getInstance().sign(MainActivity.this, getSignature(),new TPListener() {
         @Override
         public void onSuccess(String data) {
             Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
