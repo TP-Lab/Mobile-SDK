@@ -1,8 +1,17 @@
-# Android SDK
+### TokenPocket Wallet Protocol
+**https://github.com/TP-Lab/tp-wallet-sdk**
+
+### TokenPocket SDK 中文文档
+https://github.com/TP-Lab/Mobile-SDK/blob/master/Android%20SDK/README-ZH.md
+
+# TokenPocket Android SDK
 
 DApp uses this SDK  to pull up the TokenPocket wallet and do some actions such as token transfer, login auth, pushTransaction etc.
 
 Notice: Only version 0.4.9 or higher support this SDK.
+
+### Sample project
+https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/sample
 
 ### Getting Started
 
@@ -25,56 +34,22 @@ dependencies {
 }
 ~~~
 
+- Proguard
+~~~
+-dontwarn com.tokenpocket.opensdk.**
+-keep class com.tokenpocket.opensdk.** {*;}
+~~~
+
 ### APIs
 
-- Transfer: Pull up TokenPocket to transfer tokens
-- Transaction: Common push action
-- Authorize: Use to make authorization to login
-- Sign: Sign the data
+- [Transfer](#Transfer): Pull up TokenPocket to transfer tokens
+- [Transaction](#Transaction): Common push action
+- [Authorize](#Authorize): Use to make authorization to login
+- [Sign](#Sign): Sign the data (==only version 0.6.5 or higher support this api==)
 
-### The result callback
 
-after call the apis, if you want to get the result or do some callback works, you should  add the TPListener
-
+### <a name='Transfer'></a>Transfer
 ~~~
-new TPListener() {
-    @Override
-    public void onSuccess(String data) {
-    }
-
-    @Override
-    public void onError(String data) {
-    }
-
-    @Override
-    public void onCancel(String data) {
-    }
-}
-~~~
-
-### Transfer
-- demo
-~~~
-TPManager.getInstance().transfer(MainActivity.this, getTransfer(), new TPListener() {
-    @Override
-    public void onSuccess(String data) {
-      Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onError(String data) {
-      Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onCancel(String data) {
-      Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
-});
-~~~
-- Build transfer data
-~~~
-private Transfer getTransfer() {
     Transfer transfer = new Transfer();
     transfer.setDappName("Newdex");
     transfer.setDappIcon("https://newdex.io/static/logoicon.png");
@@ -87,34 +62,28 @@ private Transfer getTransfer() {
     transfer.setMemo("test");
     transfer.setExpired(1535944144L);
     transfer.setCallbackUrl("https://newdex.io/api/account/transferCallback?uuid=1-46e023fc-015b-4b76-3809-1cab3fd76d2c");
-    return transfer;
-}
+
+    TPManager.getInstance().transfer(MainActivity.this, transfer, new TPListener() {
+        @Override
+        public void onSuccess(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onError(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCancel(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
+    });
 ~~~
 
-### Transaction
-demo
+### <a name='Transaction'></a>Transaction
 
 ~~~
-TPManager.getInstance().pushTransaction(MainActivity.this, getTransaction(), new TPListener() {
-    @Override
-    public void onSuccess(String data) {
-        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onError(String data) {
-        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onCancel(String data) {
-        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
-});
-~~~
-- Build transaction data
-~~~
-private Transaction getTransaction() {
     Transaction transaction = new Transaction();
     transaction.setDappName("Test Name");
     transaction.setDappIcon("https://newdex.io/static/logoicon.png");
@@ -133,35 +102,28 @@ private Transaction getTransaction() {
             "}\n" +
             "}]");
     transaction.setExpired(10000000000L);
+    
+    TPManager.getInstance().pushTransaction(MainActivity.this, transaction,     new TPListener() {
+        @Override
+        public void onSuccess(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
 
-    return transaction;
-}
-~~~
+        @Override
+        public void onError(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
 
-### Authorize
-demo
-
-~~~
-TPManager.getInstance().authorize(MainActivity.this, getAuthorize(), new TPListener() {
-    @Override
-    public void onSuccess(String data) {
-
-    }
-
-    @Override
-    public void onError(String data) {
-
-    }
-
-    @Override
-    public void onCancel(String data) {
-
-    }
+        @Override
+        public void onCancel(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
 });
+
+### <a name='Authorize'></a>Authorize
+
 ~~~
-- Build authorize data
-~~~
-private Authorize getAuthorize() {
+
     Authorize authorize = new Authorize();
     authorize.setDappName("Newdex");
     authorize.setDappIcon("https://newdex.io/static/logoicon.png");
@@ -169,34 +131,27 @@ private Authorize getAuthorize() {
     authorize.setCallbackUrl("https://newdex.io/api/account/walletVerify");
     authorize.setExpired(1537157808L);
     authorize.setMemo("The first gobal decentralized exchange built on EOS");
+    TPManager.getInstance().authorize(MainActivity.this, getAuthorize(), new        TPListener() {
+        @Override
+        public void onSuccess(String data) {
 
-    return authorize;
-}
-~~~
+        }
 
-### Sign
-only version 0.6.5 or higher support this api
-~~~
-TPManager.getInstance().sign(MainActivity.this, getSignature(), new TPListener() {
-    @Override
-    public void onSuccess(String data) {
-        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
+        @Override
+        public void onError(String data) {
 
-    @Override
-    public void onError(String data) {
-        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
+        }
 
-    @Override
-    public void onCancel(String data) {
-        Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
-    }
+        @Override
+        public void onCancel(String data) {
+
+        }
 });
+
+
+### <a name='Sign'></a>Sign
+
 ~~~
-- Build signature data
-~~~
-private Signature getSignature() {
     Signature signature = new Signature();
     signature.setDappName("Newdex");
     signature.setDappIcon("https://newdex.io/static/logoicon.png");
@@ -205,20 +160,23 @@ private Signature getSignature() {
     signature.setExpired(1537157808L);
     signature.setMemo("The first gobal decentralized exchange built on EOS");
     signature.setMessage("hello");
-    return signature;
-}
+    TPManager.getInstance().sign(MainActivity.this, getSignature(), new TPListener() {
+        @Override
+        public void onSuccess(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onError(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCancel(String data) {
+            Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
+        }
+});
 ~~~
 
-### Proguard
-~~~
--dontwarn com.tokenpocket.opensdk.**
--keep class com.tokenpocket.opensdk.** {*;}
-~~~
 
-- The sample project is available(https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/sample), developer can get the details about how to use this sdk.
 
-### TokenPocket Wallet Protocol
-**https://github.com/TP-Lab/tp-wallet-sdk**
-
-### 中文文档
-https://github.com/TP-Lab/Mobile-SDK/blob/master/Android%20SDK/README-ZH.md
