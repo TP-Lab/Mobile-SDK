@@ -39,6 +39,11 @@ public abstract class BaseInfo {
      */
     private long expired;
 
+    /**
+     * 标识底层
+     */
+    private String blockchain;
+
     public String getProtocol() {
         return protocol;
     }
@@ -85,5 +90,13 @@ public abstract class BaseInfo {
 
     public void setExpired(long expired) {
         this.expired = expired;
+    }
+
+    public String getBlockchain() {
+        return blockchain;
+    }
+
+    public void setBlockchain(String blockchain) {
+        this.blockchain = blockchain;
     }
 }
