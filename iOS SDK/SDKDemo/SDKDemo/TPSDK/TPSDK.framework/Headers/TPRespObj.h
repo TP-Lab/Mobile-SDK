@@ -22,8 +22,8 @@ typedef NS_ENUM(NSUInteger, TPRespResult) {
  */
 @interface TPRespObj : NSObject
 
-@property (nonatomic, assign) TPRespResult result; // 处理结果
-@property (nonatomic, copy) NSString *message;     // 消息
-@property (nonatomic, weak) id data;  // 携带数据
+@property (nonatomic, assign) TPRespResult result;      // 处理结果
+@property (nonatomic, copy) NSString *message;          // 消息
+@property (nonatomic, weak) id data;                    // 结果数据
 
 @end
