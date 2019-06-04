@@ -51,6 +51,7 @@ dependencies {
 ### <a name='Transfer'></a>Transfer
 ~~~
     Transfer transfer = new Transfer();
+    transfer.setBlockchain("EOS");
     transfer.setDappName("Newdex");
     transfer.setDappIcon("https://newdex.io/static/logoicon.png");
     transfer.setFrom("clement11111");
@@ -85,6 +86,7 @@ dependencies {
 
 ~~~
     Transaction transaction = new Transaction();
+    transaction.setBlockchain("EOS");
     transaction.setDappName("Test Name");
     transaction.setDappIcon("https://newdex.io/static/logoicon.png");
     transaction.setActions("[{\n" +
@@ -126,6 +128,7 @@ dependencies {
 ~~~
 
     Authorize authorize = new Authorize();
+    authorize.setBlockchain("EOS");
     authorize.setDappName("Newdex");
     authorize.setDappIcon("https://newdex.io/static/logoicon.png");
     authorize.setActionId("web-99784c28-70f0-49ff-3654-f27b137b3502");
@@ -154,6 +157,7 @@ dependencies {
 
 ~~~
     Signature signature = new Signature();
+    signature.setBlockchain("EOS");
     signature.setDappName("Newdex");
     signature.setDappIcon("https://newdex.io/static/logoicon.png");
     signature.setActionId("web-99784c28-70f0-49ff-3654-f27b137b3502");
