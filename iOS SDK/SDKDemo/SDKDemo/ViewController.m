@@ -55,6 +55,7 @@
     [array addObject:[TPDMRowData dataWithTitle:@"TP Sign" action:@selector(onTPSign)]];
     [array addObject:[TPDMRowData dataWithTitle:@"TP Transfer" action:@selector(onTPTransfer)]];
     [array addObject:[TPDMRowData dataWithTitle:@"TP PushTransaction" action:@selector(onTPPushTransaction)]];
+    [array addObject:[TPDMRowData dataWithTitle:@"TP Auth" action:@selector(onAuth)]];
     self.dataArray = array.copy;
     [self.tableView reloadData];
 }
@@ -66,6 +67,7 @@
     TPLoginObj *login = [TPLoginObj new];
     login.dappName = @"SDKDemo";
     login.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
+    login.blockchain = @"eos";
     [TPApi sendObj:login];
 }
 
@@ -75,6 +77,7 @@
     sign.dappName = @"SDKDemo";
     sign.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     sign.message = @"sign data...";
+    sign.blockchain = @"eos";
     [TPApi sendObj:sign];
 }
 
@@ -89,6 +92,7 @@
     transfer.memo = @"Memo string...";
     transfer.precision = @(4);
     transfer.amount = @(0.0001);
+    transfer.blockchain = @"eos";
     [TPApi sendObj:transfer];
 }
 
@@ -97,6 +101,7 @@
     TPPushTransactionObj *transaction = [TPPushTransactionObj new];
     transaction.dappName = @"SDKDemo";
     transaction.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
+    transaction.blockchain = @"eos";
     transaction.actions = @[@{@"account": @"eosio.token",
                               @"name": @"transfer",
                               @"authorization": @[@{@"actor": @"xxxxx",
@@ -107,6 +112,20 @@
                                          @"memo": @"Memo string..."},
                               }];
     [TPApi sendObj:transaction];
+}
+
+/**  Auth */
+- (void)onAuth {
+    TPAuthObj *auth = [TPAuthObj new];
+    auth.account = @"account name";
+    auth.perm = @"permissionName";
+    auth.selectAll = YES;
+    auth.blockchain = @"eos";
+    
+    auth.actions = @[[TPLinkAction linkActionWithContract:@"contract name" action:@"action name"]];
+    [TPApi sendObj:auth resultHandle:^(TPReqType type,NSError *error){
+        
+    }];
 }
 
 #pragma mark ~~~~ UITableViewDelegate, UITableViewDataSource ~~~~

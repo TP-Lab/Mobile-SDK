@@ -13,7 +13,7 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionSign;
 FOUNDATION_EXTERN NSString *const kTPSDKActionLogin;
 FOUNDATION_EXTERN NSString *const kTPSDKActionTransfer;
 FOUNDATION_EXTERN NSString *const kTPSDKActionPushTransaction;
-
+FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 
 
 #pragma mark - TPReqObj
@@ -127,8 +127,59 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionPushTransaction;
  */
 @interface TPPushTransactionObj : TPReqObj
 
-@property (nonatomic, strong) NSArray *actions;             // json数组 每个对象是一个action     <required>
+@property (nonatomic, strong) NSArray *actions;             // eos/bos json数组 每个对象是一个action     <required>
+
+/*
+ "{\n" +
+ "    \"blockchain\":\"IOST\",\n" +
+ "\t  \"action\":\"pushTransaction\",\n" +
+ "\t\t\"dappName\":\"LieBi\",\n" +
+ "\t\"payload\": {\n" +
+ "\t\t\"tx\": {\n" +
+ "\t\t\t\"gasRatio\": 1,\n" +
+ "\t\t\t\"gasLimit\": 2000000,\n" +
+ "\t\t\t\"actions\": [{\n" +
+ "\t\t\t\t\"contract\": \"ContractF3tLtxdXwYmKsDiUtTmaQztwJQLPVf9VyWDqufMZHP5p\",\n" +
+ "\t\t\t\t\"actionName\": \"bet\",\n" +
+ "\t\t\t\t\"data\": \"[\\\"_bbbb\\\",\\\"tokenpocket\\\",\\\"0.19\\\"]\"\n" +
+ "\t\t\t}],\n" +
+ "\t\t\t\"signers\": [],\n" +
+ "\t\t\t\"signatures\": [],\n" +
+ "\t\t\t\"publisher\": \"\",\n" +
+ "\t\t\t\"publisher_sigs\": [],\n" +
+ "\t\t\t\"amount_limit\": [{\n" +
+ "\t\t\t\t\"token\": \"*\",\n" +
+ "\t\t\t\t\"value\": \"unlimited\"\n" +
+ "\t\t\t}],\n" +
+ "\t\t\t\"chain_id\": 1024,\n" +
+ "\t\t\t\"reserved\": null,\n" +
+ "\t\t\t\"time\": 1559296424058534000,\n" +
+ "\t\t\t\"expiration\": 1559296514058534000,\n" +
+ "\t\t\t\"delay\": 0\n" +
+ "\t\t},\n" +
+ "\t\t\"domain\": \"vote.liebi.com\",\n" +
+ "\t\t\"account\": \"_bbbb\",\n" +
+ "\t\t\"network\": \"MAINNET\",\n" +
+ "\t\t\"txABI\": [\"ContractF3tLtxdXwYmKsDiUtTmaQztwJQLPVf9VyWDqufMZHP5p\", \"vote\", [\"_bbbb\", \"tokenpocket\", \"0.19\"]]\n" +
+ "\t}\n" +
+ "}"
+ */
+@property (nonatomic, strong) NSDictionary *payload;             // iost数据      <required>
 
 @end
 
+@class TPLinkAction;
+
+@interface TPAuthObj : TPReqObj
+
+///   account  <optional>
+@property (nonatomic, copy) NSString *account;
+///   {contract:[action]}   <required>
+@property (nonatomic, strong) NSArray<TPLinkAction *> *actions;
+///   permisson name   <required>
+@property (nonatomic, copy) NSString *perm;
+///   拉起授权时，是否默认勾选所有需要link的action，默认是NO
+@property (nonatomic, assign) BOOL selectAll;
+
+@end
 

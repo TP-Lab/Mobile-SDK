@@ -17,3 +17,5 @@ FOUNDATION_EXPORT const unsigned char TPSDKVersionString[];
 #import <TPSDK/TPApi.h>
 #import <TPSDK/TPReqObj.h>
 #import <TPSDK/TPRespObj.h>
+#import <TPSDK/TPLinkAction.h>
+#import <TPSDK/TPBlockchainHeader.h>

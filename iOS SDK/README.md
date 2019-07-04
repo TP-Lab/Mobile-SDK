@@ -4,7 +4,7 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 
 
 ## Build developer environment
-1. Download the TPSDK.zip file in this repository. Decompress TPSDK.zip and drag it into the project;
+1. Download the TPSDK.zip file in this repository. Decompress TPSDK.zip and drag it into the project,And drag TPSDK.framework into Copy Bundle Resource;
 2. Set your **URL scheme**: Project->TARGETS->info->URL Types->Add URL scheme;
 3. Add **LSApplicationQueriesSchemes** at info.plist，value with **tpoutside**
 
@@ -51,6 +51,7 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 2. **Sign:** Sign the data
 3. **Transfer:** transfer-action
 4. **Push transaction:** Push actions
+5. **Auth:** Link actions And Login
 
 
 ## Sample
@@ -145,6 +146,30 @@ TPRespObj.data
 }
 ```
 
+**5.Auth**
+```
+TPAuthObj *auth = [TPAuthObj new];
+auth.dappName = @"xxx";
+auth.dappIcon = @"https:.../xx.png";
+auth.account = "xxxx";
+auth.perm = "xxxx";
+auth.selectAll = NO;
+auth.actions = [linkActions];
+[TPApi sendObj:auth resultHandle:^(TPReqType type,NSError *error){
+        
+    }];
+```
+**Auth callback**
+```
+TPRespObj.data
+{
+    ...,
+    "ref" : "TokenPocket",
+    "publickey" : "EOS5AvWThdghtNngWP4UcNi9DL6kF7Mnv2ccO",
+    "sign" : "SIG_K1_JyCJtV9vqwxtyEt68UhUibkg1CmRjxtG6zkZwE...",
+    "timestamp" : "1554266633",
+}
+```
 
 
 
@@ -154,8 +179,9 @@ TPRespObj.data
 
 ## 搭建开发环境
 1. 下载仓库中TPSDK.zip文档, 解压后，拖进工程目录;
-2. 在Xcode设置URL scheme:  Project->TARGETS->info->URL Types->添加 URL scheme;
-3. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
+2. 拖进工程目录后并Link，然后把TPSDK.framwork拖到Bulid Phases->Copy Bundle Resource 
+3. 在Xcode设置URL scheme:  Project->TARGETS->info->URL Types->添加 URL scheme;
+4. 在info.plist中**LSApplicationQueriesSchemes**下添加一项，值为**tpoutside**
 
 ## 添加执行代码
 #### 在 `AppDelegate.m` 中添加头文件
@@ -290,5 +316,30 @@ TPRespObj.data
     "processed" : {
         ...
     },
+}
+```
+
+**5.Auth**
+```
+TPAuthObj *auth = [TPAuthObj new];
+auth.dappName = @"xxx";
+auth.dappIcon = @"https:.../xx.png";
+auth.account = "xxxx";
+auth.perm = "xxxx";
+auth.selectAll = NO;
+auth.actions = [linkActions];
+[TPApi sendObj:auth resultHandle:^(TPReqType type,NSError *error){
+        
+    }];
+```
+**Auth callback**
+```
+TPRespObj.data
+{
+    ...,
+    "ref" : "TokenPocket",
+    "publickey" : "EOS5AvWThdghtNngWP4UcNi9DL6kF7Mnv2ccO",
+    "sign" : "SIG_K1_JyCJtV9vqwxtyEt68UhUibkg1CmRjxtG6zkZwE...",
+    "timestamp" : "1554266633",
 }
 ```

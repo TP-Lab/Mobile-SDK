@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18B33AE1224CF2BF0093E7F7 /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
 		2C1BF4A92141278200E7D1EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4A82141278200E7D1EC /* AppDelegate.m */; };
 		2C1BF4AC2141278200E7D1EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4AB2141278200E7D1EC /* ViewController.m */; };
 		2C1BF4AF2141278200E7D1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4AD2141278200E7D1EC /* Main.storyboard */; };
 		2C1BF4B12141278400E7D1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B02141278400E7D1EC /* Assets.xcassets */; };
 		2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B22141278400E7D1EC /* LaunchScreen.storyboard */; };
 		2C1BF4B72141278400E7D1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B62141278400E7D1EC /* main.m */; };
+		D017E1CC22CB903F0076C32D /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
+		D017E1CD22CB904B0076C32D /* TPSDK.framework in Resources */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18B33AE1224CF2BF0093E7F7 /* TPSDK.framework in Frameworks */,
+				D017E1CC22CB903F0076C32D /* TPSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +56,7 @@
 			children = (
 				2C1BF4A62141278200E7D1EC /* SDKDemo */,
 				2C1BF4A52141278100E7D1EC /* Products */,
+				D017E1CB22CB903F0076C32D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +83,13 @@
 				2C1BF4B62141278400E7D1EC /* main.m */,
 			);
 			path = SDKDemo;
+			sourceTree = "<group>";
+		};
+		D017E1CB22CB903F0076C32D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D017E1CD22CB904B0076C32D /* TPSDK.framework in Resources */,
 				2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */,
 				2C1BF4B12141278400E7D1EC /* Assets.xcassets in Resources */,
 				2C1BF4AF2141278200E7D1EC /* Main.storyboard in Resources */,
@@ -309,7 +319,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tokenpocket.tp.SDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,7 +344,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tokenpocket.tp.SDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
