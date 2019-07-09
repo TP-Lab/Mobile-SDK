@@ -14,7 +14,7 @@
 		2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B22141278400E7D1EC /* LaunchScreen.storyboard */; };
 		2C1BF4B72141278400E7D1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B62141278400E7D1EC /* main.m */; };
 		D017E1CC22CB903F0076C32D /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
-		D017E1CD22CB904B0076C32D /* TPSDK.framework in Resources */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
+		D0E87D5222D4A340006E5C93 /* TPSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +29,7 @@
 		2C1BF4B32141278400E7D1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C1BF4B52141278400E7D1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C1BF4B62141278400E7D1EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TPSDKBundle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +47,7 @@
 		18B33ADF224CF2BF0093E7F7 /* TPSDK */ = {
 			isa = PBXGroup;
 			children = (
+				D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */,
 				18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */,
 			);
 			path = TPSDK;
@@ -149,10 +151,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D017E1CD22CB904B0076C32D /* TPSDK.framework in Resources */,
 				2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */,
 				2C1BF4B12141278400E7D1EC /* Assets.xcassets in Resources */,
 				2C1BF4AF2141278200E7D1EC /* Main.storyboard in Resources */,
+				D0E87D5222D4A340006E5C93 /* TPSDKBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

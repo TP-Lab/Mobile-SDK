@@ -51,7 +51,7 @@
  * @brief 重设访问SDK本地隐私数据的密码。
  *
  * @param seed 原密码
- * @param seed 新密码
+ * @param newSeed 新密码
  * @param error 错误信息（密码不匹配）
  */
 + (void)resetSeed:(NSString *)seed newSeed:(NSString *)newSeed error:(NSError **)error;
