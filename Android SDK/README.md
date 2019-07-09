@@ -20,7 +20,7 @@ This protocol can be used to call TokenPocket do some actions from page or app�
 	* [3. PushTransaction](#PushTransaction)
 	* [4. 签名(Sign)](#Sign)
 	* [5. Dapp 浏览器打开url (Dapp browser open url)](#DappurlDappbrowseropenurl)
-* [miniwallet 操作 (miniwallet APIs)](#miniwalletminiwalletAPIs)
+* [MiniWallet 操作 (MiniWallet APIs)](#miniwalletminiwalletAPIs)
 	* [1. 初始化sdk (Init SDK)](#sdkInitSDK)
 	* [2. 设置blockchain 信息 (Set blockchain info)](#blockchainSetblockchaininfo)
 	* [3. 设置插件信息 (Set plugin info)](#Setplugininfo)
@@ -258,7 +258,7 @@ Cancel return data
 "source":"xxx"
 ```
 
-## <a name='miniwalletminiwalletAPIs'></a>miniwallet 操作 (miniwallet APIs)
+## <a name='miniwalletminiwalletAPIs'></a>MiniWallet 操作 (MiniWallet APIs)
 
 ### <a name='sdkInitSDK'></a>1. 初始化sdk (Init SDK)
 
