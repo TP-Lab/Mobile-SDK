@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
 import com.tokenpocket.opensdk.innerwallet.model.AuthorizePerm;
-import com.tokenpocket.opensdk.innerwallet.model.Permission;
+import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class AuthActivity extends Activity implements View.OnClickListener {
     private EditText etPerm;
     private ListView lsActions;
     private ActionAdapter mAdapter;
-    private List<Permission.LinkAction> linkActions = new ArrayList<>();
+    private List<LinkAction> linkActions = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class AuthActivity extends Activity implements View.OnClickListener {
                 auth();
                 break;
             case R.id.btn_addaction:
-                Permission.LinkAction linkAction = new Permission.LinkAction();
+                LinkAction linkAction = new LinkAction();
                 mAdapter.addData(linkAction);
                 break;
             case R.id.btn_removeaction:

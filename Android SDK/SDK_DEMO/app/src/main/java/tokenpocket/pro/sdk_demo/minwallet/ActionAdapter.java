@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
 import com.tokenpocket.opensdk.innerwallet.model.Permission;
 
 import java.util.ArrayList;
@@ -24,15 +25,15 @@ import tokenpocket.pro.sdk_demo.R;
 
 public class ActionAdapter extends BaseAdapter {
 
-    private List<Permission.LinkAction> linkActions = new ArrayList<>();
+    private List<LinkAction> linkActions = new ArrayList<>();
     private Context mContext;
 
-    public ActionAdapter(Context context, List<Permission.LinkAction> datas) {
+    public ActionAdapter(Context context, List<LinkAction> datas) {
         this.linkActions = datas;
         this.mContext = context;
     }
 
-    public void addData(Permission.LinkAction linkAction) {
+    public void addData(LinkAction linkAction) {
         linkActions.add(linkAction);
         notifyDataSetChanged();
     }
