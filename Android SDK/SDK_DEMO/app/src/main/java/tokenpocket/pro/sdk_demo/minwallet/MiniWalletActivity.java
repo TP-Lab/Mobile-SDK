@@ -18,7 +18,7 @@ import tokenpocket.pro.sdk_demo.R;
  * Created by duke on 2019/6/26.
  */
 
-public class MinWalletActivity extends Activity {
+public class MiniWalletActivity extends Activity {
 
     private TextView tvAccounts;
 
@@ -34,10 +34,20 @@ public class MinWalletActivity extends Activity {
 
         tvAccounts = findViewById(R.id.tv_accounts);
 
+        findViewById(R.id.btn_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<String> accounts = TPManager.getInstance().getAccounts(MiniWalletActivity.this);
+                for(String account : accounts) {
+                    TPManager.getInstance().clearAuth(MiniWalletActivity.this, account);
+                }
+            }
+        });
+
         findViewById(R.id.btn_accounts).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<String> accounts = TPManager.getInstance().getAccounts(MinWalletActivity.this);
+                List<String> accounts = TPManager.getInstance().getAccounts(MiniWalletActivity.this);
                 StringBuilder sb = new StringBuilder();
                 for (String account : accounts) {
                     sb.append(account).append("  ");
@@ -49,15 +59,15 @@ public class MinWalletActivity extends Activity {
         findViewById(R.id.btn_auth).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MinWalletActivity.this, AuthActivity.class);
-                MinWalletActivity.this.startActivity(intent);
+                Intent intent = new Intent(MiniWalletActivity.this, AuthActivity.class);
+                MiniWalletActivity.this.startActivity(intent);
             }
         });
         findViewById(R.id.btn_pushtx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MinWalletActivity.this, PushTxActivity.class);
-                MinWalletActivity.this.startActivity(intent);
+                Intent intent = new Intent(MiniWalletActivity.this, PushTxActivity.class);
+                MiniWalletActivity.this.startActivity(intent);
             }
         });
     }

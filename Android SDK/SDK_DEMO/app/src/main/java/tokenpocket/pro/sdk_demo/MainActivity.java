@@ -11,7 +11,7 @@ import com.tokenpocket.opensdk.base.TPManager;
 import tokenpocket.pro.sdk_demo.bos.BOSDemoActivity;
 import tokenpocket.pro.sdk_demo.eos.EOSDemoActivity;
 import tokenpocket.pro.sdk_demo.iost.IostDemoActivity;
-import tokenpocket.pro.sdk_demo.minwallet.MinWalletActivity;
+import tokenpocket.pro.sdk_demo.minwallet.MiniWalletActivity;
 
 /**
  * Created by duke on 2019/7/9.
@@ -43,7 +43,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(IostDemoActivity.class);
                 break;
             case R.id.btn_minwallet:
-                startActivity(MinWalletActivity.class);
+                startActivity(MiniWalletActivity.class);
                 break;
         }
     }

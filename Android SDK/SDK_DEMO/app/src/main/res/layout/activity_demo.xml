@@ -11,7 +11,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="authorize" />
+        android:text="Authorize"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/btn_sign"
@@ -20,7 +21,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Sign" />
+        android:text="Sign"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/btn_transfer"
@@ -29,7 +31,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Transfer" />
+        android:text="Transfer"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/btn_pushtx"
@@ -38,6 +41,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="PushTransaction" />
+        android:text="PushTransaction"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

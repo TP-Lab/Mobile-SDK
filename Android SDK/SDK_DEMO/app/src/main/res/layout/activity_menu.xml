@@ -5,22 +5,32 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="ClearAllAuth"
+        android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btn_accounts"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="GetAuthedAccount" />
+        android:text="GetAuthedAccount"
+        android:textAllCaps="false" />
 
     <TextView
         android:id="@+id/tv_accounts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/btn_auth"
@@ -29,7 +39,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="AuthWithActionLink" />
+        android:text="AuthWithActionLink"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_pushtx"
@@ -38,6 +49,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="PushTransaction" />
+        android:text="PushTransaction"
+        android:textAllCaps="false" />
 
 </LinearLayout>

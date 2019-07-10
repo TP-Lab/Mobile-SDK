@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <EditText
         android:id="@+id/et_account"
         android:layout_width="match_parent"
