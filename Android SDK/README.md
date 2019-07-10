@@ -54,7 +54,7 @@ DApp uses this SDK  to pull up the TokenPocket wallet and do some actions such a
 
 ## <a name='Demo'></a>Demo
 
-https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/sample
+https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/SDK_DEMO
 
 ## <a name='GettingStarted'></a>开始接入 (Getting Started)
 
