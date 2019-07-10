@@ -75,7 +75,7 @@ Third-party apps can execute signatures, transfers, and etc actions by pull up t
 
 - Parameters
 
-``` json
+``` 
 {
     protocol	string   //protocol name here is TokenPocket
     version     string   // protocol version here is v1.0
