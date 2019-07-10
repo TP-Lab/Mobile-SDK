@@ -112,7 +112,7 @@ Cancel return data
 {
    "action":"login",
    "actionId":"ljsdjljdljf-xjlsdjfkj" 
-   "result":0
+   "result": 0
 }
 ```
 
