@@ -93,7 +93,7 @@ Third-party apps can execute signatures, transfers, and etc actions by pull up t
 
 - Success return data
 
-``` json
+``` 
 {
    "sign": "SIG_K1_KZL9eR4cCQCJHpYHbh44yGrDqu4w8hHzQwb1xTk4Mcd4czqpw4jJUgg9DnWXzE3r",
    "timestamp": "1546613919", //in seconds
@@ -108,7 +108,7 @@ Third-party apps can execute signatures, transfers, and etc actions by pull up t
 ```
 
 Cancel return data
-``` json
+``` 
 {
    "action":"login",
    "actionId":"ljsdjljdljf-xjlsdjfkj" 
@@ -120,7 +120,7 @@ Cancel return data
 ### <a name='Tokentransfer'></a>2. 转账 (Token transfer)
 
 - Parameters
-``` json
+``` 
 {
     protocol    string   //protocol name here is TokenPocket
     version     string   // protocol version here is v1.0
@@ -142,7 +142,7 @@ Cancel return data
 
 - Success return data
 
-``` json
+``` 
 {
 "ref": "TokenPocket",
 "txID": "588c6797534d09e8e0b149c06c11bfd6ca7b96f0d4bba87700fffe7a87b0d988",
@@ -168,7 +168,7 @@ Cancel return data
 
 - Parameters
 
-``` json
+``` 
     protocol    string  //protocol name here is TokenPocket
     version     string   // protocol version here is v1.0
     dappName    string   // optional
@@ -182,7 +182,7 @@ Cancel return data
 
 - Success return data
 
-``` json
+``` 
 {
 "ref": "TokenPocket",
 "txID": "588c6797534d09e8e0b149c06c11bfd6ca7b96f0d4bba87700fffe7a87b0d988",
@@ -197,7 +197,7 @@ Cancel return data
 
 - Cancel return data
 
-``` json
+``` 
 {
 "action":"pushTransaction",
 "actionId":"ljsdljf-xljlsdjfl"
@@ -211,7 +211,7 @@ Cancel return data
 
 - Parameters
 
-``` json
+``` 
     protocol    string  //protocol name here is TokenPocket
     version     string   // protocol version here is v1.0
     dappName    string   // optional
@@ -225,7 +225,7 @@ Cancel return data
 
 - Success return data
 
-``` json
+``` 
 {
 "ref": "TokenPocket",
 "sign": "SIG_K1_JXLSDFLJLSKDJFKJ", //signed data
@@ -240,7 +240,7 @@ Cancel return data
 
 - Cancel return data
 
-``` json
+``` 
 {
 "action":"sign",
 "actionId":"ljsdljf-xljlsdjfl"
@@ -252,7 +252,7 @@ Cancel return data
 
 - Parameters
 
-``` json
+``` 
 "url": "https://dapp.mytokenpocket.vip/referendum/index.html#/",
 "chain": "EOS", 
 "source":"xxx"
