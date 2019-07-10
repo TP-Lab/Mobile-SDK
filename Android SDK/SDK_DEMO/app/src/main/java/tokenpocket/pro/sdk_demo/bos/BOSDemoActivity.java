@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
@@ -73,7 +74,7 @@ public class BOSDemoActivity extends Activity implements View.OnClickListener {
         TPManager.getInstance().authorize(this, authorize, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(BOSDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -103,7 +104,7 @@ public class BOSDemoActivity extends Activity implements View.OnClickListener {
         TPManager.getInstance().signature(this, signature, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(BOSDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -128,17 +129,17 @@ public class BOSDemoActivity extends Activity implements View.OnClickListener {
         transfer.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
         transfer.setMemo("demo");
         transfer.setAction("transfer");
-        transfer.setFrom("xljsdljf1234");
-        transfer.setTo("xl123ljf1234");
+        transfer.setFrom("xiaoliao5551");
+        transfer.setTo("sbqiooyslrfh");
         transfer.setPrecision(4);
         transfer.setContract("eosio.token");
-        transfer.setAmount(0.1);
+        transfer.setAmount(0.0001);
         transfer.setSymbol("BOS");
         transfer.setDesc("");
         TPManager.getInstance().transfer(this, transfer, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(BOSDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -168,22 +169,22 @@ public class BOSDemoActivity extends Activity implements View.OnClickListener {
                 "          \"name\": \"transfer\",\n" +
                 "          \"authorization\": [\n" +
                 "            {\n" +
-                "              \"actor\": \"xljsdljf1234\",\n" +
+                "              \"actor\": \"xiaoliao5551\",\n" +
                 "              \"permission\": \"active\"\n" +
                 "            }\n" +
                 "          ],\n" +
                 "          \"data\": {\n" +
-                "            \"from\": \"xljsdljf1234\",\n" +
-                "            \"memo\": \"\",\n" +
+                "            \"from\": \"xiaoliao5551\",\n" +
+                "            \"memo\": \"ddd\",\n" +
                 "            \"quantity\": \"0.0001 BOS\",\n" +
-                "            \"to\": \"xl123ljf1234\"\n" +
-                "          },\n" +
+                "            \"to\": \"sbqiooyslrfh\"\n" +
+                "          }\n" +
                 "        }\n" +
                 "      ]");
         TPManager.getInstance().pushTransaction(this, transaction, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(BOSDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override

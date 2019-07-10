@@ -39,7 +39,9 @@ public class AuthActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_auth);
 
         etAccount = findViewById(R.id.et_account);
+        etAccount.setText("xiaoyuantest");
         etPerm = findViewById(R.id.et_perm);
+        etPerm.setText("testtransfer");
         findViewById(R.id.btn_auth).setOnClickListener(this);
         findViewById(R.id.btn_addaction).setOnClickListener(this);
         findViewById(R.id.btn_removeaction).setOnClickListener(this);
@@ -57,6 +59,8 @@ public class AuthActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn_addaction:
                 LinkAction linkAction = new LinkAction();
+                linkAction.setContract("eosiotptoken");
+                linkAction.setAction("transfer");
                 mAdapter.addData(linkAction);
                 break;
             case R.id.btn_removeaction:

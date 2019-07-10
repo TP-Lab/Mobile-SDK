@@ -28,8 +28,8 @@ public class MinWalletActivity extends Activity {
         setContentView(R.layout.activity_menu);
 
         TPManager.getInstance().initSDK(this);
-        TPManager.getInstance().setBlockChain(this, NetTypeEnum.EOS_MAINNET, "http://openapi.eos.ren/");
-        TPManager.getInstance().setAppPluginNode(this, "http://eosinfo.mytokenpocket.vip/v1/info/get_permission");
+        TPManager.getInstance().setBlockChain(this, NetTypeEnum.EOS_MAINNET, "http://openapi.eos.ren");
+        TPManager.getInstance().setAppPluginNode(this, "http://eosinfo.mytokenpocket.vip");
         TPManager.getInstance().setSeed(this, "123456");
 
         tvAccounts = findViewById(R.id.tv_accounts);

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.tokenpocket.opensdk.base.TPManager;
+
 import tokenpocket.pro.sdk_demo.bos.BOSDemoActivity;
 import tokenpocket.pro.sdk_demo.eos.EOSDemoActivity;
 import tokenpocket.pro.sdk_demo.iost.IostDemoActivity;
@@ -21,10 +23,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.btn_eos);
-        findViewById(R.id.btn_bos);
-        findViewById(R.id.btn_iost);
-        findViewById(R.id.btn_minwallet);
+//        TPManager.getInstance().initSDK(this);
+        findViewById(R.id.btn_eos).setOnClickListener(this);
+        findViewById(R.id.btn_bos).setOnClickListener(this);
+        findViewById(R.id.btn_iost).setOnClickListener(this);
+        findViewById(R.id.btn_minwallet).setOnClickListener(this);
     }
 
     @Override

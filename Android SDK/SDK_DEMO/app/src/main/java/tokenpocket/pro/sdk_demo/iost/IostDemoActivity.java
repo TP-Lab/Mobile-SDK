@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
@@ -73,7 +74,7 @@ public class IostDemoActivity extends Activity implements View.OnClickListener {
         TPManager.getInstance().authorize(this, authorize, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(IostDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -103,7 +104,7 @@ public class IostDemoActivity extends Activity implements View.OnClickListener {
         TPManager.getInstance().signature(this, signature, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(IostDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -128,17 +129,17 @@ public class IostDemoActivity extends Activity implements View.OnClickListener {
         transfer.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
         transfer.setMemo("demo");
         transfer.setAction("transfer");
-        transfer.setFrom("_bbbb");
-        transfer.setTo("mingyi1");
+        transfer.setFrom("mingyi1");
+        transfer.setTo("_bbbb");
         transfer.setPrecision(4);
         transfer.setContract("token.iost");
-        transfer.setAmount(0.1);
+        transfer.setAmount(0.001);
         transfer.setSymbol("IOST");
         transfer.setDesc("");
         TPManager.getInstance().transfer(this, transfer, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(IostDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -168,8 +169,8 @@ public class IostDemoActivity extends Activity implements View.OnClickListener {
                 "\t\t\t\"gasLimit\": 2000000,\n" +
                 "\t\t\t\"actions\": [{\n" +
                 "\t\t\t\t\"contract\": \"ContractF3tLtxdXwYmKsDiUtTmaQztwJQLPVf9VyWDqufMZHP5p\",\n" +
-                "\t\t\t\t\"actionName\": \"bet\",\n" +
-                "\t\t\t\t\"data\": \"[\\\"_bbbb\\\",\\\"tokenpocket\\\",\\\"0.19\\\"]\"\n" +
+                "\t\t\t\t\"actionName\": \"vote\",\n" +
+                "\t\t\t\t\"data\": \"[\\\"mingyi\\\",\\\"tokenpocket\\\",\\\"0.01\\\"]\"\n" +
                 "\t\t\t}],\n" +
                 "\t\t\t\"signers\": [],\n" +
                 "\t\t\t\"signatures\": [],\n" +
@@ -181,24 +182,24 @@ public class IostDemoActivity extends Activity implements View.OnClickListener {
                 "\t\t\t}],\n" +
                 "\t\t\t\"chain_id\": 1024,\n" +
                 "\t\t\t\"reserved\": null,\n" +
-                "\t\t\t\"time\": 1559296424058534000,\n" +
-                "\t\t\t\"expiration\": 1559296514058534000,\n" +
+                "\t\t\t\"time\": 1562733927307045600,\n" +
+                "\t\t\t\"expiration\": 1562734017307045600,\n" +
                 "\t\t\t\"delay\": 0\n" +
                 "\t\t},\n" +
-                "\t\t\"domain\": \"vote.liebi.com\",\n" +
-                "\t\t\"account\": \"_bbbb\",\n" +
+                "\t\t\"domain\": \"tool.liebi.com\",\n" +
+                "\t\t\"account\": \"mingyi\",\n" +
                 "\t\t\"network\": \"MAINNET\",\n" +
-                "\t\t\"txABI\": [\"ContractF3tLtxdXwYmKsDiUtTmaQztwJQLPVf9VyWDqufMZHP5p\", \"vote\", [\"_bbbb\", \"tokenpocket\", \"0.19\"]]\n" +
+                "\t\t\"txABI\": [\"ContractF3tLtxdXwYmKsDiUtTmaQztwJQLPVf9VyWDqufMZHP5p\", \"vote\", [\"mingyi\", \"tokenpocket\", \"0.01\"]]\n" +
                 "\t}");
         TPManager.getInstance().pushTransaction(this, transaction, new TPListener() {
             @Override
             public void onSuccess(String s) {
-
+                Toast.makeText(IostDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onError(String s) {
-
+                Toast.makeText(IostDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
             @Override

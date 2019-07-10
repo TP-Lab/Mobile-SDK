@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
 import com.tokenpocket.opensdk.net.custom.Json;
@@ -33,6 +34,7 @@ public class PushTxActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pushtx);
         etTransactions = findViewById(R.id.et_actions);
+        etTransactions.setText(actions);
         findViewById(R.id.btn_pushtx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,15 +50,15 @@ public class PushTxActivity extends Activity {
             "          \"name\": \"transfer\",\n" +
             "          \"authorization\": [\n" +
             "            {\n" +
-            "              \"actor\": \"sldjdljklf12\",\n" +
+            "              \"actor\": \"xiaoyuantest\",\n" +
             "              \"permission\": \"testtransfer\"\n" +
             "            }\n" +
             "          ],\n" +
             "          \"data\": {\n" +
-            "            \"from\": \"sldjdljklf12\",\n" +
+            "            \"from\": \"xiaoyuantest\",\n" +
             "            \"memo\": \"ddd\",\n" +
             "            \"quantity\": \"0.0100 TPT\",\n" +
-            "            \"to\": \"clement21212\"\n" +
+            "            \"to\": \"clementtes51\"\n" +
             "          }\n" +
             "        }\n" +
             "      ]";
