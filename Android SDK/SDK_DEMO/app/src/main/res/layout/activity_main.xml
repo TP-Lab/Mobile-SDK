@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_eos"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="EOS" />
+
+    <Button
+        android:id="@+id/btn_bos"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="BOS" />
+
+    <Button
+        android:id="@+id/btn_iost"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="IOST" />
+
+    <Button
+        android:id="@+id/btn_minwallet"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="MiniWallet"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

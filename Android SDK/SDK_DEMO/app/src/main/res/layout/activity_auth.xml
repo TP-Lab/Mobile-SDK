@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_account"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:hint="account" />
+
+    <EditText
+        android:id="@+id/et_perm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:hint="permission name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_addaction"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:text="Add Action" />
+
+        <Button
+            android:id="@+id/btn_removeaction"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:text="Remove Action" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Contract" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Action" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/ls_actions"
+        android:layout_width="match_parent"
+        android:layout_height="220dp" />
+
+
+    <Button
+        android:id="@+id/btn_auth"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="Auth"
+        android:textColor="#ffffff" />
+
+
+</LinearLayout>
