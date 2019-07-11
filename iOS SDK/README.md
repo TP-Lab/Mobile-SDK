@@ -55,14 +55,14 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 
 ## Sample
 
-###1.Login
+### 1.Login
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
 login.dappIcon = @"https:.../xx.png";
 [TPApi sendObj:login];
 ```
-###Login callback
+### Login callback
 ```
 TPRespObj.data
 {
@@ -74,7 +74,7 @@ TPRespObj.data
 }
 ```
 
-###2.Sign
+### 2.Sign
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -82,7 +82,7 @@ sign.dappIcon = @"https:.../xx.png";
 sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
-###Sign callback
+### Sign callback
 ```
 TPRespObj.data
 {
@@ -91,7 +91,7 @@ TPRespObj.data
 }
 ```
 
-###3.Transfer
+### 3.Transfer
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -104,7 +104,7 @@ transfer.precision = @(4);
 transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
-###Transfer callback
+### Transfer callback
 ```
 TPRespObj.data
 {
@@ -116,7 +116,7 @@ TPRespObj.data
 }
 ```
 
-###4.Push transaction
+### 4.Push transaction
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
@@ -133,7 +133,7 @@ transaction.actions = @[@{@"account": @"eosio.token",
 [TPApi sendObj:transaction];
 ```
 
-###Push transaction callback
+### Push transaction callback
 ```
 TPRespObj.data
 {
@@ -162,7 +162,7 @@ MiniWallet，可以实现对于特定操作，第三方App不需要拉起钱包�
 [TPApi setBlockChain:TPBlockChainTypeEOSMainNet nodeUrl:@"http://eosinfo.mytokenpocket.vip" plugNodeUrl:@"http://eosinfo.mytokenpocket.vip"];
 ```
 
-###1.Auth
+### 1.Auth
 ```
 TPAuthObj *auth = [TPAuthObj new];
 auth.dappName = @"xxx";
@@ -175,7 +175,7 @@ auth.actions = [linkActions];
         
     }];
 ```
-###Auth callback
+### Auth callback
 ```
 TPRespObj.data
 {
@@ -281,14 +281,14 @@ TPRespObj.data
 
 ## 代码示例
 
-###1.Login
+### 1.Login
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
 login.dappIcon = @"https:.../xx.png";
 [TPApi sendObj:login];
 ```
-###Login callback
+### Login callback
 ```
 TPRespObj.data
 {
@@ -300,7 +300,7 @@ TPRespObj.data
 }
 ```
 
-###2.Sign
+### 2.Sign
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -308,7 +308,7 @@ sign.dappIcon = @"https:.../xx.png";
 sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
-###Sign callback
+### Sign callback
 ```
 TPRespObj.data
 {
@@ -318,7 +318,7 @@ TPRespObj.data
 ```
 
 
-###3.Transfer
+### 3.Transfer
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -331,7 +331,7 @@ transfer.precision = @(4);
 transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
-###Transfer callback
+### Transfer callback
 ```
 TPRespObj.data
 {
@@ -343,7 +343,7 @@ TPRespObj.data
 }
 ```
 
-###4.Push transaction
+### 4.Push transaction
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
@@ -359,7 +359,7 @@ transaction.actions = @[@{@"account": @"eosio.token",
                         }];
 [TPApi sendObj:transaction];
 ```
-###Push transaction callback
+### Push transaction callback
 ```
 TPRespObj.data
 {
@@ -384,7 +384,7 @@ MiniWallet，可以实现对于特定操作，第三方App不需要拉起钱包�
 [TPApi setBlockChain:TPBlockChainTypeEOSMainNet nodeUrl:@"http://eosinfo.mytokenpocket.vip" plugNodeUrl:@"http://eosinfo.mytokenpocket.vip"];
 ```
 
-###1.Auth
+### 1.Auth
 ```
 TPAuthObj *auth = [TPAuthObj new];
 auth.dappName = @"xxx";
@@ -397,7 +397,7 @@ auth.actions = [linkActions];
         
     }];
 ```
-###Auth callback
+### Auth callback
 ```
 TPRespObj.data
 {
