@@ -19,6 +19,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [TPApi registerAppID:@"demoapp"];
+    
+    [TPApi enableLog:YES];
+    
+    NSError *err;
+    [TPApi setSeed:@"12345678" error:&err];
+    if (err) {
+        NSLog(@"%@", err.localizedDescription);
+    }
+    [TPApi setBlockChain:TPBlockChainTypeEOSMainNet nodeUrl:@"http://eosinfo.mytokenpocket.vip" plugNodeUrl:@"http://eosinfo.mytokenpocket.vip"];
     return YES;
 }
 

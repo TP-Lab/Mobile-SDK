@@ -14,6 +14,9 @@
 		2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B22141278400E7D1EC /* LaunchScreen.storyboard */; };
 		2C1BF4B72141278400E7D1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B62141278400E7D1EC /* main.m */; };
 		D017E1CC22CB903F0076C32D /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
+		D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962C22D8297E00AD53EE /* TSDMiniViewController.m */; };
+		D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962F22D82BE300AD53EE /* AuthViewController.m */; };
+		D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D963122D82BE300AD53EE /* PushTransactionViewController.m */; };
 		D0E87D5222D4A340006E5C93 /* TPSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,12 @@
 		2C1BF4B32141278400E7D1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C1BF4B52141278400E7D1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C1BF4B62141278400E7D1EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D07D962B22D8297E00AD53EE /* TSDMiniViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSDMiniViewController.h; sourceTree = "<group>"; };
+		D07D962C22D8297E00AD53EE /* TSDMiniViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSDMiniViewController.m; sourceTree = "<group>"; };
+		D07D962E22D82BE300AD53EE /* PushTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTransactionViewController.h; sourceTree = "<group>"; };
+		D07D962F22D82BE300AD53EE /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
+		D07D963022D82BE300AD53EE /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
+		D07D963122D82BE300AD53EE /* PushTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTransactionViewController.m; sourceTree = "<group>"; };
 		D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TPSDKBundle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				18B33ADF224CF2BF0093E7F7 /* TPSDK */,
+				D07D962A22D8294400AD53EE /* Mini */,
 				2C1BF4A72141278200E7D1EC /* AppDelegate.h */,
 				2C1BF4A82141278200E7D1EC /* AppDelegate.m */,
 				2C1BF4AA2141278200E7D1EC /* ViewController.h */,
@@ -92,6 +102,19 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D07D962A22D8294400AD53EE /* Mini */ = {
+			isa = PBXGroup;
+			children = (
+				D07D962B22D8297E00AD53EE /* TSDMiniViewController.h */,
+				D07D962C22D8297E00AD53EE /* TSDMiniViewController.m */,
+				D07D963022D82BE300AD53EE /* AuthViewController.h */,
+				D07D962F22D82BE300AD53EE /* AuthViewController.m */,
+				D07D962E22D82BE300AD53EE /* PushTransactionViewController.h */,
+				D07D963122D82BE300AD53EE /* PushTransactionViewController.m */,
+			);
+			path = Mini;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +189,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C1BF4AC2141278200E7D1EC /* ViewController.m in Sources */,
+				D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */,
+				D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */,
+				D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */,
 				2C1BF4B72141278400E7D1EC /* main.m in Sources */,
 				2C1BF4A92141278200E7D1EC /* AppDelegate.m in Sources */,
 			);
