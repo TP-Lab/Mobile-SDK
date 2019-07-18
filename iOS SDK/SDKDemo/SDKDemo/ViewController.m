@@ -77,6 +77,7 @@
     sign.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     sign.message = @"sign data...";
     sign.blockchain = @"eos";
+//    sign.isHash = YES;
     [TPApi sendObj:sign];
 }
 

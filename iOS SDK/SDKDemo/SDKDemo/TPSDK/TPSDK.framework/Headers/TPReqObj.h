@@ -87,6 +87,8 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 @interface TPSignObj : TPReqObj
 
 @property (nonatomic, copy) NSString *message;              // 请求签名的数据          <required>
+@property (nonatomic, assign) BOOL isHash;                  // 是否signHash<optional>
+
 @property (nonatomic, copy) NSString *wallet;               // 请求签名的钱包          <optional>
 
 @end
