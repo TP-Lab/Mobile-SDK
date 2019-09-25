@@ -74,6 +74,7 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 
 @property (nonatomic, copy) NSString *wallet;               // 请求授权的EOS账号       <optional>
 
+
 @end
 
 
@@ -82,7 +83,7 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 /*!
  * @class   TPSignObj
  * @brief   数据签名
- * @note    TP App iOS企业版0.7.2 / App Store版1.1.9起支持SDK签名操作
+ * @note    App Store版1.1.9起支持SDK签名操作
  */
 @interface TPSignObj : TPReqObj
 
@@ -90,6 +91,12 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 @property (nonatomic, assign) BOOL isHash;                  // 是否signHash<optional>
 
 @property (nonatomic, copy) NSString *wallet;               // 请求签名的钱包          <optional>
+
+//波场专用 默认为YES
+@property (nonatomic, assign) BOOL useTronHeader;
+
+//目前以太用
+@property (nonatomic, copy) NSString *signType;           //   签名类型，ethSign（默认），ethPersonalSign
 
 @end
 
@@ -116,6 +123,10 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
  * @discuss  最长不要超过128个字节
  */
 @property (nonatomic, copy) NSString *desc;
+
+//以太
+@property (nonatomic, copy) NSString *gasPrice;     // 转账的gasPrice，可选
+@property (nonatomic, copy) NSString *gas;          // 转账的gas，可选
 
 @end
 
@@ -167,6 +178,8 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
  "}"
  */
 @property (nonatomic, strong) NSDictionary *payload;             // iost数据      <required>
+
+@property (nonatomic, strong) id txData;  //波场、以太
 
 @end
 

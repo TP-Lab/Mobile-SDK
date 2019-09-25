@@ -17,6 +17,10 @@
 		D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962C22D8297E00AD53EE /* TSDMiniViewController.m */; };
 		D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962F22D82BE300AD53EE /* AuthViewController.m */; };
 		D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D963122D82BE300AD53EE /* PushTransactionViewController.m */; };
+		D09003EA2330D98F00E17E50 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003E92330D98F00E17E50 /* TPLoginViewController.m */; };
+		D09003ED2330D99E00E17E50 /* TPSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003EC2330D99E00E17E50 /* TPSignViewController.m */; };
+		D09003F02330D9AE00E17E50 /* TPTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003EF2330D9AE00E17E50 /* TPTransferViewController.m */; };
+		D09003F32330D9C400E17E50 /* TPContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003F22330D9C400E17E50 /* TPContractViewController.m */; };
 		D0E87D5222D4A340006E5C93 /* TPSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +42,14 @@
 		D07D962F22D82BE300AD53EE /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		D07D963022D82BE300AD53EE /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
 		D07D963122D82BE300AD53EE /* PushTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTransactionViewController.m; sourceTree = "<group>"; };
+		D09003E82330D98F00E17E50 /* TPLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
+		D09003E92330D98F00E17E50 /* TPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
+		D09003EB2330D99E00E17E50 /* TPSignViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSignViewController.h; sourceTree = "<group>"; };
+		D09003EC2330D99E00E17E50 /* TPSignViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSignViewController.m; sourceTree = "<group>"; };
+		D09003EE2330D9AE00E17E50 /* TPTransferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransferViewController.h; sourceTree = "<group>"; };
+		D09003EF2330D9AE00E17E50 /* TPTransferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransferViewController.m; sourceTree = "<group>"; };
+		D09003F12330D9C400E17E50 /* TPContractViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPContractViewController.h; sourceTree = "<group>"; };
+		D09003F22330D9C400E17E50 /* TPContractViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPContractViewController.m; sourceTree = "<group>"; };
 		D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TPSDKBundle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +94,7 @@
 		2C1BF4A62141278200E7D1EC /* SDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D09003E72330D95A00E17E50 /* Simple */,
 				18B33ADF224CF2BF0093E7F7 /* TPSDK */,
 				D07D962A22D8294400AD53EE /* Mini */,
 				2C1BF4A72141278200E7D1EC /* AppDelegate.h */,
@@ -115,6 +128,21 @@
 				D07D963122D82BE300AD53EE /* PushTransactionViewController.m */,
 			);
 			path = Mini;
+			sourceTree = "<group>";
+		};
+		D09003E72330D95A00E17E50 /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				D09003E82330D98F00E17E50 /* TPLoginViewController.h */,
+				D09003E92330D98F00E17E50 /* TPLoginViewController.m */,
+				D09003EB2330D99E00E17E50 /* TPSignViewController.h */,
+				D09003EC2330D99E00E17E50 /* TPSignViewController.m */,
+				D09003EE2330D9AE00E17E50 /* TPTransferViewController.h */,
+				D09003EF2330D9AE00E17E50 /* TPTransferViewController.m */,
+				D09003F12330D9C400E17E50 /* TPContractViewController.h */,
+				D09003F22330D9C400E17E50 /* TPContractViewController.m */,
+			);
+			path = Simple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,8 +219,12 @@
 				2C1BF4AC2141278200E7D1EC /* ViewController.m in Sources */,
 				D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */,
 				D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */,
+				D09003EA2330D98F00E17E50 /* TPLoginViewController.m in Sources */,
 				D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */,
+				D09003F02330D9AE00E17E50 /* TPTransferViewController.m in Sources */,
+				D09003ED2330D99E00E17E50 /* TPSignViewController.m in Sources */,
 				2C1BF4B72141278400E7D1EC /* main.m in Sources */,
+				D09003F32330D9C400E17E50 /* TPContractViewController.m in Sources */,
 				2C1BF4A92141278200E7D1EC /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,7 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8566D436G4;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKDemo",
@@ -360,7 +392,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8566D436G4;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKDemo",
