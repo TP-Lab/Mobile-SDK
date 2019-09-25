@@ -6,8 +6,10 @@ DApp uses this SDK  to pull up the TokenPocket wallet and do some actions such a
 
 - 该SDK仅支持0.4.9以上版本的TP钱包。
 - 0.7.8以及以上的TP钱包版本支持MiniWallet。
+- 0.8.3以及以上的TP钱包版本支持Tron Eth SDK
 - Only version 0.4.9 or higher support this SDK.
 - Only version 0.7.8 or higher support MiniWallet apis.
+- Only version 0.8.3 or higher support Tron and Eth SDK.
 
 ## <a name='Catalog'></a>目录 (Catalog)
 
@@ -74,7 +76,7 @@ allprojects {
 
 ``` java
 dependencies {
-    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.2'
+    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.3'
 }
 ```
 
@@ -166,6 +168,7 @@ dependencies {
     transaction.setBlockchain("EOS");
     transaction.setDappName("Test Name");
     transaction.setDappIcon("https://newdex.io/static/logoicon.png");
+    //for tron and eth here call transaction.setTxData("...")
     transaction.setActions("[{\n" +
             "\"account\": \"eosio.token\",\n" +
             "\"name\": \"transfer\",\n" +
@@ -209,6 +212,7 @@ dependencies {
     signature.setCallbackUrl("https://newdex.io/api/account/walletVerify");
     signature.setExpired(1537157808L);
     signature.setMemo("The first gobal decentralized exchange built on EOS");
+    //tron and eth only support hex string
     signature.setMessage("hello");
     signature.setBlockchain("EOS");
     TPManager.getInstance().sign(MainActivity.this, getSignature(),new TPListener() {
