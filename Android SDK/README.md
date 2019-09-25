@@ -74,7 +74,7 @@ allprojects {
 
 ``` java
 dependencies {
-    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.1'
+    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.2'
 }
 ```
 
@@ -159,7 +159,7 @@ dependencies {
 
 #### <a name='PushTransaction'></a>3.PushTransaction
 
-==如果是IOST底层，将transaction.setActions替换成setPayload,详情请见demo (If is iost, replace setActions with setPalyload, for more details, please check the demo project)==
+如果是IOST底层，将transaction.setActions替换成setPayload,详情请见demo (If is iost, replace setActions with setPalyload, for more details, please check the demo project)==
 
 ``` java
     Transaction transaction = new Transaction();
@@ -231,6 +231,8 @@ dependencies {
 ### <a name='Introduction'></a>简介 (Introduction)
 
 MiniWallet，可以实现对于特定操作，第三方App不需要拉起钱包，直接在应用内部完成，体验更为流畅
+MiniWallet support  execute specific actions without leaving the app, which provides a better user experience
+ 
 ### <a name='init'></a>初始化（init）
 
 - 调用TPManager.getInstance().initSDK初始化SDK
@@ -295,7 +297,7 @@ TPManager.getInstance().modifySeed(Context context, "xxx", "yyy")；
 注意这里xxx  yyy只是示例，请设置自己的seed (The xxx and yyy is just for demo,please set your  seed)
 ```
 
-#### <a name='Getauthedaccounts'></a>6.获取已授权账号信息 (Get authed accounts
+#### <a name='Getauthedaccounts'></a>6.获取已授权账号信息 (Get authed accounts)
 
 ``` java
 List<String> accounts = TPManager.getInstance().getAccounts(Context context)；
