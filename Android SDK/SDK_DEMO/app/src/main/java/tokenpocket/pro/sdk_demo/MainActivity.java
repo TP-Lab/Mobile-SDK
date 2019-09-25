@@ -10,8 +10,10 @@ import com.tokenpocket.opensdk.base.TPManager;
 
 import tokenpocket.pro.sdk_demo.bos.BOSDemoActivity;
 import tokenpocket.pro.sdk_demo.eos.EOSDemoActivity;
+import tokenpocket.pro.sdk_demo.eth.EthDemoActivity;
 import tokenpocket.pro.sdk_demo.iost.IostDemoActivity;
 import tokenpocket.pro.sdk_demo.minwallet.MiniWalletActivity;
+import tokenpocket.pro.sdk_demo.tron.TronDemoActivity;
 
 /**
  * Created by duke on 2019/7/9.
@@ -27,6 +29,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn_eos).setOnClickListener(this);
         findViewById(R.id.btn_bos).setOnClickListener(this);
         findViewById(R.id.btn_iost).setOnClickListener(this);
+        findViewById(R.id.btn_eth).setOnClickListener(this);
+        findViewById(R.id.btn_tron).setOnClickListener(this);
         findViewById(R.id.btn_minwallet).setOnClickListener(this);
     }
 
@@ -41,6 +45,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn_iost:
                 startActivity(IostDemoActivity.class);
+                break;
+            case R.id.btn_eth:
+                startActivity(EthDemoActivity.class);
+                break;
+            case R.id.btn_tron:
+                startActivity(TronDemoActivity.class);
                 break;
             case R.id.btn_minwallet:
                 startActivity(MiniWalletActivity.class);
