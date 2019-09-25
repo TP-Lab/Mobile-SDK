@@ -51,19 +51,18 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 2. **Sign:** Sign the data
 3. **Transfer:** transfer-action
 4. **Push transaction:** Push actions
-5. **Auth:** Link actions And Login
 
 
 ## Sample
 
-**1.Login**
+### 1.Login
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
 login.dappIcon = @"https:.../xx.png";
 [TPApi sendObj:login];
 ```
-**Login callback**
+### Login callback
 ```
 TPRespObj.data
 {
@@ -75,7 +74,7 @@ TPRespObj.data
 }
 ```
 
-**2.Sign**
+### 2.Sign
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -83,7 +82,7 @@ sign.dappIcon = @"https:.../xx.png";
 sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
-**Sign callback**
+### Sign callback
 ```
 TPRespObj.data
 {
@@ -92,7 +91,7 @@ TPRespObj.data
 }
 ```
 
-**3.Transfer**
+### 3.Transfer
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -105,7 +104,7 @@ transfer.precision = @(4);
 transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
-**Transfer callback**
+### Transfer callback
 ```
 TPRespObj.data
 {
@@ -117,7 +116,7 @@ TPRespObj.data
 }
 ```
 
-**4.Push transaction**
+### 4.Push transaction
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
@@ -134,7 +133,7 @@ transaction.actions = @[@{@"account": @"eosio.token",
 [TPApi sendObj:transaction];
 ```
 
-**Push transaction callback**
+### Push transaction callback
 ```
 TPRespObj.data
 {
@@ -146,7 +145,24 @@ TPRespObj.data
 }
 ```
 
-**5.Auth**
+## <a name='MiniWallet'></a>MiniWallet
+
+### <a name='Introduction'></a>Introduction
+
+MiniWallet，可以实现对于特定操作，第三方App不需要拉起钱包，直接在应用内部完成，体验更为流畅
+### <a name='init'></a>init
+
+- Register your scheme
+- Set blockchain info and plugin info
+- Set seed
+
+```
+[TPApi registerAppID:@"tpsdk"];
+[TPApi setSeed:@"xxxx" error:nil];
+[TPApi setBlockChain:TPBlockChainTypeEOSMainNet nodeUrl:@"http://eosinfo.mytokenpocket.vip" plugNodeUrl:@"http://eosinfo.mytokenpocket.vip"];
+```
+
+### 1.Auth
 ```
 TPAuthObj *auth = [TPAuthObj new];
 auth.dappName = @"xxx";
@@ -159,7 +175,7 @@ auth.actions = [linkActions];
         
     }];
 ```
-**Auth callback**
+### Auth callback
 ```
 TPRespObj.data
 {
@@ -171,7 +187,44 @@ TPRespObj.data
 }
 ```
 
+### <a name='pushTransaction'></a>2.pushTransaction
 
+- Set the permission in authorization to the value which used in auth method
+- Call `TPApi perm:(NSString *)perm isLinkActions:(NSArray<TPLinkAction *> *)actions account:(NSString *)account completion:(void (^)(BOOL permExisted,BOOL linked,NSError *error))completion` to check actions bind status
+- If get success callback then just call 'Auth' to execute this action
+- If get fail callback, you should replace the permission to active or owner, so that it can pull up TokenPocket to do this action
+
+### <a name='MiniWalletMiniWalletapis'></a>MiniWallet apis
+
+#### <a name='resetSeed'></a>1.Modify seed
+
+```
++ (void)resetSeed:(NSString *)seed newSeed:(NSString *)newSeed error:(NSError **)error;
+```
+
+#### <a name='Getauthedaccounts'></a>2.Get authed accounts
+
+```
++ (NSArray<NSString *> *)getAccounts;
+```
+
+#### <a name='Checkpermissionbindtoaccount'></a>3.Check permission bind to account
+
+```
++ (void)isPermExist:(NSString *)perm account:(NSString *)account completion:(void (^)(BOOL exist,NSError *error))completion;
+```
+
+#### <a name='linkactionCheckactionbindtopermission'></a>4.Check action bind to permission
+
+```
++ (void)perm:(NSString *)perm isLinkActions:(NSArray<TPLinkAction *> *)actions account:(NSString *)account completion:(void (^)(BOOL permExisted,BOOL linked,NSError *error))completion;
+```
+
+#### <a name='Clearauthedaccount'></a>5.Clear authed account
+
+```
++ (BOOL)clearAuth:(NSString *)account;
+```
 
 # iOS接入指南
 注：本文为TP iOS客户端SDK新手使用教程，只涉及教授SDK的使用方法，默认读者已经熟悉Xcode开发工具的基本使用方法，以及具有一定的编程知识基础等。
@@ -228,14 +281,14 @@ TPRespObj.data
 
 ## 代码示例
 
-**1.Login**
+### 1.Login
 ```
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
 login.dappIcon = @"https:.../xx.png";
 [TPApi sendObj:login];
 ```
-**Login callback**
+### Login callback
 ```
 TPRespObj.data
 {
@@ -247,7 +300,7 @@ TPRespObj.data
 }
 ```
 
-**2.Sign**
+### 2.Sign
 ```
 TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
@@ -255,7 +308,7 @@ sign.dappIcon = @"https:.../xx.png";
 sign.message = @"sign data...";
 [TPApi sendObj:sign];
 ```
-**Sign callback**
+### Sign callback
 ```
 TPRespObj.data
 {
@@ -265,7 +318,7 @@ TPRespObj.data
 ```
 
 
-**3.Transfer**
+### 3.Transfer
 ```
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
@@ -278,7 +331,7 @@ transfer.precision = @(4);
 transfer.amount = @(0.0001);
 [TPApi sendObj:transfer];
 ```
-**Transfer callback**
+### Transfer callback
 ```
 TPRespObj.data
 {
@@ -290,7 +343,7 @@ TPRespObj.data
 }
 ```
 
-**4.Push transaction**
+### 4.Push transaction
 ```
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
@@ -306,7 +359,7 @@ transaction.actions = @[@{@"account": @"eosio.token",
                         }];
 [TPApi sendObj:transaction];
 ```
-**Push transaction callback**
+### Push transaction callback
 ```
 TPRespObj.data
 {
@@ -318,7 +371,20 @@ TPRespObj.data
 }
 ```
 
-**5.Auth**
+## <a name='MiniWallet'></a>MiniWallet
+
+### <a name='Introduction'></a>简介 (Introduction)
+
+MiniWallet，可以实现对于特定操作，第三方App不需要拉起钱包，直接在应用内部完成，体验更为流畅
+### <a name='init'></a>初始化（init）
+
+```
+[TPApi registerAppID:@"tpsdk"];
+[TPApi setSeed:@"xxxx" error:nil];
+[TPApi setBlockChain:TPBlockChainTypeEOSMainNet nodeUrl:@"http://eosinfo.mytokenpocket.vip" plugNodeUrl:@"http://eosinfo.mytokenpocket.vip"];
+```
+
+### 1.Auth
 ```
 TPAuthObj *auth = [TPAuthObj new];
 auth.dappName = @"xxx";
@@ -331,7 +397,7 @@ auth.actions = [linkActions];
         
     }];
 ```
-**Auth callback**
+### Auth callback
 ```
 TPRespObj.data
 {
@@ -341,4 +407,43 @@ TPRespObj.data
     "sign" : "SIG_K1_JyCJtV9vqwxtyEt68UhUibkg1CmRjxtG6zkZwE...",
     "timestamp" : "1554266633",
 }
+```
+
+### <a name='pushTransaction'></a>2.pushTransaction
+
+- 构建数据，将操作的action中的permission字段值替换成调用auth传递的perm字段
+- 调用`TPApi perm:(NSString *)perm isLinkActions:(NSArray<TPLinkAction *> *)actions account:(NSString *)account completion:(void (^)(BOOL permExisted,BOOL linked,NSError *error))completion`检查action绑定状态
+- 如果第二步绑定成功，则直接调用'Auth'
+- 如果第二步绑定失败，则需要开发者将permission字段替换成active或者owner,以便拉起钱包执行操作
+
+### <a name='MiniWalletMiniWalletapis'></a>MiniWallet操作 
+
+#### <a name='resetSeed'></a>1.修改seed
+
+```
++ (void)resetSeed:(NSString *)seed newSeed:(NSString *)newSeed error:(NSError **)error;
+```
+
+#### <a name='Getauthedaccounts'></a>2.获取已授权账号信息 
+
+```
++ (NSArray<NSString *> *)getAccounts;
+```
+
+#### <a name='Checkpermissionbindtoaccount'></a>3.检查权限是否存在 
+
+```
++ (void)isPermExist:(NSString *)perm account:(NSString *)account completion:(void (^)(BOOL exist,NSError *error))completion;
+```
+
+#### <a name='linkactionCheckactionbindtopermission'></a>4.检查权限是否link到action
+
+```
++ (void)perm:(NSString *)perm isLinkActions:(NSArray<TPLinkAction *> *)actions account:(NSString *)account completion:(void (^)(BOOL permExisted,BOOL linked,NSError *error))completion;
+```
+
+#### <a name='Clearauthedaccount'></a>5.清除本地授权
+
+```
++ (BOOL)clearAuth:(NSString *)account;
 ```

@@ -55,7 +55,6 @@
     [array addObject:[TPDMRowData dataWithTitle:@"TP Sign" action:@selector(onTPSign)]];
     [array addObject:[TPDMRowData dataWithTitle:@"TP Transfer" action:@selector(onTPTransfer)]];
     [array addObject:[TPDMRowData dataWithTitle:@"TP PushTransaction" action:@selector(onTPPushTransaction)]];
-    [array addObject:[TPDMRowData dataWithTitle:@"TP Auth" action:@selector(onAuth)]];
     self.dataArray = array.copy;
     [self.tableView reloadData];
 }
@@ -78,6 +77,7 @@
     sign.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     sign.message = @"sign data...";
     sign.blockchain = @"eos";
+//    sign.isHash = YES;
     [TPApi sendObj:sign];
 }
 
@@ -112,20 +112,6 @@
                                          @"memo": @"Memo string..."},
                               }];
     [TPApi sendObj:transaction];
-}
-
-/**  Auth */
-- (void)onAuth {
-    TPAuthObj *auth = [TPAuthObj new];
-    auth.account = @"account name";
-    auth.perm = @"permissionName";
-    auth.selectAll = YES;
-    auth.blockchain = @"eos";
-    
-    auth.actions = @[[TPLinkAction linkActionWithContract:@"contract name" action:@"action name"]];
-    [TPApi sendObj:auth resultHandle:^(TPReqType type,NSError *error){
-        
-    }];
 }
 
 #pragma mark ~~~~ UITableViewDelegate, UITableViewDataSource ~~~~
