@@ -32,6 +32,24 @@
         android:text="IOST" />
 
     <Button
+        android:id="@+id/btn_eth"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="ETH" />
+
+    <Button
+        android:id="@+id/btn_tron"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="#bbbbbb"
+        android:gravity="center"
+        android:text="Tron" />
+
+    <Button
         android:id="@+id/btn_minwallet"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -39,6 +57,6 @@
         android:background="#bbbbbb"
         android:gravity="center"
         android:text="MiniWallet"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
 </LinearLayout>

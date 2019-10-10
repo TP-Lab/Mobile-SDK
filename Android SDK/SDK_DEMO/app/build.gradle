@@ -36,6 +36,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.1'
+    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.3'
+//    compile(name:'wallet-sdk-release', ext:'aar')
+//    compile(name:'wallet-sdk-debug', ext:'aar')
+
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
 }
