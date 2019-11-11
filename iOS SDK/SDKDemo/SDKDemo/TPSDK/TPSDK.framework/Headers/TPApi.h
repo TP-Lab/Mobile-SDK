@@ -93,6 +93,18 @@
  */
 + (NSArray<NSString *> *)getAccounts;
 
+/*!
+* @brief 获取指定账户的资源代付开关状态
+*
+* @return 开关状态
+*/
++ (BOOL)payResourceSwitchForAccount:(NSString *)account;
+
+/*!
+* @brief 设置指定账户的资源代付开关状态
+*
+*/
++ (void)setPayResourceSwitch:(BOOL)paySwitch forAccount:(NSString *)account;
 
 /*!
  * @brief 删除sdk本地某个账号信息（不会删除链上数据）

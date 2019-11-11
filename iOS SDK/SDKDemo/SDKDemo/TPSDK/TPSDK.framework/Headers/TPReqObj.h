@@ -83,7 +83,7 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 /*!
  * @class   TPSignObj
  * @brief   数据签名
- * @note    App Store版1.1.9起支持SDK签名操作
+ * @note    App Store版1.1.9起支持SDK签名操作；波场签名只支持16进制数据
  */
 @interface TPSignObj : TPReqObj
 
