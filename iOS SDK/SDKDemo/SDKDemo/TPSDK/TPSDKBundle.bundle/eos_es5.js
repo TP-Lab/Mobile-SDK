@@ -23015,7 +23015,11 @@ function _defineProperty2(obj, key, value) {
                   if (!nameType) {
                     return null;
                   }
+
                   var sort = config.sort[key + "." + fieldName] || false; // console.log('sort?', `${key}.${fieldName}`, sort, config.sort)
+                  if (withoutSort) {
+                    sort = false
+                  }
                   ret = types.vector(nameType, sort);
                 } else if (arrayType.length > 0) {
                   // vector[Type]

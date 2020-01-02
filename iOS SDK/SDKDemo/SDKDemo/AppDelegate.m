@@ -21,6 +21,7 @@
     [TPApi registerAppID:@"demoapp"];
     
     [TPApi enableLog:YES];
+    [TPApi setPayResourceSwitch:YES forAccount:@"verycoolcool"];
     
     NSError *err;
     [TPApi setSeed:@"12345678" error:&err];
