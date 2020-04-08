@@ -181,6 +181,10 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 
 @property (nonatomic, strong) id txData;  //波场、以太
 
+///是否只签名
+@property (nonatomic, assign) BOOL onlySign;
+
+
 @end
 
 @class TPLinkAction;

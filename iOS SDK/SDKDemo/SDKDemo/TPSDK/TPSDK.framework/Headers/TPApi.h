@@ -59,7 +59,7 @@
 /*!
  * @brief 日志开关
  *
- *@param enable 是否打印日志
+ * @param enable 是否打印日志
  */
 + (void)enableLog:(BOOL)enable;
 
