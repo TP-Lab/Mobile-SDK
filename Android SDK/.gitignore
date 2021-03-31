@@ -10,3 +10,5 @@
 .externalNativeBuild
 /gradlew
 /gradlew.bat
+/app/build
+/sample/build
