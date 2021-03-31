@@ -35,6 +35,9 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     private Button btnPushTransaction;
     private EditText etSign;
 
+    //标记网络，eth(以太坊), bsc(币安智能链), heco(火币生态链)
+    private final static String CHAIN = "bsc";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +80,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private void authorize() {
         Authorize authorize = new Authorize();
-        authorize.setBlockchain("ETH");
+        authorize.setBlockchain(CHAIN);
         authorize.setProtocol("TokenPocket");
         authorize.setVersion("1.0");
         authorize.setDappName("Test demo");
@@ -107,7 +110,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private void sign() {
         Signature signature = new Signature();
-        signature.setBlockchain("ETH");
+        signature.setBlockchain(CHAIN);
         signature.setProtocol("TokenPocket");
         signature.setVersion("1.0");
         signature.setDappName("Test demo");
@@ -138,7 +141,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private void personalSign() {
         Signature signature = new Signature();
-        signature.setBlockchain("ETH");
+        signature.setBlockchain(CHAIN);
         signature.setProtocol("TokenPocket");
         signature.setVersion("1.0");
         signature.setDappName("Test demo");
@@ -171,7 +174,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         Intent intent = new Intent(this, EthTransferActivity.class);
         startActivity(intent);
 //        Transfer transfer = new Transfer();
-//        transfer.setBlockchain("ETH");
+//        transfer.setBlockchain(CHAIN);
 //        transfer.setProtocol("TokenPocket");
 //        transfer.setVersion("1.0");
 //        transfer.setDappName("Test demo");
@@ -209,7 +212,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     private void pushTx() {
 
         Transaction transaction = new Transaction();
-        transaction.setBlockchain("ETH");
+        transaction.setBlockchain(CHAIN);
         transaction.setProtocol("TokenPocket");
         transaction.setVersion("1.0");
         transaction.setDappName("Test demo");
