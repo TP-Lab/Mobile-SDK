@@ -47,7 +47,18 @@
     transfer.memo =_memoField.text;
     transfer.precision = @(_decimalField.text.longLongValue);
     transfer.amount = @([_amountField.text componentsSeparatedByString:@" "].firstObject.doubleValue);
-    transfer.blockchain = _typeField.text;
+    
+    NSArray *comps = [_typeField.text componentsSeparatedByString:@";"];
+    NSMutableArray *chains = NSMutableArray.new;
+    for (NSString *part in comps) {
+        NSArray<NSString *> *comps = [part componentsSeparatedByString:@","];
+        NSString *network = comps.firstObject, *cid;
+        if (!network.length) continue;
+        if (comps.count > 1) cid = comps[1];
+        [chains addObject:[TPChainObj objWithNetwork:network chainId:cid]];
+    }
+    transfer.blockchains = chains.copy;
+    
     transfer.gas = _gasField.text;
     transfer.gasPrice = _gasPriceField.text;
     [TPApi sendObj:transfer];

@@ -18,6 +18,8 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 
 #pragma mark - TPReqObj
 
+@class TPChainObj;
+
 /*! @class   TPReqObj
  * @abstract 发起请求的基本数据
  * @discuss  避免自己继承TPReqObj, 发起请求时只发送SDK内部的TPReqObj子类;
@@ -29,7 +31,8 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
 @property (nonatomic, copy, readonly) NSString *action;     // login,transfer...(子类自动赋值)       <autofill>
 @property (nonatomic, copy) NSString *dappName;             // dapp名字,用于在钱包展示                <optional>
 @property (nonatomic, copy) NSString *dappIcon;             // dapp图标Url,用于在钱包展示             <optional>
-@property (nonatomic, copy) NSString *blockchain;           // eos,enu,eth,moac...默认空,为eos      <optional>
+@property (nonatomic, copy) NSString *blockchain;           // @Deprecated.
+@property (nonatomic, strong) NSArray<TPChainObj *> *blockchains;
 @property (nonatomic, copy) NSString *actionId;             // 本次操作的唯一标识                     <optional>
 @property (nonatomic, copy) NSNumber *expired;              // 过期时间，时间戳(s)；默认0，为永不过期    <optional>
 @property (nonatomic, copy) NSString *callbackUrl;          // 回调url,通过此url将txId和actionId通过post请求告诉dappServer

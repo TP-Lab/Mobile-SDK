@@ -33,7 +33,18 @@
     TPLoginObj *login = [TPLoginObj new];
     login.dappName = @"SDKDemo";
     login.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
-    login.blockchain = _typeField.text;
+    
+    NSArray *comps = [_typeField.text componentsSeparatedByString:@";"];
+    NSMutableArray *chains = NSMutableArray.new;
+    for (NSString *part in comps) {
+        NSArray<NSString *> *comps = [part componentsSeparatedByString:@","];
+        NSString *network = comps.firstObject, *cid;
+        if (!network.length) continue;
+        if (comps.count > 1) cid = comps[1];
+        [chains addObject:[TPChainObj objWithNetwork:network chainId:cid]];
+    }
+    login.blockchains = chains.copy;
+    
     login.wallet = _walletField.text;
     
     [TPApi sendObj:login];
