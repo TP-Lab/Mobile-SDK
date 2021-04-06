@@ -36,7 +36,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     private EditText etSign;
 
     //标记网络，eth(以太坊), bsc(币安智能链), heco(火币生态链)
-    private final static String CHAIN = "bsc";
+    private final static String CHAIN = "eth";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
