@@ -613,23 +613,33 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9wm-Sh-lJX">
-                                <rect key="frame" x="20" y="124" width="335" height="439"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="144" width="335" height="240"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="5Xv-rr-yBw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBt-DC-b0s">
+                                <rect key="frame" x="20" y="120" width="36.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Rt-mr-s5Y"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9wm-Sh-lJX" firstAttribute="trailing" secondItem="xfA-DT-Yau" secondAttribute="trailing" id="2hy-fw-kZd"/>
+                            <constraint firstItem="9wm-Sh-lJX" firstAttribute="top" secondItem="fBt-DC-b0s" secondAttribute="bottom" constant="6" id="C1k-ql-6dj"/>
                             <constraint firstItem="xfA-DT-Yau" firstAttribute="leading" secondItem="9Rt-mr-s5Y" secondAttribute="leading" constant="20" id="GPW-VM-E49"/>
                             <constraint firstItem="9Rt-mr-s5Y" firstAttribute="bottom" secondItem="NZD-za-Cra" secondAttribute="bottom" constant="20" id="Isy-9B-b3i"/>
                             <constraint firstItem="NZD-za-Cra" firstAttribute="leading" secondItem="9Rt-mr-s5Y" secondAttribute="leading" id="Jr4-yN-PgQ"/>
-                            <constraint firstItem="9wm-Sh-lJX" firstAttribute="top" secondItem="xfA-DT-Yau" secondAttribute="bottom" constant="20" id="RRu-8r-V9v"/>
+                            <constraint firstItem="fBt-DC-b0s" firstAttribute="top" secondItem="xfA-DT-Yau" secondAttribute="bottom" constant="16" id="N5V-da-2us"/>
+                            <constraint firstItem="fBt-DC-b0s" firstAttribute="leading" secondItem="xfA-DT-Yau" secondAttribute="leading" id="YcR-I7-1Rq"/>
                             <constraint firstItem="xfA-DT-Yau" firstAttribute="top" secondItem="9Rt-mr-s5Y" secondAttribute="top" constant="20" id="ZVk-Xy-a2e"/>
                             <constraint firstItem="NZD-za-Cra" firstAttribute="trailing" secondItem="9Rt-mr-s5Y" secondAttribute="trailing" id="dhc-44-sfu"/>
-                            <constraint firstItem="NZD-za-Cra" firstAttribute="top" secondItem="9wm-Sh-lJX" secondAttribute="bottom" constant="40" id="dvc-bR-429"/>
                             <constraint firstItem="9Rt-mr-s5Y" firstAttribute="trailing" secondItem="xfA-DT-Yau" secondAttribute="trailing" constant="20" id="uFx-Yp-aAW"/>
                             <constraint firstItem="9wm-Sh-lJX" firstAttribute="leading" secondItem="xfA-DT-Yau" secondAttribute="leading" id="yUQ-wn-TAh"/>
                         </constraints>
@@ -641,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzt-Wq-Hpv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="-44"/>
+            <point key="canvasLocation" x="2501.5999999999999" y="-44.527736131934034"/>
         </scene>
     </scenes>
 </document>
