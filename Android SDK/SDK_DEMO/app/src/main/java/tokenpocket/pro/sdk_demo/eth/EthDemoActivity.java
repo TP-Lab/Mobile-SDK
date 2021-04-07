@@ -82,14 +82,11 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         Authorize authorize = new Authorize();
         //已废弃
         //authorize.setBlockchain(CHAIN);
-
         //标识链
         List<Blockchain> blockchains = new ArrayList<>();
         blockchains.add(new Blockchain("ethereum", "1"));
         authorize.setBlockchains(blockchains);
 
-        authorize.setProtocol("TokenPocket");
-        authorize.setVersion("1.0");
         authorize.setDappName("Test demo");
         authorize.setDappIcon("https://eosknights.io/img/icon.png");
         authorize.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
@@ -124,8 +121,6 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         blockchains.add(new Blockchain("ethereum", "1"));
         signature.setBlockchains(blockchains);
 
-        signature.setProtocol("TokenPocket");
-        signature.setVersion("1.0");
         signature.setDappName("Test demo");
         signature.setDappIcon("https://eosknights.io/img/icon.png");
         signature.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
@@ -161,8 +156,6 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         blockchains.add(new Blockchain("ethereum", "1"));
         signature.setBlockchains(blockchains);
 
-        signature.setProtocol("TokenPocket");
-        signature.setVersion("1.0");
         signature.setDappName("Test demo");
         signature.setDappIcon("https://eosknights.io/img/icon.png");
         signature.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
@@ -203,8 +196,6 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         blockchains.add(new Blockchain("ethereum", "1"));
         transaction.setBlockchains(blockchains);
 
-        transaction.setProtocol("TokenPocket");
-        transaction.setVersion("1.0");
         transaction.setDappName("Test demo");
         transaction.setDappIcon("https://eosknights.io/img/icon.png");
         transaction.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
