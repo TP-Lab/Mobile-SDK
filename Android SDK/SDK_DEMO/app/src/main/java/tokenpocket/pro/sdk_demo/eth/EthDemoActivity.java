@@ -13,14 +13,14 @@ import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
 import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
 import com.tokenpocket.opensdk.simple.model.Authorize;
+import com.tokenpocket.opensdk.simple.model.Blockchain;
 import com.tokenpocket.opensdk.simple.model.Signature;
 import com.tokenpocket.opensdk.simple.model.Transaction;
-import com.tokenpocket.opensdk.simple.model.Transfer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import tokenpocket.pro.sdk_demo.R;
-import tokenpocket.pro.sdk_demo.tron.TronDemoActivity;
 
 /**
  * Created by duke on 2019/7/9.
@@ -80,7 +80,14 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private void authorize() {
         Authorize authorize = new Authorize();
-        authorize.setBlockchain(CHAIN);
+        //已废弃
+        //authorize.setBlockchain(CHAIN);
+
+        //标识链
+        List<Blockchain> blockchains = new ArrayList<>();
+        blockchains.add(new Blockchain("ethereum", "1"));
+        authorize.setBlockchains(blockchains);
+
         authorize.setProtocol("TokenPocket");
         authorize.setVersion("1.0");
         authorize.setDappName("Test demo");
@@ -110,7 +117,13 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private void sign() {
         Signature signature = new Signature();
-        signature.setBlockchain(CHAIN);
+        //已废弃
+        //signature.setBlockchain(CHAIN);
+        //标识链
+        List<Blockchain> blockchains = new ArrayList<>();
+        blockchains.add(new Blockchain("ethereum", "1"));
+        signature.setBlockchains(blockchains);
+
         signature.setProtocol("TokenPocket");
         signature.setVersion("1.0");
         signature.setDappName("Test demo");
@@ -141,7 +154,13 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private void personalSign() {
         Signature signature = new Signature();
-        signature.setBlockchain(CHAIN);
+        //已废弃
+        //signature.setBlockchain(CHAIN);
+        //标识链
+        List<Blockchain> blockchains = new ArrayList<>();
+        blockchains.add(new Blockchain("ethereum", "1"));
+        signature.setBlockchains(blockchains);
+
         signature.setProtocol("TokenPocket");
         signature.setVersion("1.0");
         signature.setDappName("Test demo");
@@ -173,46 +192,17 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     private void transfer() {
         Intent intent = new Intent(this, EthTransferActivity.class);
         startActivity(intent);
-//        Transfer transfer = new Transfer();
-//        transfer.setBlockchain(CHAIN);
-//        transfer.setProtocol("TokenPocket");
-//        transfer.setVersion("1.0");
-//        transfer.setDappName("Test demo");
-//        transfer.setDappIcon("https://eosknights.io/img/icon.png");
-//        transfer.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-//        transfer.setMemo("demo");
-//        transfer.setAction("transfer");
-//        transfer.setFrom("0x40e5A542087FA4b966209707177b103d158Fd3A4");
-//        transfer.setTo("0x171a0b081493722A5fB8Ebe6F0c4aDf5fde49BD8");
-//        transfer.setPrecision(4);
-//        transfer.setContract("");
-//        transfer.setAmount(0.00012);
-//        transfer.setSymbol("ETH");
-//        transfer.setDesc("");
-//        TPManager.getInstance().transfer(this, transfer, new TPListener() {
-//            @Override
-//            public void onSuccess(String s) {
-//                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onError(String s) {
-//                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-//
-//            }
-//
-//            @Override
-//            public void onCancel(String s) {
-//                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
     }
 
     private void pushTx() {
-
         Transaction transaction = new Transaction();
-        transaction.setBlockchain(CHAIN);
+        //已废弃
+        //transaction.setBlockchain(CHAIN);
+        //标识链
+        List<Blockchain> blockchains = new ArrayList<>();
+        blockchains.add(new Blockchain("ethereum", "1"));
+        transaction.setBlockchains(blockchains);
+
         transaction.setProtocol("TokenPocket");
         transaction.setVersion("1.0");
         transaction.setDappName("Test demo");

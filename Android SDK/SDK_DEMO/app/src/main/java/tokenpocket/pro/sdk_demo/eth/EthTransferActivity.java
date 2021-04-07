@@ -10,7 +10,11 @@ import android.widget.Toast;
 
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
+import com.tokenpocket.opensdk.simple.model.Blockchain;
 import com.tokenpocket.opensdk.simple.model.Transfer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import tokenpocket.pro.sdk_demo.R;
 
@@ -54,7 +58,13 @@ public class EthTransferActivity extends Activity implements View.OnClickListene
 
     private void transfer() {
         Transfer transfer = new Transfer();
-        transfer.setBlockchain("ETH");
+        //已废弃
+        //transfer.setBlockchain("ETH);
+        //标识链
+        List<Blockchain> blockchains = new ArrayList<>();
+        blockchains.add(new Blockchain("ethereum", "1"));
+        transfer.setBlockchains(blockchains);
+
         transfer.setProtocol("TokenPocket");
         transfer.setVersion("1.0");
         transfer.setDappName("Test demo");
