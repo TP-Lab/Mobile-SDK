@@ -10,6 +10,7 @@ DApp uses this SDK  to pull up the TokenPocket wallet and do some actions such a
 - Only version 0.4.9 or higher support this SDK.
 - Only version 0.7.8 or higher support MiniWallet apis.
 - Only version 0.8.3 or higher support Tron and Eth SDK.
+- 1.2.4以上的TP钱包版本支持ETH侧链
 
 ## <a name='Catalog'></a>目录 (Catalog)
 
@@ -76,7 +77,7 @@ allprojects {
 
 ``` java
 dependencies {
-    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.6'
+    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.8'
 }
 ```
 
@@ -99,38 +100,49 @@ dependencies {
 #### <a name='Authorize'></a>1.授权登陆  (Authorize)
 
 ``` java
-    Authorize authorize = new Authorize();
-    authorize.setBlockchain("EOS");
-    authorize.setDappName("Newdex");
-    authorize.setDappIcon("https://newdex.io/static/logoicon.png");
-    authorize.setActionId("web-99784c28-70f0-49ff-3654-f27b137b3502");
-    authorize.setCallbackUrl("https://newdex.io/api/account/walletVerify");
-    authorize.setExpired(1537157808L);
-    authorize.setMemo("The first gobal decentralized exchange built on EOS");
-    authorize.setBlockchain("EOS");
-    TPManager.getInstance().authorize(MainActivity.this, getAuthorize(),new TPListener() {
-        @Override
-        public void onSuccess(String data) {
+	Authorize authorize = new Authorize();
+        //已废弃
+        //authorize.setBlockchain(CHAIN);
+        //标识链
+        List<Blockchain> blockchains = new ArrayList<>();
+        blockchains.add(new Blockchain("ethereum", "1"));
+        authorize.setBlockchains(blockchains);
 
-        }
+        authorize.setDappName("Test demo");
+        authorize.setDappIcon("https://eosknights.io/img/icon.png");
+        authorize.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
+        authorize.setMemo("demo");
+        TPManager.getInstance().authorize(this, authorize, new TPListener() {
+            @Override
+            public void onSuccess(String s) {
+                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
+            }
 
-        @Override
-        public void onError(String data) {
+            @Override
+            public void onError(String s) {
+                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
 
-        }
+            }
 
-        @Override
-        public void onCancel(String data) {
+            @Override
+            public void onCancel(String s) {
+                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
 
-        }
-});
+            }
+        });
 ```
 
 #### <a name='Tokentransfer'></a>2.转账 (Token transfer)
 
 ``` java
     Transfer transfer = new Transfer();
-    transfer.setBlockchain("EOS");
+    //已废弃
+    //transfer.setBlockchain("EOS");
+    //标识链
+    List<Blockchain> blockchains = new ArrayList<>();
+    blockchains.add(new Blockchain("eos"));
+    transfer.setBlockchains(blockchains);
+    
     transfer.setDappName("Newdex");
     transfer.setDappIcon("https://newdex.io/static/logoicon.png");
     transfer.setFrom("clement11111");
@@ -141,7 +153,6 @@ dependencies {
     transfer.setPrecision(4);
     transfer.setMemo("test");
     transfer.setExpired(1535944144L);
-    transfer.setBlockchain("EOS");
     transfer.setCallbackUrl("https://newdex.io/api/account/transferCallback?uuid=1-46e023fc-015b-4b76-3809-1cab3fd76d2c");
 
     TPManager.getInstance().transfer(MainActivity.this, transfer,new TPListener() {
@@ -164,70 +175,76 @@ dependencies {
 如果是IOST底层，将transaction.setActions替换成setPayload,详情请见demo (If is iost, replace setActions with setPalyload, for more details, please check the demo project)==
 
 ``` java
-    Transaction transaction = new Transaction();
-    transaction.setBlockchain("EOS");
-    transaction.setDappName("Test Name");
-    transaction.setDappIcon("https://newdex.io/static/logoicon.png");
-    //for tron and eth here call transaction.setTxData("...")
-    transaction.setActions("[{\n" +
-            "\"account\": \"eosio.token\",\n" +
-            "\"name\": \"transfer\",\n" +
-            "\"authorization\": [{\n" +
-            "\"actor\": \"clement11111\",\n" +
-            "\"permission\": \"active\"\n" +
-            "}],\n" +
-            "\"data\": {\n" +
-            "\"from\": \"clement11111\",\n" +
-            "\"to\": \"clement22222\",\n" +
-            "\"quantity\": \"0.0001 EOS\",\n" +
-            "\"memo\": \"jlsdjlsdjf\"\n" +
-            "}\n" +
-            "}]");
-    transaction.setBlockchain("EOS");
-    transaction.setExpired(10000000000L);
+	Transaction transaction = new Transaction();
+	//已废弃
+	//transaction.setBlockchain(CHAIN);
+	//标识链
+	List<Blockchain> blockchains = new ArrayList<>();
+	blockchains.add(new Blockchain("ethereum", "1"));
+	transaction.setBlockchains(blockchains);
 
-    TPManager.getInstance().pushTransaction(MainActivity.this, transaction, new TPListener() {
-        @Override
-        public void onSuccess(String data) {
-        }
+	transaction.setDappName("Test demo");
+	transaction.setDappIcon("https://eosknights.io/img/icon.png");
+	transaction.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
+	transaction.setAction("pushTransaction");
+	transaction.setLinkActions(new ArrayList<LinkAction>());
+	transaction.setTxData("{\"from\":\"0x22F4900A1fB41f751b8F616832643224606B75B4\",\"gasPrice\":\"0x6c088e200\",\"gas\":\"0xea60\",\"chainId\":\"1\",\"to\":\"0x7d1e7fb353be75669c53c18ded2abcb8c4793d80\",\"data\":\"0xa9059cbb000000000000000000000000171a0b081493722a5fb8ebe6f0c4adf5fde49bd8000000000000000000000000000000000000000000000000000000000012c4b0\"}");
+	TPManager.getInstance().pushTransaction(this, transaction, new TPListener() {
+	    @Override
+	    public void onSuccess(String s) {
+		Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
 
-        @Override
-        public void onError(String data) {
-        }
+	    }
 
-        @Override
-        public void onCancel(String data) {
-        }
-});
+	    @Override
+	    public void onError(String s) {
+		Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
+
+	    }
+
+	    @Override
+	    public void onCancel(String s) {
+		Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
+
+	    }
+	});
 ```
 
 #### <a name='Sign'></a>4.签名 (Sign)
 
 ``` java
-    Signature signature = new Signature();
-    signature.setBlockchain("EOS");
-    signature.setDappName("Newdex");
-    signature.setDappIcon("https://newdex.io/static/logoicon.png");
-    signature.setActionId("web-99784c28-70f0-49ff-3654-f27b137b3502");
-    signature.setCallbackUrl("https://newdex.io/api/account/walletVerify");
-    signature.setExpired(1537157808L);
-    signature.setMemo("The first gobal decentralized exchange built on EOS");
-    //tron and eth only support hex string
-    signature.setMessage("hello");
-    signature.setBlockchain("EOS");
-    TPManager.getInstance().sign(MainActivity.this, getSignature(),new TPListener() {
-        @Override
-        public void onSuccess(String data) {
-        }
+	Signature signature = new Signature();
+	//已废弃
+	//signature.setBlockchain(CHAIN);
+	//标识链
+	List<Blockchain> blockchains = new ArrayList<>();
+	blockchains.add(new Blockchain("ethereum", "1"));
+	signature.setBlockchains(blockchains);
 
-        @Override
-        public void onError(String data) {
-        }
+	signature.setDappName("Test demo");
+	signature.setDappIcon("https://eosknights.io/img/icon.png");
+	signature.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
+	signature.setMemo("demo");
+	signature.setSignType("ethSign");
+	signature.setMessage(etSign.getText().toString());
+	TPManager.getInstance().signature(this, signature, new TPListener() {
+	    @Override
+	    public void onSuccess(String s) {
+		Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
+	    }
 
-        @Override
-        public void onCancel(String data) {
-        }
-});
+	    @Override
+	    public void onError(String s) {
+		Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
+
+	    }
+
+	    @Override
+	    public void onCancel(String s) {
+		Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
+
+	    }
+	});
 ```
 
 ## <a name='MiniWallet'></a>MiniWallet
