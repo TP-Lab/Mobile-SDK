@@ -33,8 +33,17 @@
     TPPushTransactionObj *transaction = [TPPushTransactionObj new];
     transaction.dappName = @"SDKDemo";
     transaction.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
-    transaction.blockchain = _typeField.text;
     
+    NSArray *comps = [_typeField.text componentsSeparatedByString:@";"];
+    NSMutableArray *chains = NSMutableArray.new;
+    for (NSString *part in comps) {
+        NSArray<NSString *> *comps = [part componentsSeparatedByString:@","];
+        NSString *network = comps.firstObject, *cid;
+        if (!network.length) continue;
+        if (comps.count > 1) cid = comps[1];
+        [chains addObject:[TPChainObj objWithNetwork:network chainId:cid]];
+    }
+    transaction.blockchains = chains.copy;
     
     id json = [NSJSONSerialization JSONObjectWithData:[_infoText.text dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
     if ([transaction.blockchain.uppercaseString isEqualToString:@"TRON"] || [transaction.blockchain.uppercaseString isEqualToString:@"ETH"]) {
