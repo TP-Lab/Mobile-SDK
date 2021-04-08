@@ -1,9 +1,9 @@
 package tokenpocket.pro.sdk_demo.eth;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +14,6 @@ import com.tokenpocket.opensdk.base.TPManager;
 import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
 import com.tokenpocket.opensdk.simple.model.Authorize;
 import com.tokenpocket.opensdk.simple.model.Blockchain;
-import com.tokenpocket.opensdk.simple.model.Signature;
 import com.tokenpocket.opensdk.simple.model.Transaction;
 
 import java.util.ArrayList;
@@ -33,10 +32,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     private Button btnPersonalSign;
     private Button btnTransfer;
     private Button btnPushTransaction;
-    private EditText etSign;
-
-    //标记网络，eth(以太坊), bsc(币安智能链), heco(火币生态链)
-    private final static String CHAIN = "eth";
+    private EditText etChainId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +44,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         btnPersonalSign = findViewById(R.id.btn_personsign);
         btnTransfer = findViewById(R.id.btn_transfer);
         btnPushTransaction = findViewById(R.id.btn_pushtx);
-        etSign = findViewById(R.id.et_sign);
+        etChainId = findViewById(R.id.et_chain_id);
 
         btnAuthorize.setOnClickListener(this);
         btnSign.setOnClickListener(this);
@@ -64,16 +60,16 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
                 authorize();
                 break;
             case R.id.btn_sign:
-                sign();
+                EthSignActivity.start(this);
                 break;
             case R.id.btn_personsign:
-                personalSign();
+                EthPersonalSignActivity.start(this);
                 break;
             case R.id.btn_transfer:
-                transfer();
+                EthTransferActivity.start(this);
                 break;
             case R.id.btn_pushtx:
-                pushTx();
+                EthPushTxActivity.start(this);
                 break;
         }
     }
@@ -84,7 +80,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         //authorize.setBlockchain(CHAIN);
         //标识链
         List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", "1"));
+        blockchains.add(new Blockchain("ethereum", getChainId()));
         authorize.setBlockchains(blockchains);
 
         authorize.setDappName("Test demo");
@@ -112,114 +108,14 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     }
 
-    private void sign() {
-        Signature signature = new Signature();
-        //已废弃
-        //signature.setBlockchain(CHAIN);
-        //标识链
-        List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", "1"));
-        signature.setBlockchains(blockchains);
-
-        signature.setDappName("Test demo");
-        signature.setDappIcon("https://eosknights.io/img/icon.png");
-        signature.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        signature.setMemo("demo");
-        signature.setSignType("ethSign");
-        signature.setMessage(etSign.getText().toString());
-        TPManager.getInstance().signature(this, signature, new TPListener() {
-            @Override
-            public void onSuccess(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onError(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onCancel(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-
-            }
-        });
-    }
-
-    private void personalSign() {
-        Signature signature = new Signature();
-        //已废弃
-        //signature.setBlockchain(CHAIN);
-        //标识链
-        List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", "1"));
-        signature.setBlockchains(blockchains);
-
-        signature.setDappName("Test demo");
-        signature.setDappIcon("https://eosknights.io/img/icon.png");
-        signature.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        signature.setMemo("demo");
-        signature.setSignType("ethPersonalSign");
-        signature.setMessage(etSign.getText().toString());
-        TPManager.getInstance().signature(this, signature, new TPListener() {
-            @Override
-            public void onSuccess(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onError(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onCancel(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-
-            }
-        });
-    }
-
-    private void transfer() {
-        Intent intent = new Intent(this, EthTransferActivity.class);
-        startActivity(intent);
-    }
-
-    private void pushTx() {
-        Transaction transaction = new Transaction();
-        //已废弃
-        //transaction.setBlockchain(CHAIN);
-        //标识链
-        List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", "1"));
-        transaction.setBlockchains(blockchains);
-
-        transaction.setDappName("Test demo");
-        transaction.setDappIcon("https://eosknights.io/img/icon.png");
-        transaction.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        transaction.setAction("pushTransaction");
-        transaction.setLinkActions(new ArrayList<LinkAction>());
-        transaction.setTxData("{\"from\":\"0x22F4900A1fB41f751b8F616832643224606B75B4\",\"gasPrice\":\"0x6c088e200\",\"gas\":\"0xea60\",\"chainId\":\"1\",\"to\":\"0x7d1e7fb353be75669c53c18ded2abcb8c4793d80\",\"data\":\"0xa9059cbb000000000000000000000000171a0b081493722a5fb8ebe6f0c4adf5fde49bd8000000000000000000000000000000000000000000000000000000000012c4b0\"}");
-        TPManager.getInstance().pushTransaction(this, transaction, new TPListener() {
-            @Override
-            public void onSuccess(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onError(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onCancel(String s) {
-                Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
-
-            }
-        });
+    /**
+     * 获取chainId，默认是1，即eth链
+     */
+    private String getChainId() {
+        String chainId = etChainId.getText().toString();
+        if (TextUtils.isEmpty(chainId)) {
+            return "1";
+        }
+        return chainId;
     }
 }
