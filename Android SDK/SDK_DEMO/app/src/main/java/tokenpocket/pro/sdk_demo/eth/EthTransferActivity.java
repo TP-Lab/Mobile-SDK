@@ -75,7 +75,7 @@ public class EthTransferActivity extends Activity implements View.OnClickListene
         transfer.setDappName("Test demo");
         transfer.setDappIcon("https://eosknights.io/img/icon.png");
         transfer.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        transfer.setMemo("demo");
+        transfer.setMemo("0xe595a6");
         transfer.setAction("transfer");
         transfer.setFrom(etFrom.getText().toString());
         transfer.setTo(etTo.getText().toString());
