@@ -55,10 +55,10 @@
         android:textAllCaps="false" />
 
     <EditText
-        android:id="@+id/et_sign"
+        android:id="@+id/et_chain_id"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
-        android:hint="输入签名数据" />
+        android:hint="输入chainId。提示：eth(1),bsc(56),heco(128),okt(65)" />
 
 </LinearLayout>
