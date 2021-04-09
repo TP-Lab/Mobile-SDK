@@ -34,21 +34,17 @@
     transaction.dappName = @"SDKDemo";
     transaction.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     
-    NSArray *comps = [_typeField.text componentsSeparatedByString:@";"];
-    NSMutableArray *chains = NSMutableArray.new;
-    for (NSString *part in comps) {
-        NSArray<NSString *> *comps = [part componentsSeparatedByString:@","];
-        NSString *network = comps.firstObject, *cid;
-        if (!network.length) continue;
-        if (comps.count > 1) cid = comps[1];
-        [chains addObject:[TPChainObj objWithNetwork:network chainId:cid]];
-    }
-    transaction.blockchains = chains.copy;
+    NSArray<NSString *> *comps = [_typeField.text componentsSeparatedByString:@","];
+    NSString *network = comps.firstObject, *chainId;
+    if (comps.count > 1) chainId = comps[1];
+    transaction.blockchains = @[[TPChainObj objWithNetwork:network chainId:chainId]];
     
     id json = [NSJSONSerialization JSONObjectWithData:[_infoText.text dataUsingEncoding:NSUTF8StringEncoding] options:0 error:NULL];
-    if ([transaction.blockchain.uppercaseString isEqualToString:@"TRON"] || [transaction.blockchain.uppercaseString isEqualToString:@"ETH"]) {
+    if ([network.lowercaseString isEqualToString:@"tron"] ||
+        [network.lowercaseString isEqualToString:@"eth"] ||
+        [network.lowercaseString isEqualToString:@"ethereum"]) {
         transaction.txData = json;
-    } else if ([transaction.blockchain.uppercaseString isEqualToString:@"IOST"]) {
+    } else if ([network.lowercaseString isEqualToString:@"iost"]) {
         transaction.payload = json;
     } else {
         transaction.actions = json;

@@ -38,16 +38,10 @@
     sign.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     sign.message = @"sign data...";
     
-    NSArray *comps = [_typeField.text componentsSeparatedByString:@";"];
-    NSMutableArray *chains = NSMutableArray.new;
-    for (NSString *part in comps) {
-        NSArray<NSString *> *comps = [part componentsSeparatedByString:@","];
-        NSString *network = comps.firstObject, *cid;
-        if (!network.length) continue;
-        if (comps.count > 1) cid = comps[1];
-        [chains addObject:[TPChainObj objWithNetwork:network chainId:cid]];
-    }
-    sign.blockchains = chains.copy;
+    NSArray<NSString *> *comps = [_typeField.text componentsSeparatedByString:@","];
+    NSString *network = comps.firstObject, *chainId;
+    if (comps.count > 1) chainId = comps[1];
+    sign.blockchains = @[[TPChainObj objWithNetwork:network chainId:chainId]];
     
     sign.wallet = _walletField.text;
     sign.message = _signContentField.text;
