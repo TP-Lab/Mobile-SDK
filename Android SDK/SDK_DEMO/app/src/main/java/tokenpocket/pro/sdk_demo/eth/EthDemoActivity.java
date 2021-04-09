@@ -11,10 +11,8 @@ import android.widget.Toast;
 
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
-import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
 import com.tokenpocket.opensdk.simple.model.Authorize;
 import com.tokenpocket.opensdk.simple.model.Blockchain;
-import com.tokenpocket.opensdk.simple.model.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;

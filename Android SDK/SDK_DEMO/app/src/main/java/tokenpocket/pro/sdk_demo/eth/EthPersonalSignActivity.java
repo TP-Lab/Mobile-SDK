@@ -39,12 +39,12 @@ public class EthPersonalSignActivity extends Activity {
         findViewById(R.id.tv_confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ethSign();
+                ethPersonalSign();
             }
         });
     }
 
-    private void ethSign() {
+    private void ethPersonalSign() {
         Signature signature = new Signature();
         //已废弃
         //signature.setBlockchain(CHAIN);
