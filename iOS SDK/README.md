@@ -60,6 +60,10 @@ Note: This article is a beginner tutorial for the TokenPocket iOS terminal SDK a
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
 login.dappIcon = @"https:.../xx.png";
+login.blockchains = @[
+    [TPChainObj objWithNetwork:@"eth" chainId:nil],
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** BSC */
+];
 [TPApi sendObj:login];
 ```
 ### Login callback
@@ -68,8 +72,10 @@ TPRespObj.data
 {
     ...,
     "ref" : "TokenPocket",
-    "publickey" : "EOS5AvWThdghtNngWP4UcNi9DL6kF7Mnv2ccO",
-    "sign" : "SIG_K1_JyCJtV9vqwxtyEt68UhUibkg1CmRjxtG6zkZwE...",
+    "account" : "0xf12bd5a9...",
+    "sign" : "...",
+    "network" : "ethereum",
+    "chainId" : "56",
     "timestamp" : "1554266633",
 }
 ```
@@ -80,6 +86,9 @@ TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
 sign.dappIcon = @"https:.../xx.png";
 sign.message = @"sign data...";
+sign.blockchains = @[
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** If selected BSC */
+];
 [TPApi sendObj:sign];
 ```
 ### Sign callback
@@ -102,6 +111,9 @@ transfer.to = @"xxxxx";
 transfer.memo = @"Memo string...";
 transfer.precision = @(4);
 transfer.amount = @(0.0001);
+transfer.blockchains = @[
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** If selected BSC */
+];
 [TPApi sendObj:transfer];
 ```
 ### Transfer callback
@@ -121,6 +133,9 @@ TPRespObj.data
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
 transaction.dappIcon = @"https:.../xx.png";
+transaction.blockchains = @[
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** If selected BSC */
+];
 transaction.actions = @[@{@"account": @"eosio.token",
                             @"name": @"transfer",
                             @"authorization": @[@{@"actor": @"xxxxx",
@@ -286,6 +301,10 @@ TPRespObj.data
 TPLoginObj *login = [TPLoginObj new];
 login.dappName = @"xxx";
 login.dappIcon = @"https:.../xx.png";
+login.blockchains = @[
+    [TPChainObj objWithNetwork:@"eth" chainId:nil],
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** BSC */
+];
 [TPApi sendObj:login];
 ```
 ### Login callback
@@ -294,8 +313,10 @@ TPRespObj.data
 {
     ...,
     "ref" : "TokenPocket",
-    "publickey" : "EOS5AvWThdghtNngWP4UcNi9DL6kF7Mnv2ccO",
-    "sign" : "SIG_K1_JyCJtV9vqwxtyEt68UhUibkg1CmRjxtG6zkZwE...",
+    "account" : "0xf12bd5a9...",
+    "sign" : "...",
+    "network" : "ethereum",
+    "chainId" : "56",
     "timestamp" : "1554266633",
 }
 ```
@@ -306,6 +327,9 @@ TPSignObj *sign = [TPSignObj new];
 sign.dappName = @"xxx";
 sign.dappIcon = @"https:.../xx.png";
 sign.message = @"sign data...";
+sign.blockchains = @[
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** 如果登录时选择 BSC */
+];
 [TPApi sendObj:sign];
 ```
 ### Sign callback
@@ -329,6 +353,9 @@ transfer.to = @"xxxxx";
 transfer.memo = @"Memo string...";
 transfer.precision = @(4);
 transfer.amount = @(0.0001);
+transfer.blockchains = @[
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** 如果登录时选择 BSC */
+];
 [TPApi sendObj:transfer];
 ```
 ### Transfer callback
@@ -348,6 +375,9 @@ TPRespObj.data
 TPPushTransactionObj *transaction = [TPPushTransactionObj new];
 transaction.dappName = @"xxx";
 transaction.dappIcon = @"https:.../xx.png";
+transaction.blockchains = @[
+    [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** 如果登录时选择 BSC */
+];
 transaction.actions = @[@{@"account": @"eosio.token",
                         @"name": @"transfer",
                         @"authorization": @[@{@"actor": @"xxxxx",
