@@ -90,7 +90,8 @@ dependencies {
 -keep interface com.tokenpocket.opensdk.**{*;}
 ```
 
-
+### 如何支持火币生态链，币安智能链等ETH Fork链
+在构建new Blockchain("ethereum", "xx_chainId")对象时，传入对应的chainId，如ETH，xx_chainId=1；如币安生态链，xx_chainId=56
 
 
 ## <a name='Commonapis'></a>通用操作 (Common apis)
