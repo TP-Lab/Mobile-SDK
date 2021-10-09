@@ -61,23 +61,11 @@ https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/SDK_DEMO
 
 ## <a name='GettingStarted'></a>开始接入 (Getting Started)
 
-- Android studio 工程根目录下build.gradle添加以下内容(Add the following lines to your main build.gradle in the root of your project)
-
-```java
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url 'https://dl.bintray.com/tokenpocket/Maven' }
-    }
-}
-```
-
 - App下build.gradle添加一下内容(add the following lines to your app/build.gradle)
 
 ``` java
 dependencies {
-    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.8'
+    implementation files('libs/wallet-sdk-release.aar')
 }
 ```
 
