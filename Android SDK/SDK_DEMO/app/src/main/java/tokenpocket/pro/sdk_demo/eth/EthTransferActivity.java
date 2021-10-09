@@ -32,6 +32,7 @@ public class EthTransferActivity extends Activity implements View.OnClickListene
     private EditText etAmount;
     private EditText etContract;
     private EditText etSymbol;
+    private EditText etDecimal;
     private EditText etChainId;
     private Button btnTransfer;
 
@@ -45,6 +46,7 @@ public class EthTransferActivity extends Activity implements View.OnClickListene
         etAmount = findViewById(R.id.et_amount);
         etContract = findViewById(R.id.et_contract);
         etSymbol = findViewById(R.id.et_symbol);
+        etDecimal = findViewById(R.id.et_decimal);
         btnTransfer = findViewById(R.id.btn_transfer);
         etChainId = findViewById(R.id.et_chain_id);
 
@@ -82,6 +84,7 @@ public class EthTransferActivity extends Activity implements View.OnClickListene
         transfer.setContract(etContract.getText().toString());
         transfer.setAmount(getAmount());
         transfer.setSymbol(etSymbol.getText().toString());
+        transfer.setDecimal(Integer.valueOf(etDecimal.getText().toString()));
         transfer.setDesc("");
         TPManager.getInstance().transfer(this, transfer, new TPListener() {
             @Override

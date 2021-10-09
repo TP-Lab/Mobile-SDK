@@ -7,36 +7,43 @@
     <EditText
         android:id="@+id/et_from"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:hint="from"/>
+        android:layout_height="60dp"
+        android:hint="from" />
 
     <EditText
         android:id="@+id/et_to"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:hint="to"/>
+        android:hint="to" />
 
     <EditText
         android:id="@+id/et_contract"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:hint="contract"/>
+        android:hint="contract" />
 
     <EditText
         android:id="@+id/et_amount"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:hint="amount"/>
+        android:hint="amount" />
 
     <EditText
         android:id="@+id/et_symbol"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:hint="symbol"/>
+        android:hint="symbol" />
+
+    <EditText
+        android:id="@+id/et_decimal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:hint="decimal" />
 
     <EditText
         android:id="@+id/et_chain_id"
