@@ -79,7 +79,20 @@ dependencies {
 ```
 
 ### 如何支持火币生态链，币安智能链等ETH Fork链
-在构建new Blockchain("ethereum", "xx_chainId")对象时，传入对应的chainId，如ETH，xx_chainId=1；如币安生态链，xx_chainId=56
+在构建new Blockchain("ethereum", "xx_chainId")对象时，传入对应的chainId
+```
+//ETH主网
+new Blockchain("ethereum", "1")
+
+//币安智能链
+new Blockchain("ethereum", "56")
+
+//火币生态链
+new Blockchain("ethereum", "128")
+
+//OKExChain
+new Blockchain("ethereum", "66")
+```
 
 
 ## <a name='Commonapis'></a>通用操作 (Common apis)
