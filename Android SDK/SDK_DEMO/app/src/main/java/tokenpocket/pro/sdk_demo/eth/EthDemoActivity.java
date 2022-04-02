@@ -3,7 +3,6 @@ package tokenpocket.pro.sdk_demo.eth;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +29,6 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     private Button btnPersonalSign;
     private Button btnTransfer;
     private Button btnPushTransaction;
-    private EditText etChainId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +40,6 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
         btnPersonalSign = findViewById(R.id.btn_personsign);
         btnTransfer = findViewById(R.id.btn_transfer);
         btnPushTransaction = findViewById(R.id.btn_pushtx);
-        etChainId = findViewById(R.id.et_chain_id);
 
         btnAuthorize.setOnClickListener(this);
         btnSign.setOnClickListener(this);
@@ -74,20 +71,26 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private void authorize() {
         Authorize authorize = new Authorize();
-        //已废弃
-        //authorize.setBlockchain(CHAIN);
-        //标识链
-        List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", getChainId()));
+        List blockchains = new ArrayList();
+        //blockchains指定可以用哪些网络的钱包操作，evm系列，第一个参数是ethereum,第二个参数是网络的id
+        blockchains.add(new Blockchain("ethereum", "56"));
+        blockchains.add(new Blockchain("ethereum", "1"));
         authorize.setBlockchains(blockchains);
-
-        authorize.setDappName("Test demo");
+        authorize.setAction("login");
+        //开发者自己定义的业务ID，用于标识操作，在授权登录中，需要设置该字段
+        authorize.setActionId(String.valueOf(System.currentTimeMillis()));
+        authorize.setProtocol("TokenPocket");
+        authorize.setVersion("v1.0");
+        authorize.setDappName("zs");
         authorize.setDappIcon("https://eosknights.io/img/icon.png");
-        authorize.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
         authorize.setMemo("demo");
+        //开发者服务端提供的接受调用登录结果的接口，如果设置该参数，钱包操作完成后，会将结果通过post application json方式将结果回调给callbackurl
+        authorize.setCallbackUrl("http://115.205.0.178:9011/taaBizApi/taaInitData");
+
         TPManager.getInstance().authorize(this, authorize, new TPListener() {
             @Override
             public void onSuccess(String s) {
+                //登录成功后，会返回登录的钱包地址，签名信息，开发者可以利用这两个参数验证有效性
                 Toast.makeText(EthDemoActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
@@ -103,17 +106,5 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
             }
         });
-
-    }
-
-    /**
-     * 获取chainId，默认是1，即eth链
-     */
-    private String getChainId() {
-        String chainId = etChainId.getText().toString();
-        if (TextUtils.isEmpty(chainId)) {
-            return "1";
-        }
-        return chainId;
     }
 }
