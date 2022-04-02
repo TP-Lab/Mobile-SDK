@@ -10,7 +10,7 @@ DApp uses this SDK  to pull up the TokenPocket wallet and do some actions such a
 - Only version 0.4.9 or higher support this SDK.
 - Only version 0.7.8 or higher support MiniWallet apis.
 - Only version 0.8.3 or higher support Tron and Eth SDK.
-- 1.2.4以上的TP钱包版本支持ETH侧链
+- 1.2.4以上的TP钱包版本支持ETH fork链,如HECO，BSC，OKExChain等.
 
 ## <a name='Catalog'></a>目录 (Catalog)
 
@@ -61,23 +61,11 @@ https://github.com/TP-Lab/Mobile-SDK/tree/master/Android%20SDK/SDK_DEMO
 
 ## <a name='GettingStarted'></a>开始接入 (Getting Started)
 
-- Android studio 工程根目录下build.gradle添加以下内容(Add the following lines to your main build.gradle in the root of your project)
-
-```java
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url 'https://dl.bintray.com/tokenpocket/Maven' }
-    }
-}
-```
-
 - App下build.gradle添加一下内容(add the following lines to your app/build.gradle)
 
 ``` java
 dependencies {
-    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.8'
+    implementation files('libs/wallet-sdk-release.aar')
 }
 ```
 
@@ -89,9 +77,6 @@ dependencies {
 -keep class com.tokenpocket.opensdk.**{*;}
 -keep interface com.tokenpocket.opensdk.**{*;}
 ```
-
-
-
 
 ## <a name='Commonapis'></a>通用操作 (Common apis)
 
@@ -245,6 +230,22 @@ dependencies {
 
 	    }
 	});
+```
+
+### 如何支持火币生态链，币安智能链等ETH Fork链
+在构建new Blockchain("ethereum", "xx_chainId")对象时，传入对应的chainId
+```
+//ETH主网
+new Blockchain("ethereum", "1")
+
+//币安智能链
+new Blockchain("ethereum", "56")
+
+//火币生态链
+new Blockchain("ethereum", "128")
+
+//OKExChain
+new Blockchain("ethereum", "66")
 ```
 
 ## <a name='MiniWallet'></a>MiniWallet

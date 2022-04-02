@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
@@ -36,10 +40,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.tokenpocket.lab:wallet-sdk:1.1.8'
-//    compile(name:'wallet-sdk-release', ext:'aar')
-//    compile(name:'wallet-sdk-debug', ext:'aar')
 
+    //本地aar
+    implementation files('libs/wallet-sdk-release.aar')
 
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
