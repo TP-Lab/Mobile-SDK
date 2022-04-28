@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.tokenpocket.opensdk.base.TPManager;
-
-import tokenpocket.pro.sdk_demo.bos.BOSDemoActivity;
 import tokenpocket.pro.sdk_demo.eos.EOSDemoActivity;
 import tokenpocket.pro.sdk_demo.eth.EthDemoActivity;
 import tokenpocket.pro.sdk_demo.iost.IostDemoActivity;
@@ -27,7 +24,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 //        TPManager.getInstance().initSDK(this);
         findViewById(R.id.btn_eos).setOnClickListener(this);
-        findViewById(R.id.btn_bos).setOnClickListener(this);
+//        findViewById(R.id.btn_bos).setOnClickListener(this);
         findViewById(R.id.btn_iost).setOnClickListener(this);
         findViewById(R.id.btn_eth).setOnClickListener(this);
         findViewById(R.id.btn_tron).setOnClickListener(this);
@@ -40,9 +37,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn_eos:
                 startActivity(EOSDemoActivity.class);
                 break;
-            case R.id.btn_bos:
-                startActivity(BOSDemoActivity.class);
-                break;
+//            case R.id.btn_bos:
+//                startActivity(BOSDemoActivity.class);
+//                break;
             case R.id.btn_iost:
                 startActivity(IostDemoActivity.class);
                 break;
