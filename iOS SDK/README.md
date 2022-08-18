@@ -108,8 +108,7 @@ transfer.dappIcon = @"https:.../xx.png";
 transfer.symbol = @"USDT";
 transfer.contract = @"0x...";
 transfer.to = @"0x...";
-transfer.memo = @"";
-transfer.precision = @"4";
+transfer.decimal = @"4";
 transfer.amount = @"0.0021";
 transfer.blockchains = @[
     [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** If selected BSC */
