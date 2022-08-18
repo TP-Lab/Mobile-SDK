@@ -113,12 +113,13 @@ FOUNDATION_EXTERN NSString *const kTPSDKActionAuth;
  */
 @interface TPTransferObj : TPReqObj
 
-@property (nonatomic, copy) NSString *from;                 // 付款人的EOS账号        <optional>
-@property (nonatomic, copy) NSString *to;                   // 收款人的EOS账号        <required>
-@property (nonatomic, copy) NSNumber *amount;               // 转账数额[float]       <required>
-@property (nonatomic, copy) NSNumber *precision;            // token精度,小数点后的位数  [int] <required>
-@property (nonatomic, copy) NSString *symbol;               // token的名称           <required>
-@property (nonatomic, copy) NSString *contract;             // token合约名           <required>
+@property (nonatomic, copy) NSString *from;                 // sender;          <optional>
+@property (nonatomic, copy) NSString *to;                   // receiver;        <required>
+@property (nonatomic, copy) NSString *amount;               // decimal value;   <required>
+@property (nonatomic, copy) NSString *precision;            // token precision; <required> [eosio, ...]
+@property (nonatomic, copy) NSString *decimal;              // token decimals;  <required> [EVM, ...]
+@property (nonatomic, copy) NSString *symbol;               // token symbol;    <required>
+@property (nonatomic, copy) NSString *contract;             // token contract;  <required>
 
 /*!
  *  <optional>
