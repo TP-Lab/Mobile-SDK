@@ -105,12 +105,12 @@ TPRespObj.data
 TPTransferObj *transfer = [TPTransferObj new];
 transfer.dappName = @"xxx";
 transfer.dappIcon = @"https:.../xx.png";
-transfer.symbol = @"EOS";
-transfer.contract = @"eosio.token";
-transfer.to = @"xxxxx";
-transfer.memo = @"Memo string...";
-transfer.precision = @(4);
-transfer.amount = @(0.0001);
+transfer.symbol = @"USDT";
+transfer.contract = @"0x...";
+transfer.to = @"0x...";
+transfer.memo = @"";
+transfer.precision = @"4";
+transfer.amount = @"0.0021";
 transfer.blockchains = @[
     [TPChainObj objWithNetwork:@"ethereum" chainId:@"56"] /** If selected BSC */
 ];
