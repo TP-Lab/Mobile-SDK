@@ -27,15 +27,11 @@ import tokenpocket.pro.sdk_demo.R;
  */
 public class EthPersonalSignActivity extends Activity {
 
-    private EditText etData;
-    private EditText etChainId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eth_personal_sign);
-        etData = findViewById(R.id.et_data);
-        etChainId = findViewById(R.id.et_chain_id);
         findViewById(R.id.tv_confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,22 +42,25 @@ public class EthPersonalSignActivity extends Activity {
 
     private void ethPersonalSign() {
         Signature signature = new Signature();
-        //已废弃
-        //signature.setBlockchain(CHAIN);
         //标识链
         List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", getChainId()));
+        blockchains.add(new Blockchain("ethereum", "1"));
         signature.setBlockchains(blockchains);
 
         signature.setDappName("Test demo");
         signature.setDappIcon("https://eosknights.io/img/icon.png");
+        //开发者提供的业务id，用来标识本次操作
         signature.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        signature.setMemo("demo");
+        //签名类型
         signature.setSignType("ethPersonalSign");
-        signature.setMessage(etData.getText().toString());
+        //待签名原文
+        signature.setMessage("hello");
+        //开发者服务端提供的接受调用登录结果的接口，如果设置该参数，钱包操作完成后，会将结果通过post application json方式将结果回调给callbackurl
+        signature.setCallbackUrl("http://115.205.0.178:9011/taaBizApi/taaInitData");
         TPManager.getInstance().signature(this, signature, new TPListener() {
             @Override
             public void onSuccess(String s) {
+                //签名成功后，会返回签名后信息，签名的钱包
                 Toast.makeText(EthPersonalSignActivity.this, s, Toast.LENGTH_LONG).show();
             }
 
@@ -79,16 +78,6 @@ public class EthPersonalSignActivity extends Activity {
         });
     }
 
-    /**
-     * 获取chainId，默认是1，即eth链
-     */
-    private String getChainId() {
-        String chainId = etChainId.getText().toString();
-        if (TextUtils.isEmpty(chainId)) {
-            return "1";
-        }
-        return chainId;
-    }
 
     public static void start(Context context) {
         Intent intent = new Intent(context, EthPersonalSignActivity.class);

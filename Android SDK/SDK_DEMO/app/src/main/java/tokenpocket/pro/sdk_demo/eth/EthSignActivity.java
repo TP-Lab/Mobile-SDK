@@ -26,16 +26,12 @@ import tokenpocket.pro.sdk_demo.R;
  * Desc: eth签名
  */
 public class EthSignActivity extends Activity {
-
-    private EditText etData;
-    private EditText etChainId;
+    
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eth_sign);
-        etData = findViewById(R.id.et_data);
-        etChainId = findViewById(R.id.et_chain_id);
         findViewById(R.id.tv_confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,19 +42,21 @@ public class EthSignActivity extends Activity {
 
     private void ethSign() {
         Signature signature = new Signature();
-        //已废弃
-        //signature.setBlockchain(CHAIN);
         //标识链
         List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", getChainId()));
+        blockchains.add(new Blockchain("ethereum", "1"));
         signature.setBlockchains(blockchains);
 
         signature.setDappName("Test demo");
         signature.setDappIcon("https://eosknights.io/img/icon.png");
+        //开发者自己定义的业务ID，用于标识操作，在授权登录中，需要设置该字段
         signature.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        signature.setMemo("demo");
+        //签名类型
         signature.setSignType("ethSign");
-        signature.setMessage(etData.getText().toString());
+        //ethSign类型，签名的数据是16进制字符串
+        signature.setMessage("0xc05dfb5d7d33ef21dacffc010ff0a45204a3dd5e0cf6f9a970f07339d7a7770e");
+        //开发者服务端提供的接受调用登录结果的接口，如果设置该参数，钱包操作完成后，会将结果通过post application json方式将结果回调给callbackurl
+        signature.setCallbackUrl("http://115.205.0.178:9011/taaBizApi/taaInitData");
         TPManager.getInstance().signature(this, signature, new TPListener() {
             @Override
             public void onSuccess(String s) {
@@ -77,17 +75,6 @@ public class EthSignActivity extends Activity {
 
             }
         });
-    }
-
-    /**
-     * 获取chainId，默认是1，即eth链
-     */
-    private String getChainId() {
-        String chainId = etChainId.getText().toString();
-        if (TextUtils.isEmpty(chainId)) {
-            return "1";
-        }
-        return chainId;
     }
 
     public static void start(Context context) {

@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
-import com.tokenpocket.opensdk.innerwallet.model.Permission;
 
 import java.util.ArrayList;
 import java.util.List;

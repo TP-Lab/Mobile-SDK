@@ -20,11 +20,6 @@ import tokenpocket.pro.sdk_demo.R;
 
 public class TronTransferActivity extends Activity implements View.OnClickListener {
 
-    private EditText etFrom;
-    private EditText etTo;
-    private EditText etAmount;
-    private EditText etContract;
-    private EditText etSymbol;
     private Button btnTransfer;
 
     @Override
@@ -32,11 +27,6 @@ public class TronTransferActivity extends Activity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tron_transfer);
 
-        etFrom = findViewById(R.id.et_from);
-        etTo = findViewById(R.id.et_to);
-        etAmount = findViewById(R.id.et_amount);
-        etContract = findViewById(R.id.et_contract);
-        etSymbol = findViewById(R.id.et_symbol);
         btnTransfer = findViewById(R.id.btn_transfer);
 
         btnTransfer.setOnClickListener(this);
@@ -60,17 +50,20 @@ public class TronTransferActivity extends Activity implements View.OnClickListen
         transfer.setDappName("Test demo");
         transfer.setDappIcon("https://eosknights.io/img/icon.png");
         transfer.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        transfer.setMemo("demo");
         transfer.setAction("transfer");
-        transfer.setFrom(etFrom.getText().toString());
-        transfer.setTo(etTo.getText().toString());
-        transfer.setContract(etContract.getText().toString());
-        transfer.setAmount(Double.parseDouble(etAmount.getText().toString()));
-        transfer.setSymbol(etSymbol.getText().toString());
-        transfer.setDesc("");
+        transfer.setFrom("TJ6zhkmdsHrh7iFKW8aJvbqYiujaM3R9fb");
+        transfer.setTo("TBbnpWu57v12nmXgZUz2kdp5hZu6CcwRdr");
+        //代币合约，如果是Tron，则为空
+        transfer.setContract("TYJ4Wn8juQL6PiY9o3c1PCN4Wh4wdXJL7S");
+        transfer.setAmount(0.1);
+        transfer.setSymbol("TPT");
+        transfer.setDesc("UI展示,不上链");
+        //开发者服务端提供的接受调用登录结果的接口，如果设置该参数，钱包操作完成后，会将结果通过post application json方式将结果回调给callbackurl
+        transfer.setCallbackUrl("http://115.205.0.178:9011/taaBizApi/taaInitData");
         TPManager.getInstance().transfer(this, transfer, new TPListener() {
             @Override
             public void onSuccess(String s) {
+                //转账成功后，会返回相应的交易hash，注意，钱包只是把交易push出去，并不能保证最后交易结果，开发者需要根据hash自行确定链上结果
                 Toast.makeText(TronTransferActivity.this, s, Toast.LENGTH_LONG).show();
             }
 

@@ -50,12 +50,12 @@ public class PushTxActivity extends Activity {
             "          \"name\": \"transfer\",\n" +
             "          \"authorization\": [\n" +
             "            {\n" +
-            "              \"actor\": \"xiaoyuantest\",\n" +
+            "              \"actor\": \"ljxlzdh54321\",\n" +
             "              \"permission\": \"testtransfer\"\n" +
             "            }\n" +
             "          ],\n" +
             "          \"data\": {\n" +
-            "            \"from\": \"xiaoyuantest\",\n" +
+            "            \"from\": \"ljxlzdh54321\",\n" +
             "            \"memo\": \"ddd\",\n" +
             "            \"quantity\": \"0.0100 TPT\",\n" +
             "            \"to\": \"clementtes51\"\n" +
@@ -74,14 +74,18 @@ public class PushTxActivity extends Activity {
 
     private void pushTx() {
         final Transaction transaction = getTxData();
+        //首先通过接口判断，本次执行的操作需要的权限，是否已经在账号中，这个链接的过程可以参考账号授权
         TPManager.getInstance().isPermLinkAction(this, transaction, new TPListener() {
             @Override
             public void onSuccess(String data) {
+                //如果本次操作已经通过miniwallet授权，则将操作的参数修改为开发者自己定义的权限组，在demo实例中，
+                //我们自定义的权限组是testtransfer,详情可参加授权AuthActivity.java
                 replacePerm(transaction, transaction.getPerm());
             }
 
             @Override
             public void onError(String data) {
+                //如果当前操作的权限组没有link到账号，则miniwallet无法完成当前操作，仍然需要拉起钱包授权
                 replacePerm(transaction, "active");
             }
 
@@ -105,6 +109,7 @@ public class PushTxActivity extends Activity {
             authorization.putString("permission", permission);
         }
         transaction.setActions(actions.toString());
+        //将操作的permission替换成自定义的权限组后，就可以直接在miniwallet中完成操作，而不需要拉起tp 钱包授权
         realPushTx(transaction);
     }
 

@@ -29,15 +29,11 @@ import tokenpocket.pro.sdk_demo.R;
  */
 public class EthPushTxActivity extends Activity {
 
-    private EditText etData;
-    private EditText etChainId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eth_push_tx);
-        etData = findViewById(R.id.et_data);
-        etChainId = findViewById(R.id.et_chain_id);
         findViewById(R.id.tv_confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,31 +42,36 @@ public class EthPushTxActivity extends Activity {
         });
     }
 
+    /**
+     * 通用交易
+     */
     private void pushTx() {
         Transaction transaction = new Transaction();
-        //已废弃
-        //transaction.setBlockchain(CHAIN);
         //标识链
         List<Blockchain> blockchains = new ArrayList<>();
-        blockchains.add(new Blockchain("ethereum", getChainId()));
+        //指定哪个网络的钱包来执行这次操作，这里写的是BSC
+        blockchains.add(new Blockchain("ethereum", "56"));
         transaction.setBlockchains(blockchains);
-
         transaction.setDappName("Test demo");
         transaction.setDappIcon("https://eosknights.io/img/icon.png");
+        //开发者提供的业务id，用来标识本次操作
         transaction.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
         transaction.setAction("pushTransaction");
-        transaction.setLinkActions(new ArrayList<LinkAction>());
-//        transaction.setTxData("{\n" +
-//                "\t\"from\": \"0x22F4900A1fB41f751b8F616832643224606B75B4\",\n" +
-//                "\t\"gasPrice\": \"0x6c088e200\",\n" +
-//                "\t\"gas\": \"0xea60\",\n" +
-//                "\t\"to\": \"0x7d1e7fb353be75669c53c18ded2abcb8c4793d80\",\n" +
-//                "\t\"data\": \"0xa9059cbb000000000000000000000000171a0b081493722a5fb8ebe6f0c4adf5fde49bd8000000000000000000000000000000000000000000000000000000000012c4b0\"\n" +
-//                "}");
-        transaction.setTxData(etData.getText().toString());
+        //这里直接填充你生成的交易数据，
+        transaction.setTxData("{\n" +
+                "\t\"from\": \"0x22F4900A1fB41f751b8F616832643224606B75B4\",\n" +
+                "\t\"gas\": \"0x8cec\",\n" +
+                "\t\"chainId\": 56,\n" +
+                "\t\"data\": " +
+                "\"0xa9059cbb00000000000000000000000054018569ee4d68a275909cc2538ff67a742f41c8000000000000000000000000000000000000000000000000000000000000000a\",\n" +
+                "\t\"to\": \"0xECa41281c24451168a37211F0bc2b8645AF45092\",\n" +
+                "\t\"gasPrice\": \"0x13f2ed0c0\"\n" +
+                "}");
+
         TPManager.getInstance().pushTransaction(this, transaction, new TPListener() {
             @Override
             public void onSuccess(String s) {
+                //成功后，会返回相应的交易hash，注意，这里并不能保证交易一定在链上成功，开发者需要自己通过交易hash,确认最终链上结果
                 Toast.makeText(EthPushTxActivity.this, s, Toast.LENGTH_LONG).show();
 
             }
@@ -89,16 +90,6 @@ public class EthPushTxActivity extends Activity {
         });
     }
 
-    /**
-     * 获取chainId，默认是1，即eth链
-     */
-    private String getChainId() {
-        String chainId = etChainId.getText().toString();
-        if (TextUtils.isEmpty(chainId)) {
-            return "1";
-        }
-        return chainId;
-    }
 
     public static void start(Context context) {
         Intent intent = new Intent(context, EthPushTxActivity.class);
