@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <TPSDK/TPSDK.h>
+#import "DemoSharedData.h"
 
 @interface AppDelegate ()
 
@@ -41,6 +42,19 @@
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:action];
         [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        
+        
+        {   /// Mock code
+            NSDictionary *json = [respObj.data copy];
+            NSString *action = json[@"action"];
+            if ([action isEqualToString:kTPSDKActionLogin]) {
+                DemoSharedData.shared.wallet = json[@"wallet"];
+                DemoSharedData.shared.publickey = json[@"publickey"];
+                DemoSharedData.shared.network = json[@"network"];
+                DemoSharedData.shared.chainId = json[@"chainId"];
+            }
+        }
+        
     }];
     
     return YES;

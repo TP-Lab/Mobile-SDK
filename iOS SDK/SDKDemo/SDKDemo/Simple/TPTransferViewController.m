@@ -7,6 +7,7 @@
 //
 
 #import "TPTransferViewController.h"
+#import "DemoSharedData.h"
 
 @import TPSDK;
 
@@ -30,6 +31,10 @@
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeybord)];
     [self.view addGestureRecognizer:tap];
+    if (DemoSharedData.shared.wallet.length) {
+        _typeField.text = [DemoSharedData.shared demoNetworkValue];
+        _fromField.text = DemoSharedData.shared.wallet;
+    }
 }
 
 - (void)closeKeybord {
@@ -37,16 +42,17 @@
 }
 
 - (IBAction)confirmAction {
+    NSArray *amountComps = [_amountField.text componentsSeparatedByString:@" "];
     TPTransferObj *transfer = [TPTransferObj new];
     transfer.dappName = @"SDKDemo";
     transfer.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
-    transfer.symbol = [_amountField.text componentsSeparatedByString:@" "].lastObject;
+    transfer.symbol = amountComps.lastObject;
     transfer.contract = _contractField.text;
     transfer.from = _fromField.text;
     transfer.to = _toField.text;
     transfer.memo =_memoField.text;
-    transfer.precision = @(_decimalField.text.longLongValue);
-    transfer.amount = @([_amountField.text componentsSeparatedByString:@" "].firstObject.doubleValue);
+    transfer.precision = _decimalField.text;
+    transfer.amount = amountComps.firstObject;
     
     NSArray<NSString *> *comps = [_typeField.text componentsSeparatedByString:@","];
     NSString *network = comps.firstObject, *chainId;

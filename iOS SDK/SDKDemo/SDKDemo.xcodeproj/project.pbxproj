@@ -13,7 +13,8 @@
 		2C1BF4B12141278400E7D1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B02141278400E7D1EC /* Assets.xcassets */; };
 		2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B22141278400E7D1EC /* LaunchScreen.storyboard */; };
 		2C1BF4B72141278400E7D1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B62141278400E7D1EC /* main.m */; };
-		D017E1CC22CB903F0076C32D /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
+		582082DE28AE6C1A00C07230 /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
+		584D2F8627F8560300B209EA /* DemoSharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 584D2F8527F8560300B209EA /* DemoSharedData.m */; };
 		D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962C22D8297E00AD53EE /* TSDMiniViewController.m */; };
 		D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962F22D82BE300AD53EE /* AuthViewController.m */; };
 		D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D963122D82BE300AD53EE /* PushTransactionViewController.m */; };
@@ -36,6 +37,8 @@
 		2C1BF4B32141278400E7D1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C1BF4B52141278400E7D1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C1BF4B62141278400E7D1EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		584D2F8427F8560300B209EA /* DemoSharedData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoSharedData.h; sourceTree = "<group>"; };
+		584D2F8527F8560300B209EA /* DemoSharedData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoSharedData.m; sourceTree = "<group>"; };
 		D07D962B22D8297E00AD53EE /* TSDMiniViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSDMiniViewController.h; sourceTree = "<group>"; };
 		D07D962C22D8297E00AD53EE /* TSDMiniViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSDMiniViewController.m; sourceTree = "<group>"; };
 		D07D962E22D82BE300AD53EE /* PushTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTransactionViewController.h; sourceTree = "<group>"; };
@@ -58,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D017E1CC22CB903F0076C32D /* TPSDK.framework in Frameworks */,
+				582082DE28AE6C1A00C07230 /* TPSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +102,8 @@
 				D07D962A22D8294400AD53EE /* Mini */,
 				2C1BF4A72141278200E7D1EC /* AppDelegate.h */,
 				2C1BF4A82141278200E7D1EC /* AppDelegate.m */,
+				584D2F8427F8560300B209EA /* DemoSharedData.h */,
+				584D2F8527F8560300B209EA /* DemoSharedData.m */,
 				2C1BF4AA2141278200E7D1EC /* ViewController.h */,
 				2C1BF4AB2141278200E7D1EC /* ViewController.m */,
 				2C1BF4AD2141278200E7D1EC /* Main.storyboard */,
@@ -218,6 +223,7 @@
 			files = (
 				2C1BF4AC2141278200E7D1EC /* ViewController.m in Sources */,
 				D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */,
+				584D2F8627F8560300B209EA /* DemoSharedData.m in Sources */,
 				D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */,
 				D09003EA2330D98F00E17E50 /* TPLoginViewController.m in Sources */,
 				D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */,

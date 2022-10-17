@@ -7,6 +7,7 @@
 //
 
 #import "TPSignViewController.h"
+#import "DemoSharedData.h"
 
 @import TPSDK;
 
@@ -26,6 +27,11 @@
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeybord)];
     [self.view addGestureRecognizer:tap];
+    
+    if (DemoSharedData.shared.wallet.length) {
+        _typeField.text = [DemoSharedData.shared demoNetworkValue];
+        _walletField.text = DemoSharedData.shared.wallet;
+    }
 }
 
 - (void)closeKeybord {
