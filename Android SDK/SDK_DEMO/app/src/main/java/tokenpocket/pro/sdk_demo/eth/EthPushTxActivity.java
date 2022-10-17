@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
-import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
+//import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
 import com.tokenpocket.opensdk.simple.model.Blockchain;
 import com.tokenpocket.opensdk.simple.model.Signature;
 import com.tokenpocket.opensdk.simple.model.Transaction;

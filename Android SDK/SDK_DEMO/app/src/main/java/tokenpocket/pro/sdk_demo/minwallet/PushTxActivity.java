@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
-import com.tokenpocket.opensdk.net.custom.Json;
+//import com.tokenpocket.opensdk.net.custom.Json;
 import com.tokenpocket.opensdk.simple.model.Transaction;
 
 import tokenpocket.pro.sdk_demo.R;
@@ -38,7 +38,7 @@ public class PushTxActivity extends Activity {
         findViewById(R.id.btn_pushtx).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pushTx();
+//                pushTx();
             }
         });
     }
@@ -72,46 +72,46 @@ public class PushTxActivity extends Activity {
     }
 
 
-    private void pushTx() {
-        final Transaction transaction = getTxData();
-        //首先通过接口判断，本次执行的操作需要的权限，是否已经在账号中，这个链接的过程可以参考账号授权
-        TPManager.getInstance().isPermLinkAction(this, transaction, new TPListener() {
-            @Override
-            public void onSuccess(String data) {
-                //如果本次操作已经通过miniwallet授权，则将操作的参数修改为开发者自己定义的权限组，在demo实例中，
-                //我们自定义的权限组是testtransfer,详情可参加授权AuthActivity.java
-                replacePerm(transaction, transaction.getPerm());
-            }
+//    private void pushTx() {
+//        final Transaction transaction = getTxData();
+//        //首先通过接口判断，本次执行的操作需要的权限，是否已经在账号中，这个链接的过程可以参考账号授权
+//        TPManager.getInstance().isPermLinkAction(this, transaction, new TPListener() {
+//            @Override
+//            public void onSuccess(String data) {
+//                //如果本次操作已经通过miniwallet授权，则将操作的参数修改为开发者自己定义的权限组，在demo实例中，
+//                //我们自定义的权限组是testtransfer,详情可参加授权AuthActivity.java
+//                replacePerm(transaction, transaction.getPerm());
+//            }
+//
+//            @Override
+//            public void onError(String data) {
+//                //如果当前操作的权限组没有link到账号，则miniwallet无法完成当前操作，仍然需要拉起钱包授权
+//                replacePerm(transaction, "active");
+//            }
+//
+//            @Override
+//            public void onCancel(String data) {
+//
+//            }
+//        });
+//    }
 
-            @Override
-            public void onError(String data) {
-                //如果当前操作的权限组没有link到账号，则miniwallet无法完成当前操作，仍然需要拉起钱包授权
-                replacePerm(transaction, "active");
-            }
-
-            @Override
-            public void onCancel(String data) {
-
-            }
-        });
-    }
-
-    /**
-     *
-     * @param transaction
-     * @param permission
-     */
-    private void replacePerm(Transaction transaction, String permission) {
-        Json actions = new Json(transaction.getActions());
-        for (int i = 0; i < actions.getLength(); i++) {
-            Json authorization = actions.getObject(i, "{}").getArray("authorization", "[]")
-                    .getObject(0, "{}");
-            authorization.putString("permission", permission);
-        }
-        transaction.setActions(actions.toString());
-        //将操作的permission替换成自定义的权限组后，就可以直接在miniwallet中完成操作，而不需要拉起tp 钱包授权
-        realPushTx(transaction);
-    }
+//    /**
+//     *
+//     * @param transaction
+//     * @param permission
+//     */
+//    private void replacePerm(Transaction transaction, String permission) {
+//        Json actions = new Json(transaction.getActions());
+//        for (int i = 0; i < actions.getLength(); i++) {
+//            Json authorization = actions.getObject(i, "{}").getArray("authorization", "[]")
+//                    .getObject(0, "{}");
+//            authorization.putString("permission", permission);
+//        }
+//        transaction.setActions(actions.toString());
+//        //将操作的permission替换成自定义的权限组后，就可以直接在miniwallet中完成操作，而不需要拉起tp 钱包授权
+//        realPushTx(transaction);
+//    }
 
     private void realPushTx(Transaction transaction) {
         TPManager.getInstance().pushTransaction(PushTxActivity.this, transaction, new TPListener() {
