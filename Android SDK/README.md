@@ -231,6 +231,10 @@ dependencies {
 	    }
 	});
 ```
+其中**signType**的枚举类型有以下几种：
+
+**ethPersonalSign**，**ethSignTypedData**，**ethSignTypedDataLegacy**，**ethSignTypedDataLegacy**，**ethSign**(不再建议使用)
+
 
 ### 如何支持火币生态链，币安智能链等ETH Fork链
 在构建new Blockchain("ethereum", "xx_chainId")对象时，传入对应的chainId
