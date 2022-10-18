@@ -233,7 +233,7 @@ dependencies {
 ```
 其中**signType**的枚举类型有以下几种：
 
-**ethPersonalSign**，**ethSignTypedData**，**ethSignTypedDataLegacy**，**ethSignTypedDataLegacy**，**ethSign**(不再建议使用)
+**ethPersonalSign**，**ethSignTypedData**，**ethSignTypedData_v4**，**ethSignTypedDataLegacy**，**ethSign**(不再建议使用)
 
 
 ### 如何支持火币生态链，币安智能链等ETH Fork链
