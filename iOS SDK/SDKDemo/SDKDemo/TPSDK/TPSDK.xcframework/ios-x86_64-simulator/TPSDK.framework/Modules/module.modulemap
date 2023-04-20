@@ -1,0 +1,6 @@
+framework module TPSDK {
+  umbrella header "TPSDK.h"
+
+  export *
+  module * { export * }
+}

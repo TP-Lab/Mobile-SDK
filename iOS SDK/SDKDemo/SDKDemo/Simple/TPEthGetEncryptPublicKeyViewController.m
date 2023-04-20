@@ -1,28 +1,32 @@
 //
-//  TPLoginViewController.m
+//  TPEthGetEncryptPublicKeyViewController.m
 //  SDKDemo
 //
-//  Created by xiao yuan on 17/9/2019.
-//  Copyright © 2019 TokenPocket. All rights reserved.
+//  Created by shaw on 2023/4/6.
+//  Copyright © 2023 TokenPocket. All rights reserved.
 //
 
-#import "TPLoginViewController.h"
+#import "TPEthGetEncryptPublicKeyViewController.h"
+#import "DemoSharedData.h"
 
 @import TPSDK;
 
-@interface TPLoginViewController ()
+@interface TPEthGetEncryptPublicKeyViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *typeField;
 @property (weak, nonatomic) IBOutlet UITextField *walletField;
 
 @end
 
-@implementation TPLoginViewController
+@implementation TPEthGetEncryptPublicKeyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeybord)];
     [self.view addGestureRecognizer:tap];
+    if (DemoSharedData.shared.wallet.length) {
+        _typeField.text = [DemoSharedData.shared demoNetworkValue];
+    }
 }
 
 - (void)closeKeybord {
@@ -30,7 +34,7 @@
 }
 
 - (IBAction)confirmAction {
-    TPLoginObj *login = [TPLoginObj new];
+    TPEthGetEncryptionPublicKeyObj *login = [TPEthGetEncryptionPublicKeyObj new];
     login.dappName = @"SDKDemo";
 //    login.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     
@@ -45,7 +49,10 @@
     }
     login.blockchains = chains.copy;
     
-    login.wallet = _walletField.text;
+    TPEthGetEncryptionPublicKeyObjData *data = TPEthGetEncryptionPublicKeyObjData.new;
+    data.address = _walletField.text;
+    
+    login.data = data;
     
     [TPApi sendObj:login];
 }
