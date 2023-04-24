@@ -171,7 +171,6 @@ dependencies {
 	transaction.setDappName("Test demo");
 	transaction.setDappIcon("https://eosknights.io/img/icon.png");
 	transaction.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-	transaction.setAction("pushTransaction");
 	transaction.setLinkActions(new ArrayList<LinkAction>());
 	transaction.setTxData("{\"from\":\"0x22F4900A1fB41f751b8F616832643224606B75B4\",\"gasPrice\":\"0x6c088e200\",\"gas\":\"0xea60\",\"chainId\":\"1\",\"to\":\"0x7d1e7fb353be75669c53c18ded2abcb8c4793d80\",\"data\":\"0xa9059cbb000000000000000000000000171a0b081493722a5fb8ebe6f0c4adf5fde49bd8000000000000000000000000000000000000000000000000000000000012c4b0\"}");
 	TPManager.getInstance().pushTransaction(this, transaction, new TPListener() {

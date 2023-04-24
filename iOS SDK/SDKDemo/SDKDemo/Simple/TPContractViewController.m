@@ -53,6 +53,7 @@
     } else {
         transaction.actions = json;
     }
+    transaction.onlySign = YES;
     [TPApi sendObj:transaction];
 }
 
