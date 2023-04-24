@@ -35,8 +35,8 @@
 }
 
 - (IBAction)confirmAction {
-    TPEthDecryptObj *login = [TPEthDecryptObj new];
-    login.dappName = @"SDKDemo";
+    TPEthDecryptObj *ethDecryptObj = [TPEthDecryptObj new];
+    ethDecryptObj.dappName = @"SDKDemo";
 //    login.dappIcon = @"https://gz.bcebos.com/v1/tokenpocket/temp/mobile_sdk_demo.png";
     
     NSArray *comps = [_typeField.text componentsSeparatedByString:@";"];
@@ -48,15 +48,15 @@
         if (comps.count > 1) cid = comps[1];
         [chains addObject:[TPChainObj objWithNetwork:network chainId:cid]];
     }
-    login.blockchains = chains.copy;
+    ethDecryptObj.blockchains = chains.copy;
     
     TPEthDecryptObjData *data = TPEthDecryptObjData.new;
     data.address = _walletField.text;
     data.message = _encryptField.text;
     
-    login.data = data;
+    ethDecryptObj.data = data;
     
-    [TPApi sendObj:login];
+    [TPApi sendObj:ethDecryptObj];
 }
 
 @end
