@@ -70,11 +70,11 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     }
 
     private void authorize() {
+        String chainId = ((EditText)findViewById(R.id.et_chain_id)).getText().toString();
         Authorize authorize = new Authorize();
         List blockchains = new ArrayList();
         //blockchains指定可以用哪些网络的钱包操作，evm系列，第一个参数是ethereum,第二个参数是网络的id
-        blockchains.add(new Blockchain("ethereum", "56"));
-        blockchains.add(new Blockchain("ethereum", "1"));
+        blockchains.add(new Blockchain("ethereum", chainId));
         authorize.setBlockchains(blockchains);
         authorize.setAction("login");
         //开发者自己定义的业务ID，用于标识操作，在授权登录中，需要设置该字段
