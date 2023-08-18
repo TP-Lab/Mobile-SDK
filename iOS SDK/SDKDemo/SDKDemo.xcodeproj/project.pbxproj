@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,16 +13,17 @@
 		2C1BF4B12141278400E7D1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B02141278400E7D1EC /* Assets.xcassets */; };
 		2C1BF4B42141278400E7D1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B22141278400E7D1EC /* LaunchScreen.storyboard */; };
 		2C1BF4B72141278400E7D1EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1BF4B62141278400E7D1EC /* main.m */; };
-		582082DE28AE6C1A00C07230 /* TPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */; };
 		584D2F8627F8560300B209EA /* DemoSharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = 584D2F8527F8560300B209EA /* DemoSharedData.m */; };
 		D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962C22D8297E00AD53EE /* TSDMiniViewController.m */; };
 		D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D962F22D82BE300AD53EE /* AuthViewController.m */; };
 		D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D963122D82BE300AD53EE /* PushTransactionViewController.m */; };
 		D09003EA2330D98F00E17E50 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003E92330D98F00E17E50 /* TPLoginViewController.m */; };
 		D09003ED2330D99E00E17E50 /* TPSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003EC2330D99E00E17E50 /* TPSignViewController.m */; };
-		D09003F02330D9AE00E17E50 /* TPTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003EF2330D9AE00E17E50 /* TPTransferViewController.m */; };
 		D09003F32330D9C400E17E50 /* TPContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09003F22330D9C400E17E50 /* TPContractViewController.m */; };
 		D0E87D5222D4A340006E5C93 /* TPSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */; };
+		F93751E129F0E99500AC8A3B /* TPSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93751E029F0E99500AC8A3B /* TPSDK.xcframework */; };
+		F99D509029DEA58700544F24 /* TPEthGetEncryptPublicKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99D508F29DEA58700544F24 /* TPEthGetEncryptPublicKeyViewController.m */; };
+		F99D509329DEA59E00544F24 /* TPEthDecryptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99D509229DEA59E00544F24 /* TPEthDecryptViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,11 +50,14 @@
 		D09003E92330D98F00E17E50 /* TPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
 		D09003EB2330D99E00E17E50 /* TPSignViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSignViewController.h; sourceTree = "<group>"; };
 		D09003EC2330D99E00E17E50 /* TPSignViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSignViewController.m; sourceTree = "<group>"; };
-		D09003EE2330D9AE00E17E50 /* TPTransferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransferViewController.h; sourceTree = "<group>"; };
-		D09003EF2330D9AE00E17E50 /* TPTransferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransferViewController.m; sourceTree = "<group>"; };
 		D09003F12330D9C400E17E50 /* TPContractViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPContractViewController.h; sourceTree = "<group>"; };
 		D09003F22330D9C400E17E50 /* TPContractViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPContractViewController.m; sourceTree = "<group>"; };
 		D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TPSDKBundle.bundle; sourceTree = "<group>"; };
+		F93751E029F0E99500AC8A3B /* TPSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TPSDK.xcframework; sourceTree = "<group>"; };
+		F99D508E29DEA58700544F24 /* TPEthGetEncryptPublicKeyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPEthGetEncryptPublicKeyViewController.h; sourceTree = "<group>"; };
+		F99D508F29DEA58700544F24 /* TPEthGetEncryptPublicKeyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPEthGetEncryptPublicKeyViewController.m; sourceTree = "<group>"; };
+		F99D509129DEA59E00544F24 /* TPEthDecryptViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPEthDecryptViewController.h; sourceTree = "<group>"; };
+		F99D509229DEA59E00544F24 /* TPEthDecryptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPEthDecryptViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				582082DE28AE6C1A00C07230 /* TPSDK.framework in Frameworks */,
+				F93751E129F0E99500AC8A3B /* TPSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +75,7 @@
 		18B33ADF224CF2BF0093E7F7 /* TPSDK */ = {
 			isa = PBXGroup;
 			children = (
+				F93751E029F0E99500AC8A3B /* TPSDK.xcframework */,
 				D0E87D5122D4A340006E5C93 /* TPSDKBundle.bundle */,
 				18B33AE0224CF2BF0093E7F7 /* TPSDK.framework */,
 			);
@@ -142,10 +147,12 @@
 				D09003E92330D98F00E17E50 /* TPLoginViewController.m */,
 				D09003EB2330D99E00E17E50 /* TPSignViewController.h */,
 				D09003EC2330D99E00E17E50 /* TPSignViewController.m */,
-				D09003EE2330D9AE00E17E50 /* TPTransferViewController.h */,
-				D09003EF2330D9AE00E17E50 /* TPTransferViewController.m */,
 				D09003F12330D9C400E17E50 /* TPContractViewController.h */,
 				D09003F22330D9C400E17E50 /* TPContractViewController.m */,
+				F99D508E29DEA58700544F24 /* TPEthGetEncryptPublicKeyViewController.h */,
+				F99D508F29DEA58700544F24 /* TPEthGetEncryptPublicKeyViewController.m */,
+				F99D509129DEA59E00544F24 /* TPEthDecryptViewController.h */,
+				F99D509229DEA59E00544F24 /* TPEthDecryptViewController.m */,
 			);
 			path = Simple;
 			sourceTree = "<group>";
@@ -225,9 +232,10 @@
 				D07D963222D82BE300AD53EE /* AuthViewController.m in Sources */,
 				584D2F8627F8560300B209EA /* DemoSharedData.m in Sources */,
 				D07D962D22D8297E00AD53EE /* TSDMiniViewController.m in Sources */,
+				F99D509029DEA58700544F24 /* TPEthGetEncryptPublicKeyViewController.m in Sources */,
 				D09003EA2330D98F00E17E50 /* TPLoginViewController.m in Sources */,
+				F99D509329DEA59E00544F24 /* TPEthDecryptViewController.m in Sources */,
 				D07D963322D82BE300AD53EE /* PushTransactionViewController.m in Sources */,
-				D09003F02330D9AE00E17E50 /* TPTransferViewController.m in Sources */,
 				D09003ED2330D99E00E17E50 /* TPSignViewController.m in Sources */,
 				2C1BF4B72141278400E7D1EC /* main.m in Sources */,
 				D09003F32330D9C400E17E50 /* TPContractViewController.m in Sources */,
@@ -372,7 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8566D436G4;
+				DEVELOPMENT_TEAM = 8Y287K7D29;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,7 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8566D436G4;
+				DEVELOPMENT_TEAM = 8Y287K7D29;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
