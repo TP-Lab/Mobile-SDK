@@ -3,8 +3,9 @@ package tokenpocket.pro.sdk_demo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import tokenpocket.pro.sdk_demo.eos.EOSDemoActivity;
 import tokenpocket.pro.sdk_demo.eth.EthDemoActivity;

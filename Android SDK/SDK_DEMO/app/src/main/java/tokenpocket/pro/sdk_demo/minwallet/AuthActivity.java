@@ -2,19 +2,9 @@ package tokenpocket.pro.sdk_demo.minwallet;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.tokenpocket.opensdk.base.TPListener;
-import com.tokenpocket.opensdk.base.TPManager;
-//import com.tokenpocket.opensdk.innerwallet.model.AuthorizePerm;
-//import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
-
-import java.util.ArrayList;
-import java.util.List;
+import androidx.annotation.Nullable;
 
 import tokenpocket.pro.sdk_demo.R;
 

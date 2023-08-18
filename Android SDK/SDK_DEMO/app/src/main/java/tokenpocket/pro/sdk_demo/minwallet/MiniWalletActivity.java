@@ -1,16 +1,10 @@
 package tokenpocket.pro.sdk_demo.minwallet;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.View;
 import android.widget.TextView;
 
-//import com.tokenpocket.opensdk.base.NetTypeEnum;
-//import com.tokenpocket.opensdk.base.TPManager;
-
-import java.util.List;
+import androidx.annotation.Nullable;
 
 import tokenpocket.pro.sdk_demo.R;
 

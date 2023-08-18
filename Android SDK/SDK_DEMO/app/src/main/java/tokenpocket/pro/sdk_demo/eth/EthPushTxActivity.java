@@ -4,17 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.tokenpocket.opensdk.base.TPListener;
 import com.tokenpocket.opensdk.base.TPManager;
-//import com.tokenpocket.opensdk.innerwallet.model.LinkAction;
 import com.tokenpocket.opensdk.simple.model.Blockchain;
-import com.tokenpocket.opensdk.simple.model.Signature;
 import com.tokenpocket.opensdk.simple.model.Transaction;
 
 import java.util.ArrayList;
@@ -59,7 +57,7 @@ public class EthPushTxActivity extends Activity {
         transaction.setAction("pushTransaction");
         //这里直接填充你生成的交易数据，
         transaction.setTxData("{\n" +
-                "\t\"from\": \"0x22F4900A1fB41f751b8F616832643224606B75B4\",\n" +
+                "\t\"from\": \"0x5Da73693A062a11589F1b5c68434bf7eAff72366\",\n" +
                 "\t\"gas\": \"0x8cec\",\n" +
                 "\t\"chainId\": 56,\n" +
                 "\t\"data\": " +
@@ -73,7 +71,7 @@ public class EthPushTxActivity extends Activity {
             public void onSuccess(String s) {
                 //成功后，会返回相应的交易hash，注意，这里并不能保证交易一定在链上成功，开发者需要自己通过交易hash,确认最终链上结果
                 Toast.makeText(EthPushTxActivity.this, s, Toast.LENGTH_LONG).show();
-
+                Log.e("pushTransaction", s);
             }
 
             @Override
