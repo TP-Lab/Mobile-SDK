@@ -51,12 +51,14 @@ public class TronTransferActivity extends Activity implements View.OnClickListen
         transfer.setDappIcon("https://eosknights.io/img/icon.png");
         transfer.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
         transfer.setAction("transfer");
-        transfer.setFrom("TJ6zhkmdsHrh7iFKW8aJvbqYiujaM3R9fb");
-        transfer.setTo("TBbnpWu57v12nmXgZUz2kdp5hZu6CcwRdr");
+        transfer.setFrom("TYg1YJTQqaeWF8yhFFcnkEExYpFbAHuyyc");
+        transfer.setTo("TJ6zhkmdsHrh7iFKW8aJvbqYiujaM3R9fb");
         //代币合约，如果是Tron，则为空
-        transfer.setContract("TYJ4Wn8juQL6PiY9o3c1PCN4Wh4wdXJL7S");
+        transfer.setContract("TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t");
         transfer.setAmount(0.1);
-        transfer.setSymbol("TPT");
+        //必须设置
+        transfer.setDecimal(6);
+        transfer.setSymbol("USDT");
         transfer.setDesc("UI展示,不上链");
         //开发者服务端提供的接受调用登录结果的接口，如果设置该参数，钱包操作完成后，会将结果通过post application json方式将结果回调给callbackurl
         transfer.setCallbackUrl("http://115.205.0.178:9011/taaBizApi/taaInitData");

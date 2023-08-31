@@ -56,7 +56,7 @@ public class EthTransferActivity extends Activity implements View.OnClickListene
         //标识链
         List<Blockchain> blockchains = new ArrayList<>();
         //evm系列，第一个参数是ethereum,第二个参数是网络的id，这里56是BSC网络链上id
-        blockchains.add(new Blockchain("ethereum", "56"));
+        blockchains.add(new Blockchain("ethereum", "1"));
         transfer.setBlockchains(blockchains);
 
         transfer.setProtocol("TokenPocket");
@@ -65,17 +65,16 @@ public class EthTransferActivity extends Activity implements View.OnClickListene
         transfer.setDappIcon("https://eosknights.io/img/icon.png");
         //开发者自己定义的业务Id,用来标识这次操作
         transfer.setActionId("web-db4c5466-1a03-438c-90c9-2172e8becea5");
-        //data，如果是转原生代币，可以添加上链数据
-        transfer.setMemo("0xe595a6");
-        transfer.setAction("transfer");
         //发送者
-        transfer.setFrom("0x52bc44d5378309ee2abf1539bf71de1b7d7be3b5");
+        transfer.setFrom("0x5Da73693A062a11589F1b5c68434bf7eAff72366");
         //接受者
-        transfer.setTo("0x32ff06198da462f1c519d30f4d328b3fef295d19");
-        //代币合约地址，如果是转ETH，可以不设置这个参数
-        transfer.setContract("0xdAC17F958D2ee523a2206206994597C13D831ec7");
+        transfer.setTo("0x0Dd3758c88316723eC434C54BF3e56e733785DFE");
+        //代币合约地址，如果是转原生币，不需要设置这个参数
+//        transfer.setContract("0x55d398326f99059ff775485246999027b3197955");
+        //如果是转原生币，可以添加上链数据
+//        transfer.setMemo("0xe595a6");
         //转账数量，比如这里demo是转0.01个USDT，就是传入0.01
-        transfer.setAmount(0.01);
+        transfer.setAmount(0.0001);
         //必须设置
         transfer.setDecimal(18);
         transfer.setSymbol("USDT");
