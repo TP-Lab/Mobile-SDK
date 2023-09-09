@@ -4,6 +4,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <EditText
+        android:id="@+id/et_from"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="from" />
+
+    <EditText
+        android:id="@+id/et_to"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:hint="to" />
+
+    <EditText
+        android:id="@+id/et_contract"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:hint="contract" />
+
+    <EditText
+        android:id="@+id/et_amount"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:hint="amount" />
+
+    <EditText
+        android:id="@+id/et_symbol"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:hint="symbol" />
+
+    <EditText
+        android:id="@+id/et_decimal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:hint="decimal" />
+
+    <EditText
+        android:id="@+id/et_chain_id"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:hint="输入chainId。提示：eth(1),bsc(56),heco(128),okt(65)" />
+
     <Button
         android:id="@+id/btn_transfer"
         android:layout_width="200dp"

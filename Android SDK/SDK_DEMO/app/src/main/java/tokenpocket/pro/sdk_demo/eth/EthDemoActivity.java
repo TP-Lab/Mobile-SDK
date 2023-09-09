@@ -27,9 +27,9 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
     private Button btnAuthorize;
     private Button btnSign;
-    private Button btnPersonalSign;
     private Button btnTransfer;
     private Button btnPushTransaction;
+    private EditText etChainId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,13 +38,12 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
 
         btnAuthorize = findViewById(R.id.btn_authorize);
         btnSign = findViewById(R.id.btn_sign);
-        btnPersonalSign = findViewById(R.id.btn_personsign);
         btnTransfer = findViewById(R.id.btn_transfer);
         btnPushTransaction = findViewById(R.id.btn_pushtx);
+        etChainId = findViewById(R.id.et_chain_id);
 
         btnAuthorize.setOnClickListener(this);
         btnSign.setOnClickListener(this);
-        btnPersonalSign.setOnClickListener(this);
         btnTransfer.setOnClickListener(this);
         btnPushTransaction.setOnClickListener(this);
     }
@@ -58,9 +57,6 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
             case R.id.btn_sign:
                 EthSignActivity.start(this);
                 break;
-            case R.id.btn_personsign:
-                EthPersonalSignActivity.start(this);
-                break;
             case R.id.btn_transfer:
                 EthTransferActivity.start(this);
                 break;
@@ -71,7 +67,7 @@ public class EthDemoActivity extends Activity implements View.OnClickListener {
     }
 
     private void authorize() {
-        String chainId = ((EditText)findViewById(R.id.et_chain_id)).getText().toString();
+        String chainId = etChainId.getText().toString();
         Authorize authorize = new Authorize();
         List blockchains = new ArrayList();
         //blockchains指定可以用哪些网络的钱包操作，evm系列，第一个参数是ethereum,第二个参数是网络的id

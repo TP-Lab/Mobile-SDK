@@ -4,14 +4,58 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <EditText
+        android:id="@+id/et_data"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:hint="输入签名数据" />
+
+    <EditText
+        android:id="@+id/et_chain_id"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:hint="输入chainId。提示：eth(1),bsc(56),heco(128),okt(65)" />
+
     <Button
-        android:id="@+id/tv_confirm"
-        android:layout_width="150dp"
+        android:id="@+id/bt_ethPersonalSign"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="确认"
+        android:text="ethPersonalSign"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_ethSignTypedDataLegacy"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="ethSignTypedDataLegacy"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_ethSignTypedData"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="ethSignTypedData"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/bt_ethSignTypedData_v4"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="ethSignTypedData_v4"
         android:textAllCaps="false" />
 
 </LinearLayout>

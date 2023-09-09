@@ -14,34 +14,22 @@
         android:text="Authorize"
         android:textAllCaps="false" />
 
+    <EditText
+        android:id="@+id/et_chain_id"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="12dp"
+        android:hint="输入chainId。提示：eth(1),bsc(56),heco(128),okt(65)" />
+
+
     <Button
         android:id="@+id/btn_sign"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="Sign"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_personsign"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="PersonalSign"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_transfer"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Transfer"
         android:textAllCaps="false" />
 
     <Button
@@ -54,11 +42,15 @@
         android:text="PushTransaction"
         android:textAllCaps="false" />
 
-    <EditText
-        android:id="@+id/et_chain_id"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+    <Button
+        android:id="@+id/btn_transfer"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:hint="输入chainId。提示：eth(1),bsc(56),heco(128),okt(65)" />
+        android:gravity="center"
+        android:text="Transfer"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>
